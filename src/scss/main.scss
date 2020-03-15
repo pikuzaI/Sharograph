@@ -71,7 +71,7 @@ header {
                   right: 0px;
                   position: relative;
                   font-size: 1.5em;
-                  margin:0;
+                  margin: 0;
                 }
                 & button {
                   border: none;
@@ -160,38 +160,40 @@ header {
 #section-1 {
   overflow: hidden;
   & .section-bg {
-    width:100%;
-    height:100%;
+    width: 100%;
+    height: 100%;
     background-color: #fffefa;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='88' height='88' viewBox='0 0 90 90'%3E%3Ccircle fill-opacity='0.25' fill='%2389cacc' cx='45' cy='45' r='23'/%3E%3Cg fill='%235d888a' fill-opacity='0.25'%3E%3Ccircle cx='0' cy='90' r='8'/%3E%3Ccircle cx='90' cy='90' r='8'/%3E%3Ccircle cx='90' cy='0' r='8'/%3E%3Ccircle cx='0' cy='0' r='8'/%3E%3C/g%3E%3C/svg%3E");
-  padding: 200px 0;
-  background-attachment: fixed;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='88' height='88' viewBox='0 0 90 90'%3E%3Ccircle fill-opacity='0.1' fill='%2389cacc' cx='45' cy='45' r='23'/%3E%3Cg fill='%235d888a' fill-opacity='0.25'%3E%3Ccircle cx='0' cy='90' r='8'/%3E%3Ccircle cx='90' cy='90' r='8'/%3E%3Ccircle cx='90' cy='0' r='8'/%3E%3Ccircle cx='0' cy='0' r='8'/%3E%3C/g%3E%3C/svg%3E");
+    padding: 200px 0;
+    background-attachment: fixed;
     & .wrapper {
       & .section-inner {
         padding-top: 50px;
         display: flex;
+        flex-wrap: wrap;
         & .inner-left {
+          width:50%;
           & .img-container {
             border-radius: 15px;
-            max-height: 600px;
             //overflow:hidden;
             position: relative;
-            &:before{
-              content:'';
+            &:before {
+              content: "";
               position: absolute;
               top: 15px;
-              left:15px;
+              left: 15px;
               width: 100%;
               height: 100%;
               background: $maingreen;
               border-radius: 15px;
               z-index: -1;
-              opacity:0.8;
+              opacity: 0.8;
             }
             & img {
               cursor: pointer;
               border-radius: 15px;
-              max-height: 600px;
+              width: 100%;
+              height: auto;
             }
           }
         }
@@ -199,6 +201,7 @@ header {
           display: flex;
           justify-content: center;
           align-items: center;
+          width: 50%;
           & .inner-right-wrapper {
             width: 80%;
             & h3 {
@@ -216,7 +219,8 @@ header {
 
 #section-2 {
   padding: 150px 0;
-  
+  background: $white;
+
   & .wrapper {
     text-align: center;
     & h1 {
@@ -231,6 +235,7 @@ header {
       & .balloon-types-inner {
         width: 100%;
         display: flex;
+        flex-wrap: wrap;
         justify-content: space-between;
         align-items: center;
 
@@ -261,11 +266,19 @@ header {
   overflow: hidden;
   & .section-bg {
     background-color: #fffefa;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='88' height='88' viewBox='0 0 90 90'%3E%3Ccircle fill-opacity='0.25' fill='%2389cacc' cx='45' cy='45' r='23'/%3E%3Cg fill='%235d888a' fill-opacity='0.25'%3E%3Ccircle cx='0' cy='90' r='8'/%3E%3Ccircle cx='90' cy='90' r='8'/%3E%3Ccircle cx='90' cy='0' r='8'/%3E%3Ccircle cx='0' cy='0' r='8'/%3E%3C/g%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='88' height='88' viewBox='0 0 90 90'%3E%3Ccircle fill-opacity='0.1' fill='%2389cacc' cx='45' cy='45' r='23'/%3E%3Cg fill='%235d888a' fill-opacity='0.25'%3E%3Ccircle cx='0' cy='90' r='8'/%3E%3Ccircle cx='90' cy='90' r='8'/%3E%3Ccircle cx='90' cy='0' r='8'/%3E%3Ccircle cx='0' cy='0' r='8'/%3E%3C/g%3E%3C/svg%3E");
     padding: 200px 0;
     background-attachment: fixed;
-    & .wrapper{
-
+    & .wrapper {
+    }
+  }
+}
+#section-4 {
+  & .wrapper-map {
+    width: 100%;
+    & #map {
+      height: 400px;
+      width: 100%;
     }
   }
 }
