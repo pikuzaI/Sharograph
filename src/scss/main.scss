@@ -41,28 +41,28 @@ header {
                 width: 80%;
                 display: flex;
                 border: 1px solid $maingreen;
-                & select {
-                  width: 35%;
-                  display: inline-block;
-                  border: none;
-                  float: left;
-                  border-right: 1px solid;
-                  border-radius: 0;
-                  border-color: #d9d9d9;
-                  height: 40px;
-                  background-color: #fff;
-                  font-size: 1.2em;
-                  & option {
-                    font-weight: normal;
-                    display: block;
-                    white-space: pre;
-                    min-height: 1.2em;
-                    padding: 5px 5px 1px;
-                    font-size: 1em;
-                  }
-                }
+                // & select {
+                //   width: 35%;
+                //   display: inline-block;
+                //   border: none;
+                //   float: left;
+                //   border-right: 1px solid;
+                //   border-radius: 0;
+                //   border-color: #d9d9d9;
+                //   height: 40px;
+                //   background-color: #fff;
+                //   font-size: 1.2em;
+                //   & option {
+                //     font-weight: normal;
+                //     display: block;
+                //     white-space: pre;
+                //     min-height: 1.2em;
+                //     padding: 5px 5px 1px;
+                //     font-size: 1em;
+                //   }
+                // }
                 & input[type="text"] {
-                  width: 65%;
+                  //width: 65%;
                   display: inline-block;
                   border: none;
                   float: left;
@@ -218,14 +218,18 @@ header {
 }
 
 #section-2 {
-  padding: 150px 0;
-  background: $white;
+  padding: 50px 0px 200px 0px;
+  // background: url('../assets/bg-1.jpg');
+  // background-repeat:no-repeat;
+  // background-size:cover;
+  // background-position: center;
 
   & .wrapper {
     text-align: center;
     & h1 {
       font-size: 3em;
       color: $maingreen;
+      font-family: 'Marck Script', cursive;
     }
     & .balloon-types {
       width: 100%;

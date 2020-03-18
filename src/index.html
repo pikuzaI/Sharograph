@@ -7,23 +7,24 @@
     <link rel="stylesheet" href="./scss/main.css">
     <link href="./static/css/2.e57fd35a.chunk.css" rel="stylesheet">
     <link href="./static/css/main.6d1ef1b7.chunk.css" rel="stylesheet">
+    <script src="./js/google.map.js"></script>
     <script defer src="https://kit.fontawesome.com/6ff156a90f.js" crossorigin="anonymous"></script>
-    <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBN1I6Z0JlbkeItk8q98uAXtp-ueO6BAms&callback=initMap"
-        async defer></script>
-    <script defer src="./js/google.map.js"></script>
+    <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBN1I6Z0JlbkeItk8q98uAXtp-ueO6BAms&callback=initMap" defer></script>
     <title>Document</title>
 </head>
 
 <body>
-    <div id="plain">
+    <div class="cursor"></div>
+    <!-- <div class="cursor-follower"></div> -->
+    <div id="plain-1" class="plain"> 
         <div class="wrapper">
             <div class="logo-wrap">
                 <img id="start-img" src="./assets/logo2.png" alt="">
             </div>
         </div>
     </div>
-    <div id="plain-2"></div>
-<section id="bounce">
+    <div id="plain-2" class="plain"></div>
+    <div id="plain-3" class="plain"></div>
     <header>
         <div class="header-inner">
             <div class="interface">
@@ -35,11 +36,7 @@
                         <div class="search">
                             <div class="search-inner">
                                 <div class="search-inner-wrapper">
-                                    <select name="" id="">
-                                        <option value="">option1</option>
-                                        <option value="">option2</option>
-                                        <option value="">option3</option>
-                                    </select>
+                                    
                                     <input type="text" placeholder="Пошук...">
                                     <button class="search-button">
                                         <i class="fa fa-search"></i>
@@ -84,6 +81,33 @@
             </div>
         </div>
     </header>
+    <section id="bounce">
+    
+   
+    <section id="section-2">
+        <div class="wrapper">
+            <h1>Види кульок</h1>
+            <div class="balloon-types">
+                <div class="balloon-types-inner">
+                    <div class="balloon-type"><a href="#"><img src="./assets/latex.jpg" alt=""></a></div>
+                    <div class="balloon-type"><a href="#"><img src="./assets/heart.jpg" alt=""></a></div>
+                    <div class="balloon-type"><a href="#"><img src="./assets/foil.jpg" alt=""></a></div>
+                    <div class="balloon-type"><a href="#"><img src="./assets/confetti.jpg" alt=""></a></div>
+                    <div class="balloon-type"><a href="#"><img src="./assets/sphere.jpg" alt=""></a></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="section-3">
+        <div class="section-bg">
+            <div class="wrapper">
+                <div id="root">
+                </div>
+                <div id="root">
+                </div>
+            </div>
+        </div>
+    </section>
     <section id="section-1">
         <div class="section-bg">
             <div class="wrapper">
@@ -111,28 +135,6 @@
             </div>
         </div>
     </section>
-    <section id="section-2">
-        <div class="wrapper">
-            <h1>Види кульок</h1>
-            <div class="balloon-types">
-                <div class="balloon-types-inner">
-                    <div class="balloon-type"><a href="#"><img src="./assets/latex.jpg" alt=""></a></div>
-                    <div class="balloon-type"><a href="#"><img src="./assets/heart.jpg" alt=""></a></div>
-                    <div class="balloon-type"><a href="#"><img src="./assets/foil.jpg" alt=""></a></div>
-                    <div class="balloon-type"><a href="#"><img src="./assets/confetti.jpg" alt=""></a></div>
-                    <div class="balloon-type"><a href="#"><img src="./assets/sphere.jpg" alt=""></a></div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section id="section-3">
-        <div class="section-bg">
-            <div class="wrapper">
-                <div id="root">
-                </div>
-            </div>
-        </div>
-    </section>
     <section id="section-4">
         <div class="wrapper-map">
             <div id="map"></div>
@@ -147,7 +149,8 @@
     <script type="module" src="./index.js"></script>
     <script src="./static/js/2.39d15f2c.chunk.js"></script>
     <script src="./static/js/main.37855267.chunk.js"></script> 
-
+    
+    
 </body>
 
 </html>

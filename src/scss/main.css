@@ -1,4 +1,76 @@
 @import url("https://fonts.googleapis.com/css?family=Lora&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Lobster|Marck+Script&display=swap");
+.cursor {
+  position: absolute;
+  background: transparent;
+  border: 1px solid #7d9799;
+  width: 45px;
+  height: 45px;
+  border-radius: 100%;
+  z-index: 1;
+  -webkit-transition: 0.5s cubic-bezier(0.75, -1.27, 0.3, 2.33) opacity, 0.5s cubic-bezier(0.75, -1.27, 0.3, 2.33) -webkit-transform;
+  transition: 0.5s cubic-bezier(0.75, -1.27, 0.3, 2.33) opacity, 0.5s cubic-bezier(0.75, -1.27, 0.3, 2.33) -webkit-transform;
+  transition: 0.5s cubic-bezier(0.75, -1.27, 0.3, 2.33) transform, 0.5s cubic-bezier(0.75, -1.27, 0.3, 2.33) opacity;
+  transition: 0.5s cubic-bezier(0.75, -1.27, 0.3, 2.33) transform, 0.5s cubic-bezier(0.75, -1.27, 0.3, 2.33) opacity, 0.5s cubic-bezier(0.75, -1.27, 0.3, 2.33) -webkit-transform;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  pointer-events: none;
+}
+
+.cursor::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  background-image: url("../assets/follow.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 100%;
+  opacity: 0;
+}
+
+.cursor.active {
+  opacity: 1;
+  -webkit-transform: scale(2);
+          transform: scale(2);
+}
+
+.cursor.active::before {
+  opacity: 1;
+}
+
+.cursor-follower {
+  position: absolute;
+  background: #b2dee1;
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  z-index: 1;
+  -webkit-transition: 0.4s cubic-bezier(0.75, -1.27, 0.3, 2.33) opacity, 0.6s cubic-bezier(0.75, -1.27, 0.3, 2.33) -webkit-transform;
+  transition: 0.4s cubic-bezier(0.75, -1.27, 0.3, 2.33) opacity, 0.6s cubic-bezier(0.75, -1.27, 0.3, 2.33) -webkit-transform;
+  transition: 0.6s cubic-bezier(0.75, -1.27, 0.3, 2.33) transform, 0.4s cubic-bezier(0.75, -1.27, 0.3, 2.33) opacity;
+  transition: 0.6s cubic-bezier(0.75, -1.27, 0.3, 2.33) transform, 0.4s cubic-bezier(0.75, -1.27, 0.3, 2.33) opacity, 0.6s cubic-bezier(0.75, -1.27, 0.3, 2.33) -webkit-transform;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  pointer-events: none;
+  -webkit-transform: translate(4px, 4px);
+          transform: translate(4px, 4px);
+}
+
+.cursor-follower.active {
+  opacity: 0.3;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+}
+
 #bounce {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -14,7 +86,20 @@
   margin: 0 auto;
 }
 
-#plain, #plain-2 {
+.wave {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+.wave + .wave {
+  z-index: 20;
+}
+
+#plain-1, #plain-2, #plain-3 {
   position: fixed;
   top: 0;
   left: 0;
@@ -24,11 +109,11 @@
   z-index: 10;
 }
 
-#plain .wrapper, #plain-2 .wrapper {
+#plain-1 .wrapper, #plain-2 .wrapper, #plain-3 .wrapper {
   height: 100vh;
 }
 
-#plain .wrapper .logo-wrap, #plain-2 .wrapper .logo-wrap {
+#plain-1 .wrapper .logo-wrap, #plain-2 .wrapper .logo-wrap, #plain-3 .wrapper .logo-wrap {
   width: 100%;
   height: 100%;
   display: -webkit-box;
@@ -45,6 +130,11 @@
 #plain-2 {
   z-index: 9;
   background: #b2dee1;
+}
+
+#plain-3 {
+  z-index: 8;
+  background: #7d9799;
 }
 
 .bttn {
@@ -183,30 +273,7 @@ header .header-inner .interface .wrapper .interface-inner .search .search-inner 
   border: 1px solid #b2dee1;
 }
 
-header .header-inner .interface .wrapper .interface-inner .search .search-inner .search-inner-wrapper select {
-  width: 35%;
-  display: inline-block;
-  border: none;
-  float: left;
-  border-right: 1px solid;
-  border-radius: 0;
-  border-color: #d9d9d9;
-  height: 40px;
-  background-color: #fff;
-  font-size: 1.2em;
-}
-
-header .header-inner .interface .wrapper .interface-inner .search .search-inner .search-inner-wrapper select option {
-  font-weight: normal;
-  display: block;
-  white-space: pre;
-  min-height: 1.2em;
-  padding: 5px 5px 1px;
-  font-size: 1em;
-}
-
 header .header-inner .interface .wrapper .interface-inner .search .search-inner .search-inner-wrapper input[type="text"] {
-  width: 65%;
   display: inline-block;
   border: none;
   float: left;
@@ -387,8 +454,7 @@ header .header-inner .menu .wrapper .menu-inner .menu-list .menu-item a {
 }
 
 #section-2 {
-  padding: 150px 0;
-  background: white;
+  padding: 50px 0px 200px 0px;
 }
 
 #section-2 .wrapper {
@@ -398,6 +464,7 @@ header .header-inner .menu .wrapper .menu-inner .menu-list .menu-item a {
 #section-2 .wrapper h1 {
   font-size: 3em;
   color: #b2dee1;
+  font-family: 'Marck Script', cursive;
 }
 
 #section-2 .wrapper .balloon-types {
