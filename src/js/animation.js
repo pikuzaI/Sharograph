@@ -1,15 +1,18 @@
 const $ = document.querySelector.bind(document);
 const $on = document.addEventListener.bind(document);
 const bg = document.getElementById("image");
-bg.addEventListener("mousemove", event => mouseOver(event, bg, 10));
-bg.addEventListener("mouseleave", event => {
-  gsap.to(bg, 2, { x: 0, y: 0, ease: "elastic.out(1, 0.3)" });
-});
-const balloonsArray = [...document.querySelectorAll(".balloon-type")];
+//bg.addEventListener("mousemove", event => mouseOver(event, bg, 10));
+// bg.addEventListener("mouseleave", event => {
+//   gsap.to(bg, 2, { x: 0, y: 0, ease: "elastic.out(1, 0.3)" });
+// });
+const balloonsArray = [...document.querySelectorAll(".balloon-hover")];
+// const balloonsArray2 = [...document.querySelectorAll(".balloon")];
+const blocks = [...document.querySelectorAll(".img-block")];
 balloonsArray.forEach(item => {
   item.addEventListener("mousemove", event => mouseOver(event, item));
   item.addEventListener("mouseleave", event => {
     gsap.to(item, 2, { x: 0, y: 0, ease: "elastic.out(1, 0.3)" });
+    gsap.to(item.querySelector('img'), 2, { x: 0, y: 0,scale:1, ease: "elastic.out(1, 0.3)" });
   });
 });
 function mouseOver(event, item, value = 2) {
@@ -24,25 +27,31 @@ function mouseOver(event, item, value = 2) {
     y: (pY - cY) / value,
     ease: "power3.out"
   });
+  gsap.to(item.querySelector('img'), 1, {
+    x: (pX - cX) / value/2,
+    y: (pY - cY) / value/2,
+    scale:1.2,
+    ease: "power3.out"
+  });
 }
 
 ////////skew animation///////////
 const img = document.querySelector(".img-container"),
   text = document.querySelector(".inner-right-wrapper"),
-  section = document.querySelectorAll(".section-bg");
+  section = document.querySelectorAll(".section-bg-skew");
 
 let currentPixel = window.pageYOffset;
 
-const looper = function() {
-  let newPixel = window.pageYOffset;
-  let diff = newPixel - currentPixel;
-  let speed = diff * 0.05;
-  gsap.to(section, 1, { skewY: speed, ease: "elastic.out(1, 0.3)" });
-  //gsap.to(text, 1, { skewY: speed });
-  requestAnimationFrame(looper);
-  currentPixel = newPixel;
-};
-looper();
+// const looper = function() {
+//   let newPixel = window.pageYOffset;
+//   let diff = newPixel - currentPixel;
+//   let speed = diff * 0.05;
+//   gsap.to(section, 1, { skewY: speed, ease: "elastic.out(1, 0.3)" });
+//   //gsap.to(text, 1, { skewY: speed });
+//   requestAnimationFrame(looper);
+//   currentPixel = newPixel;
+// };
+// looper();
 
 ////////////////////////Cursor////////////////////////////////////////
 let cursor = $(".cursor");
@@ -78,7 +87,7 @@ document.addEventListener("mousemove", function(e) {
   mouseX = e.pageX;
   mouseY = e.pageY;
 });
-const balloonsURIS = [...document.querySelectorAll(".balloon-type")];
+const balloonsURIS = [...document.querySelectorAll(".cursor-change")];
 balloonsArray.forEach(item => {
     item.addEventListener("mouseenter", function() {
     cursor.classList.add("active");

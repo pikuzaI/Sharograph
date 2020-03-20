@@ -2,7 +2,9 @@ const plain = [...document.querySelectorAll(".plain")],
 bounce = document.getElementById('bounce'),
 startImg = document.getElementById('start-img'),
 menuTop = document.querySelector('.interface'),
-menuBottom = document.querySelector('.menu');
+menuBottom = document.querySelector('.menu'),
+section= document.getElementById('section-1'),
+panContainer = document.querySelector('.pan-container');
 let tl = new gsap.timeline();
 document.addEventListener("DOMContentLoaded", ()=>{
   tl
