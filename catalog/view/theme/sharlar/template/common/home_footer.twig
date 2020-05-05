@@ -1,9 +1,27 @@
 <footer>
+<svg id="svg-wave-bottom" version="1.1" data-name="Слой 1" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 800 160.32">
+			<title>wave</title>
+			<path fill="#b2dee1">
+
+				<animate id="animation-to-check" repeatcount="indefinite" fill="freeze" attributename="d" dur="20s" values="M0,30.67c26.69,20.46,66.07,43.23,110.33,38C157.78,63.05,166.2,30.53,215,18.33,281.53,1.7,299.21,53.83,383.67,54,467,54.17,481.13,3.48,558,14.67c49.48,7.2,57.62,30.23,107.33,36C720.61,57.07,768.55,35.31,800,16.33v144H0Z;
+				
+													M0,11.33c26.69,20.47,35.74,83.24,80,78,47.45-5.61,41.2-35.47,90-47.66C236.53,25,226.21,71.83,310.67,72c83.33.17,102.13-47.85,179-36.67,49.48,7.2,149.88,37.45,199.59,43.21C744.54,85,768.55,47.64,800,28.67V160.32H0Z;
+				
+													M0,11.33C26.69,31.8,38.74,66.9,83,61.67c47.45-5.62,42.87-39.81,91.67-52C241.2-7,215.88,86.5,300.33,86.67,383.66,86.83,408.13-6.85,485,4.33c49.48,7.2,58.29,73.91,108,79.67,55.28,6.41,175.55-7.36,207-26.33V160.32H0Z;
+				
+													M0,38.33c26.69,20.47,15.41,58.24,59.67,53C107.11,85.72,118.2,51.2,167,39c66.53-16.63,48.88,16.5,133.33,16.67,83.33.16,127.14-10.52,204,.66,49.49,7.2,138.29,35.57,188,41.34,55.28,6.4,76.22-60.36,107.67-79.34v142H0Z;
+				
+													M0,30.67c26.69,20.46,66.07,43.23,110.33,38C157.78,63.05,166.2,30.53,215,18.33,281.53,1.7,299.21,53.83,383.67,54,467,54.17,481.13,3.48,558,14.67c49.48,7.2,57.62,30.23,107.33,36C720.61,57.07,768.55,35.31,800,16.33v144H0Z"/>
+
+			</path>
+
+
+		</svg>
     <div class="container">
         <div class="row">
             {% if informations %}
                 <div class="col-sm-3">
-                    <h5>{{ text_information }}</h5>
+                    <h5 class="curvy-h">{{ text_information }}</h5>
                     <ul class="list-unstyled">
                         {% for information in informations %}
                             <li><a href="{{ information.href }}">{{ information.title }}</a></li>
@@ -12,7 +30,7 @@
                 </div>
             {% endif %}
             <div class="col-sm-3">
-                <h5>{{ text_service }}</h5>
+                <h5 class="curvy-h">{{ text_service }}</h5>
                 <ul class="list-unstyled">
                     <li><a href="{{ contact }}">{{ text_contact }}</a></li>
                     <li><a href="{{ return }}">{{ text_return }}</a></li>
@@ -20,7 +38,7 @@
                 </ul>
             </div>
             <div class="col-sm-3">
-                <h5>{{ text_extra }}</h5>
+                <h5 class="curvy-h">{{ text_extra }}</h5>
                 <ul class="list-unstyled">
                     <li><a href="{{ manufacturer }}">{{ text_manufacturer }}</a></li>
                     <li><a href="{{ voucher }}">{{ text_voucher }}</a></li>
@@ -29,7 +47,7 @@
                 </ul>
             </div>
             <div class="col-sm-3">
-                <h5>{{ text_account }}</h5>
+                <h5 class="curvy-h">{{ text_account }}</h5>
                 <ul class="list-unstyled">
                     <li><a href="{{ account }}">{{ text_account }}</a></li>
                     <li><a href="{{ order }}">{{ text_order }}</a></li>
@@ -51,12 +69,13 @@ Please donate via PayPal to donate@opencart.com
 //-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.1.1/gsap.min.js"></script>
 <script src="catalog/view/theme/sharlar/js/preloader.js"></script>
+<script src="catalog/view/theme/sharlar/js/homeAnimation.js"></script>
 <script src="catalog/view/theme/sharlar/js/rellax.min.js"></script>
 <script>
     var rellax = new Rellax('.rellax', { center: true });
 </script>
 <script  src="catalog/view/theme/sharlar/js/animation.js"></script>
-<script>!function(e){function r(r){for(var n,l,a=r[0],c=r[1],f=r[2],p=0,s=[];p<a.length;p++)l=a[p],Object.prototype.hasOwnProperty.call(o,l)&&o[l]&&s.push(o[l][0]),o[l]=0;for(n in c)Object.prototype.hasOwnProperty.call(c,n)&&(e[n]=c[n]);for(i&&i(r);s.length;)s.shift()();return u.push.apply(u,f||[]),t()}function t(){for(var e,r=0;r<u.length;r++){for(var t=u[r],n=!0,a=1;a<t.length;a++){var c=t[a];0!==o[c]&&(n=!1)}n&&(u.splice(r--,1),e=l(l.s=t[0]))}return e}var n={},o={1:0},u=[];function l(r){if(n[r])return n[r].exports;var t=n[r]={i:r,l:!1,exports:{}};return e[r].call(t.exports,t,t.exports,l),t.l=!0,t.exports}l.m=e,l.c=n,l.d=function(e,r,t){l.o(e,r)||Object.defineProperty(e,r,{enumerable:!0,get:t})},l.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},l.t=function(e,r){if(1&r&&(e=l(e)),8&r)return e;if(4&r&&"object"==typeof e&&e&&e.__esModule)return e;var t=Object.create(null);if(l.r(t),Object.defineProperty(t,"default",{enumerable:!0,value:e}),2&r&&"string"!=typeof e)for(var n in e)l.d(t,n,function(r){return e[r]}.bind(null,n));return t},l.n=function(e){var r=e&&e.__esModule?function(){return e.default}:function(){return e};return l.d(r,"a",r),r},l.o=function(e,r){return Object.prototype.hasOwnProperty.call(e,r)},l.p="./";var a=this.webpackJsonpballoon_constructor=this.webpackJsonpballoon_constructor||[],c=a.push.bind(a);a.push=r,a=a.slice();for(var f=0;f<a.length;f++)r(a[f]);var i=c;t()}([])</script>
-<script src="catalog/view/theme/sharlar/constructor/js/2.b7b7fea4.chunk.js"></script>
-<script src="catalog/view/theme/sharlar/constructor/js/main.59e74532.chunk.js"></script>
+ <script>!function (e) { function r(r) { for (var n, l, a = r[0], c = r[1], f = r[2], p = 0, s = []; p < a.length; p++)l = a[p], Object.prototype.hasOwnProperty.call(o, l) && o[l] && s.push(o[l][0]), o[l] = 0; for (n in c) Object.prototype.hasOwnProperty.call(c, n) && (e[n] = c[n]); for (i && i(r); s.length;)s.shift()(); return u.push.apply(u, f || []), t() } function t() { for (var e, r = 0; r < u.length; r++) { for (var t = u[r], n = !0, a = 1; a < t.length; a++) { var c = t[a]; 0 !== o[c] && (n = !1) } n && (u.splice(r--, 1), e = l(l.s = t[0])) } return e } var n = {}, o = { 1: 0 }, u = []; function l(r) { if (n[r]) return n[r].exports; var t = n[r] = { i: r, l: !1, exports: {} }; return e[r].call(t.exports, t, t.exports, l), t.l = !0, t.exports } l.m = e, l.c = n, l.d = function (e, r, t) { l.o(e, r) || Object.defineProperty(e, r, { enumerable: !0, get: t }) }, l.r = function (e) { "undefined" != typeof Symbol && Symbol.toStringTag && Object.defineProperty(e, Symbol.toStringTag, { value: "Module" }), Object.defineProperty(e, "__esModule", { value: !0 }) }, l.t = function (e, r) { if (1 & r && (e = l(e)), 8 & r) return e; if (4 & r && "object" == typeof e && e && e.__esModule) return e; var t = Object.create(null); if (l.r(t), Object.defineProperty(t, "default", { enumerable: !0, value: e }), 2 & r && "string" != typeof e) for (var n in e) l.d(t, n, function (r) { return e[r] }.bind(null, n)); return t }, l.n = function (e) { var r = e && e.__esModule ? function () { return e.default } : function () { return e }; return l.d(r, "a", r), r }, l.o = function (e, r) { return Object.prototype.hasOwnProperty.call(e, r) }, l.p = "./"; var a = this.webpackJsonpballoon_constructor = this.webpackJsonpballoon_constructor || [], c = a.push.bind(a); a.push = r, a = a.slice(); for (var f = 0; f < a.length; f++)r(a[f]); var i = c; t() }([])</script>
+<script src="catalog/view/theme/sharlar/constructor/js/2.caaeea55.chunk.js"></script>
+<script src="catalog/view/theme/sharlar/constructor/js/main.c53b6ad4.chunk.js"></script>
 </body></html>
