@@ -119,3 +119,19 @@ if (window.innerWidth > 1440) {
   });
 }
 
+///////////////////////button listeners///////////////////////
+let filter = $$('.filter-wrapper'),
+  close = $$('.close-filter'),
+  filterBackground = $$('.filter-background'),
+  open = $$('.show-filter');
+let show = false;
+
+close.addEventListener('click',toggleMenu);
+filterBackground .addEventListener('click',toggleMenu);
+open.addEventListener('click',toggleMenu);
+function toggleMenu(){
+  show=!show;
+  filter.style.left = show === true ? "0" : "-100%";
+  filterBackground.style.left = show === true ? "0" : "-100%";
+  filterBackground.style.opacity = show === true ? "1" : "0";
+}
