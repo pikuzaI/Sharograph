@@ -15,9 +15,11 @@ window.onload = ()=>{
   tl
   .to(startImg,0.6,{scale:1.2,ease:Power4.easeOut})
   .to(plain,1.5,{y:"-150%", ease: Power4.easeOut,delay:0,stagger:0.1})
-  .to(sectionBG,1,{'-webkit-filter':'blur('+(10)+'px)', 'filter':'blur('+(10)+'px)',ease: Power4.easeOut})
-  .to(heroImg,1,{scale:0.7,ease: Power4.easeOut,delay:-1})
-  .from([balloon,airLogo],1,{ y:800, autoAlpha:0, ease: Power2.easeOut, stagger:0.3,delay:-1,onComplete:enableScroll})
+  // .to(sectionBG,1,{'-webkit-filter':'blur('+(10)+'px)', 'filter':'blur('+(10)+'px)',ease: Power4.easeOut})
+  // .to(heroImg,1,{scale:0.7,ease: Power4.easeOut,delay:-1})
+  // .from([balloon,airLogo],1,{ y:800, autoAlpha:0, ease: Power2.easeOut, stagger:0.3,delay:-1,onComplete:enableScroll})
+  let scene = document.getElementById('scene');
+		let parallax = new Parallax(scene);
 }
 window.onbeforeunload = function () {
   if(sectionBG){

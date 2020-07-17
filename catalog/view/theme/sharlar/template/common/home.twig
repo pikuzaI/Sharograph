@@ -1,12 +1,31 @@
 {{ header }}
 <div id="common-home" class="">
-	<section id="section-1">
+	{# <section id="section-1">
 		<div class="section-1-bg rellax" data-rellax-speed="-5"></div>
 		<div class="hero-image"></div>
 		<div class="rellax parallax-el" data-rellax-speed="5"></div>
 		<div class="rellax text air-logo" data-rellax-speed="10"></div>
 		<div class="rellax clouds" data-rellax-speed="0"></div>
 		<div class="whitespace"></div>
+	</section> #}
+	<section id="main-bg">
+		<ul id="scene">
+			<li class="layer" data-depth=".05"></li>
+			<li class="layer" data-depth="-.08"></li>
+			<li class="layer bg-logo" data-depth=".1">
+				<div class="bg-logo-container">
+					<img src="catalog/view/theme/sharlar/image/assets/main-bg/mascotte.png">
+					<div class="company-name">
+					<span>Merry</span>
+					<span>Party</span>
+					</div>
+				</div>
+			</li>
+			{# <li class="layer" data-depth="1"><img src="planet1.png"></li>
+			<li class="layer" data-depth="-1"><img src="planet2.png"></li>
+			<li class="layer" data-depth="2"><img src="astronaut.png"></li>
+			<li class="layer" data-depth="0.5"><img src="rocket.png"></li> #}
+		</ul>
 	</section>
 	<section id="section-2">
 		<svg id="svg-wave-top" version="1.1" transform="translate(0, 0) scale(-1, 1) " data-name="Слой 1" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 800 160.32">
@@ -51,7 +70,7 @@
 			<div class="balloon-types">
 				<div class="balloon-types-inner">
 					<div class="balloon-type cursor-change accent-1">
-						<a href="http://localhost/sharlar-shop/index.php?route=product/category&path=62_59">
+						<a href="http://reco.fun:8080/sharlar-shop/index.php?route=product/category&path=62_59">
 							<div class="balloon-hover"><img src="catalog/view/theme/sharlar/image/assets/latex.jpg" alt=""></div>
 							<h3 class="curvy-h">
 								Латексні
@@ -83,7 +102,7 @@
 						</a>
 					</div>
 					<div class="balloon-type cursor-change">
-						<a href="http://localhost/sharlar-shop/index.php?route=product/category&path=62_60">
+						<a href="http://reco.fun:8080/sharlar-shop/index.php?route=product/category&path=62_60">
 							<div class="balloon-hover"><img src="catalog/view/theme/sharlar/image/assets/sphere.jpg" alt=""></div>
 							<h3 class="curvy-h">
 								Сфери
@@ -103,9 +122,6 @@
 				<div class="col-12 col-sm-12 col-md-12 col-lg-4" id="root"></div>
 			</div>
 		</div>
-	</section>
-	<section>
-		<div id="content" class="{{ class }}">{{ content_top }}{{ content_bottom }}</div>
 	</section>
 </div>
 {{ footer }}
