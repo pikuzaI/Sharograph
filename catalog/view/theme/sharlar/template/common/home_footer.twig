@@ -16,51 +16,80 @@
 
 
 		</svg>
-<footer>
-
-    <div class="container">
-        <div class="row">
-            {% if informations %}
-                <div class="col-sm-3">
-                    <h5 class="curvy-h">{{ text_information }}</h5>
-                    <ul class="list-unstyled">
-                        {% for information in informations %}
-                            <li><a href="{{ information.href }}">{{ information.title }}</a></li>
-                        {% endfor %}
-                    </ul>
+        <footer>
+            <div class="footer-wrapper">
+              <div class="footer-inner">
+                <div class="contacts-title-wrapper">
+                  <h1 class="contacts-title curvy-h">Контакти</h1>
                 </div>
-            {% endif %}
-            <div class="col-sm-3">
-                <h5 class="curvy-h">{{ text_service }}</h5>
-                <ul class="list-unstyled">
+                <div class="contacts-body">
+                  <div class="contacts-body-wrapper">
+                    <div class="map-wrapper">
+                      <a href="http://reco.fun:8080/sharlar-shop/index.php?route=information/information&information_id=4"><img
+                          src="catalog/view/theme/sharlar/image/assets/map.png" alt="Адреса магазину"></a>
+                    </div>
+                    <div class="info-wrapper">
+                      <div class="contacts-info">
+                        <span><i class="fa fa-map-marker" aria-hidden="true"></i>Адреса:Україна Київ вул.Святошинська, 34 и
+                          Подробнее: <a href="https://merryparty.com.ua"><strong>https://merryparty.com.ua/</strong> </a></span>
+                        <span><i class="fa fa-phone" aria-hidden="true"></i>(Kyivstar,Viber) <strong><a
+                              href="tel:+380981201373"></a> +380981201373</strong></span>
+                        <span><i class="fa fa-phone" aria-hidden="true"></i>(Vodafone) <strong><a href="tel:+380501921855"></a>
+                            +380501921855</strong> </span>
+                      </div>
+                      <div class="social-links">
+                        <div class="social-link"><a href="https://www.facebook.com/Merry-Party-1110546739112348/"><i class="fa fa-facebook" aria-hidden="true"></i></a></div>
+                        <div class="social-link"><a href="https://www.instagram.com/merrypartyukr/"><i class="fa fa-instagram" aria-hidden="true"></i></a></div>
+                        <div class="social-link"><a href="https://www.youtube.com/channel/UCqw0wVRdpVjeLA0mK6AkDHg"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {# <div class="container">
+              <div class="row"> #}
+            {# {% if informations %} #}
+            {# <div class="col-sm-3">
+                  <h5 class="curvy-h">{{ text_information }}</h5>
+                  <ul class="list-unstyled">
+                   {% for information in informations %}
+                    <li><a href="{{ information.href }}">{{ information.title }}</a></li>
+                    {% endfor %}
+                  </ul>
+                </div>
+                {% endif %}
+                <div class="col-sm-3">
+                  <h5 class="curvy-h">{{ text_service }}</h5>
+                  <ul class="list-unstyled">
                     <li><a href="{{ contact }}">{{ text_contact }}</a></li>
                     <li><a href="{{ return }}">{{ text_return }}</a></li>
                     <li><a href="{{ sitemap }}">{{ text_sitemap }}</a></li>
-                </ul>
-            </div>
-            <div class="col-sm-3">
-                <h5 class="curvy-h">{{ text_extra }}</h5>
-                <ul class="list-unstyled">
+                  </ul>
+                </div>
+                <div class="col-sm-3">
+                   <h5 class="curvy-h">{{ text_extra }}</h5>
+                  <ul class="list-unstyled">
                     <li><a href="{{ manufacturer }}">{{ text_manufacturer }}</a></li>
                     <li><a href="{{ voucher }}">{{ text_voucher }}</a></li>
                     <li><a href="{{ affiliate }}">{{ text_affiliate }}</a></li>
                     <li><a href="{{ special }}">{{ text_special }}</a></li>
-                </ul>
-            </div>
-            <div class="col-sm-3">
-                <h5 class="curvy-h">{{ text_account }}</h5>
-                <ul class="list-unstyled">
+                  </ul>
+                </div> #}
+            {# <div class="col-sm-3">
+                  <h5 class="curvy-h">{{ text_account }}</h5>
+                  <ul class="list-unstyled">
                     <li><a href="{{ account }}">{{ text_account }}</a></li>
                     <li><a href="{{ order }}">{{ text_order }}</a></li>
                     <li><a href="{{ wishlist }}">{{ text_wishlist }}</a></li>
                     <li><a href="{{ newsletter }}">{{ text_newsletter }}</a></li>
-                </ul>
-            </div>
-        </div>
-        <hr>
-        <p>{{ powered }}</p>
-    </div>
-</footer>
+                  </ul>
+                </div> #}
+            {# </div> #}
+            <hr>
+            <p>{{ powered }}</p>
+            {# </div> #}
+          </footer>
 {% for script in scripts %}
     <script src="{{ script }}" type="text/javascript"></script>
 {% endfor %}
