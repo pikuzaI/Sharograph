@@ -12,12 +12,12 @@
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: #e0e0e0;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #b2dee1;
+  background: #586869;
 }
 
 /* Handle on hover */
@@ -430,12 +430,6 @@ input[type="text"] {
   padding: 20px;
   margin: 50px 0;
   border-radius: 30px;
-  overflow: hidden;
-}
-
-.cart-menu {
-  border: 2px solid #b2dee1;
-  border-radius: 20px;
   overflow: hidden;
 }
 
@@ -1176,6 +1170,8 @@ header .header-inner .interface .wrapper .interface-inner .account-interface .ac
 
 #constructor-section .wrapper .row #root {
   margin: 10px auto;
+  display:flex;
+  justify-content: center;
 }
 
 #constructor-section #svg-constr-1 {

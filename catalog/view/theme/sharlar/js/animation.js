@@ -43,6 +43,23 @@ function mouseOver(event, item, value = 2, scale = 1.2, imageOnly = false) {
     ease: "power3.out",
   });
 }
+/////////////////////////////////CART////////////////////////////////////
+let cartMenu = $$('.cart-menu-wrapper'),
+cartBG = $$('.cart-menu-bg'),
+cartTrigger = $$('.cart-button'),
+cartClose = $$('.cart-close');
+cartMenu.style.borderRadius = "0%";
+let showCart = false;
+cartClose.addEventListener('click',toggleCart);
+cartBG .addEventListener('click',toggleCart);
+cartTrigger.addEventListener('click',toggleCart);
+function toggleCart(){
+  showCart=!showCart;
+  cartMenu.style.right = showCart === true ? "0" : "-150%";
+  cartMenu.style.borderRadius = showCart === true ? "0px" : "100%";
+  cartBG.style.display = showCart === true ? "block" : "none";
+
+}
 
 ////////////////////////Cursor////////////////////////////////////////
 let cursor = $$(".cursor"),

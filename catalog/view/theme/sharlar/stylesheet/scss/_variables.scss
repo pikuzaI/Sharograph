@@ -22,12 +22,12 @@ $white:rgb(255, 255, 255);
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: #e0e0e0;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: $maingreen;
+  background: $darkestgreen;
 }
 
 /* Handle on hover */
@@ -384,11 +384,11 @@ input[type="text"] {
   border-radius:30px;
   overflow:hidden;
 }
-.cart-menu{
-  border:2px solid $maingreen;
-  border-radius:20px;
-  overflow:hidden;
-}
+// .cart-menu{
+//   border:2px solid $maingreen;
+//   border-radius:20px;
+//   overflow:hidden;
+// }
 .close{
   margin-right:20px;
 }
