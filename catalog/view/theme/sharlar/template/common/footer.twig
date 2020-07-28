@@ -25,6 +25,7 @@
         <h1 class="contacts-title curvy-h">Інформація</h1>
         <hr>
       </div>
+      {{ description }}
       <div class="contacts-body">
         <div class="contacts-body-wrapper">
           <div class="shedule-wrapper">
@@ -120,9 +121,15 @@
 OpenCart is open source software and you are free to remove the powered by OpenCart if you want, but its generally accepted practise to make a small donation.
 Please donate via PayPal to donate@opencart.com
 //-->
+<script>
+const $$ = document.querySelector.bind(document);
+const $on = document.addEventListener.bind(document);
+</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.1.1/gsap.min.js"></script>
 <script src="catalog/view/theme/sharlar/js/preloader.js"></script>
-<script src="catalog/view/theme/sharlar/js/animation.js"></script>
+<!-- <script src="catalog/view/theme/sharlar/js/animation.js"></script> -->
+<script src="catalog/view/theme/sharlar/js/shopLogics.js"></script>
+<script src="catalog/view/theme/sharlar/js/globalAnimations.js"></script>
 </body>
 
 </html>

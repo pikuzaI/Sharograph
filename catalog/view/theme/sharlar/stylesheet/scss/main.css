@@ -661,6 +661,7 @@ header .header-inner .interface .wrapper .interface-inner .account-interface .ac
 .menu .wrapper .menu-inner {
   width: 100%;
   max-width: 1600px;
+  margin:0 auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -809,9 +810,18 @@ header .header-inner .interface .wrapper .interface-inner .account-interface .ac
     -ms-flex-pack: distribute;
         justify-content: space-around;
   }
+  #main-bg #scene .bg-logo-container .company-name{
+    width:90%;
+    margin: 0 auto;
+    justify-content: center;
+    flex-direction: row;
+    margin-top:150px;
+
+  }
   #main-bg #scene .bg-logo-container .company-name span {
     width: 100%;
-    font-size: 80px;
+    font-size: 60px;
+    display:inline-block;
   }
 }
 

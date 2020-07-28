@@ -15,7 +15,16 @@ class ControllerCommonFooter extends Controller {
 				);
 			}
 		}
+		$information_info = $this->model_catalog_information->getInformation(7);
+		if ($information_info) {
+			// $this->document->setTitle($information_info['meta_title']);
+			$this->document->setDescription($information_info['meta_description']);
+			$this->document->setKeywords($information_info['meta_keyword']);
+			$data['heading_title'] = $information_info['title'];
 
+			$data['description'] = html_entity_decode($information_info['description'], ENT_QUOTES, 'UTF-8');
+		
+		}
 		$data['contact'] = $this->url->link('information/contact');
 		$data['return'] = $this->url->link('account/return/add', '', true);
 		$data['sitemap'] = $this->url->link('information/sitemap');
@@ -75,7 +84,16 @@ class ControllerCommonFooter extends Controller {
 				);
 			}
 		}
+		$information_info = $this->model_catalog_information->getInformation(7);
+		if ($information_info) {
+			// $this->document->setTitle($information_info['meta_title']);
+			$this->document->setDescription($information_info['meta_description']);
+			$this->document->setKeywords($information_info['meta_keyword']);
+			$data['heading_title'] = $information_info['title'];
 
+			$data['description'] = html_entity_decode($information_info['description'], ENT_QUOTES, 'UTF-8');
+		
+		}
 		$data['contact'] = $this->url->link('information/contact');
 		$data['return'] = $this->url->link('account/return/add', '', true);
 		$data['sitemap'] = $this->url->link('information/sitemap');
