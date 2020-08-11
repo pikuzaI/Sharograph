@@ -161,6 +161,8 @@ header {
   width: 100vw;
   display: flex;
   background: $maingreen;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
   transition:all .7s cubic-bezier(0.86, 0, 0.07, 1);
   z-index:2;
   & .wrapper {
@@ -438,11 +440,7 @@ header {
 #section-2 {
   padding: 200px 0px 400px 0px;
   margin-top:0px;
-  // background: url('../assets/bg-1.jpg');
-  background: $maingreen;
-  // background-repeat:no-repeat;
-  // background-size:cover;
-  // background-position: center;
+  background: $greenGradient;
   position: relative;
   & #svg-wave-top {
     position: absolute;
@@ -486,26 +484,25 @@ header {
         }
 
         & .balloon-type {
+          max-width: 200px;
           border-radius: 15px;
           position: relative;
-          &:hover {
-            & img {
-              // transform: scale(1.2) translateX(10px);
-            }
-          }
           & a {
             text-decoration: none;
             color: #000;
             & h3 {
-              color:$darkgreen;
+              color:$darkgreen;             
             }
             & .balloon-hover {
-              border:7px solid white;
+              width:100%;
+              margin:0 auto;
               border-radius: 50%;
+              border:7px solid white;
               overflow: hidden;
+              -webkit-mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC);
               & img {
-                max-height: 200px;
-                border-radius: 15px;
+                max-width: 200px;
+                width: auto;
                 // transition: 0.5s ease-in-out transform;
               }
             }

@@ -74,4 +74,3 @@ $_['error_curl']            = 'CURL: Ошибка кода(%s): %s';
 
 // Datepicker
 $_['datepicker']                    = 'ru';
-

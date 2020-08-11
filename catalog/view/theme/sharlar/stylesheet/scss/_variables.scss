@@ -2,13 +2,20 @@
 @import url('https://fonts.googleapis.com/css?family=Lobster|Marck+Script&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 
+// $lightGreen:#d1ebed;
+// $trGreen:#d1ebedd2;
+// $trDarkGreen:#d1ebede1;
+// $maingreen:#b2dee1;
+// $darkgreen:#7d9799;
+// $darkestgreen:#586869;
 $lightGreen:#d1ebed;
 $trGreen:#d1ebedd2;
 $trDarkGreen:#d1ebede1;
-$maingreen:#b2dee1;
+$maingreen:#57d301;
 $darkgreen:#7d9799;
 $darkestgreen:#586869;
 $white:rgb(255, 255, 255);
+$greenGradient:linear-gradient(90deg,#57d301, #c6f739);
 
 .stop-scrolling { 
   height: 100%; 
@@ -142,7 +149,7 @@ input[type="text"] {
     position: fixed;
     top:0;
     left:0;
-    background-color: $maingreen;
+    background:$greenGradient;
     width: 100vw;
     height:100vh;
     z-index: 100;

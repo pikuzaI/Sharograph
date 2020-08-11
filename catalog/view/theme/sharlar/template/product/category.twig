@@ -162,7 +162,10 @@
 												</p>
 											</div>
 										{% endif %}
-									</div>
+									</div>								
+									{% if product.quantity <= 0 %}
+									{{ text_nostock }}
+									{% else %}
 									<div class="button-group">
 										<button type="button" onclick="cart.add('{{ product.product_id }}', '{{ product.minimum }}');">
 											<i class="fa fa-shopping-cart"></i>
@@ -175,6 +178,8 @@
 											<i class="fa fa-exchange"></i>
 										</button> -->
 									</div>
+									{% endif %}
+									
 								</div>
 							</div>
 						</div>

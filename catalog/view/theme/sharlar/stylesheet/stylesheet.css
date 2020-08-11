@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 :root{
 	--green-dark:#586869;
-	--green-light:#b2dee1;
+	--green-light:#57d301;
 	--green-middle:#a1a1a1;
 	/* --green-dark:#586869;
 	--green-light:#b2dee1;
@@ -551,7 +551,7 @@ div.required .control-label:before {
 /* footer */
 footer {
 	position:relative;
-	background-color: var(--green-light);
+	background:linear-gradient(90deg,#c6f739,#57d301);
 	color: #7d9799;
 	z-index:2;
 }

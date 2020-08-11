@@ -79,11 +79,17 @@
 			<img id="start-img" src="catalog/view/theme/sharlar/image/assets/logo2.png" alt="">
 		</div>
 	</div>
-  	<svg id="svg-wave-top" version="1.1" transform="translate(0, 0) scale(-1, 1) " data-name="Слой 1" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 800 160.32">
+    <svg id="svg-wave-top" version="1.1" transform="translate(0, 0) scale(-1, 1) " data-name="Слой 1" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 800 160.32">
+      <defs>
+        <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" style="stop-color:#c6f739;stop-opacity:1" />
+          <stop offset="100%" style="stop-color:#57d301;stop-opacity:1" />
+        </linearGradient>
+      </defs>
 			<title>wave</title>
-			<path fill="#b2dee1" transform="scale(1, -1) translate(0, -100)">
+			<path fill="url(#grad1)" transform="scale(1, -1) translate(0, -100)">
 
-				<animate id="animation-to-check" repeatcount="indefinite" fill="freeze" attributename="d" dur="1s" values="M0,30.67c26.69,20.46,66.07,43.23,110.33,38C157.78,63.05,166.2,30.53,215,18.33,281.53,1.7,299.21,53.83,383.67,54,467,54.17,481.13,3.48,558,14.67c49.48,7.2,57.62,30.23,107.33,36C720.61,57.07,768.55,35.31,800,16.33v144H0Z;
+				<animate id="animation-to-check" repeatcount="indefinite" fill="url(#grad1)" attributename="d" dur="1s" values="M0,30.67c26.69,20.46,66.07,43.23,110.33,38C157.78,63.05,166.2,30.53,215,18.33,281.53,1.7,299.21,53.83,383.67,54,467,54.17,481.13,3.48,558,14.67c49.48,7.2,57.62,30.23,107.33,36C720.61,57.07,768.55,35.31,800,16.33v144H0Z;
 				
 																					M0,11.33c26.69,20.47,35.74,83.24,80,78,47.45-5.61,41.2-35.47,90-47.66C236.53,25,226.21,71.83,310.67,72c83.33.17,102.13-47.85,179-36.67,49.48,7.2,149.88,37.45,199.59,43.21C744.54,85,768.55,47.64,800,28.67V160.32H0Z;
 				
