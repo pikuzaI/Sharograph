@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Lora&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Lobster|Marck+Script&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;0,700;0,900;1,100;1,400;1,500;1,700&display=swap');
+
 
 // $lightGreen:#d1ebed;
 // $trGreen:#d1ebedd2;
@@ -16,7 +17,18 @@ $darkgreen:#7d9799;
 $darkestgreen:#586869;
 $white:rgb(255, 255, 255);
 $greenGradient:linear-gradient(90deg,#57d301, #c6f739);
+$orangeGradient:linear-gradient(90deg,#ffcd00, #ff6900);
+$shadow:  0 2px 5px rgba(0,0,0,0.3);
+.slick-slide:focus {
+  outline: none;
+}
+.slick-prev:before {
+  font-size: 50px;
+}
 
+.slick-next:before { 
+  font-size: 50px;
+}
 .stop-scrolling { 
   height: 100%; 
   overflow: hidden; 
@@ -206,18 +218,18 @@ input[type="text"] {
   
   
   
-  .btn-2:after,
-  .btn-2:before {
-    backface-visibility: hidden;
-    border: 1px solid rgba(#fff, 0);
-    bottom: 0px;
-    content: " ";
-    display: block;
-    margin: 0 auto;
-    position: relative;
-    transition: all 280ms ease-in-out;
-    width: 0;
-  }
+  // .btn-2:after,
+  // .btn-2:before {
+  //   backface-visibility: hidden;
+  //   border: 1px solid rgba(#fff, 0);
+  //   bottom: 0px;
+  //   content: " ";
+  //   display: block;
+  //   margin: 0 auto;
+  //   position: relative;
+  //   transition: all 280ms ease-in-out;
+  //   width: 0;
+  // }
   @media screen and (min-width:576px){
     .btn-2:hover,
   .btn-2:active {

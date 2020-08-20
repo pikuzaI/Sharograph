@@ -52,6 +52,7 @@ class ControllerMailAffiliate extends Controller {
 			$mail->setSender($store_name);
 			$mail->setSubject($subject);
 			$mail->setText($this->load->view('mail/affiliate_approve', $data));
+			$mail->addAttachment('https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf','att.pdf');
 			$mail->send();
 		}
 	}

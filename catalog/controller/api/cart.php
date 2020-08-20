@@ -1,12 +1,5 @@
 <?php
 class ControllerApiCart extends Controller {
-	public function addimg(){
-
-		// $json = $this->session->getId();
-		$json = $_POST;
-		$this->response->addHeader('Content-Type: application/json');
-		$this->response->setOutput(json_encode($json));
-	}
 	public function add() {
 		$this->load->language('api/cart');
 

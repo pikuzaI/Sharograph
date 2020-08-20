@@ -46,10 +46,10 @@ class ControllerMailCustomer extends Controller {
 			$mail->smtp_password = html_entity_decode($this->config->get('config_mail_smtp_password'), ENT_QUOTES, 'UTF-8');
 			$mail->smtp_port = $this->config->get('config_mail_smtp_port');
 			$mail->smtp_timeout = $this->config->get('config_mail_smtp_timeout');
-	
 			$mail->setTo($customer_info['email']);
 			$mail->setFrom($this->config->get('config_email'));
 			$mail->setSender($store_name);
+			$mail->addAttachment('dummy.pdf');
 			$mail->setSubject($subject);
 			$mail->setText($this->load->view('mail/customer_approve', $data));
 			$mail->send(); 

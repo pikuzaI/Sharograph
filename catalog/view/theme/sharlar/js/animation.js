@@ -1,7 +1,5 @@
 const balloonsArray = [...document.querySelectorAll(".balloon-hover")];
 const blocks = [...document.querySelectorAll(".img-block")];
-
-
 function mouseOver(event, item, value = 2, scale = 1.2, imageOnly = false) {
   let rect = item.getBoundingClientRect();
   let pX = (event.clientX - rect.left).toFixed();

@@ -1,5 +1,18 @@
 <?php
 class ControllerApiOrder extends Controller {
+	public function addimg(){
+		$this->load->model('checkout/order');
+		$sessId = $this->session->getId();
+		$json = $_POST;
+		$this->response->addHeader('Content-Type: application/json');
+		$this->model_checkout_order->addImage($sessId,$json['image']);
+		 $this->response->setOutput(json_encode($sessId,$json['image']));
+	}
+	public function getimg($sessionId){
+		$this->load->model('checkout/order');
+		$image = $this->model_checkout_order->getImage($sessionId);
+		return $image;
+	}
 	public function add() {
 		$this->load->language('api/order');
 

@@ -6,25 +6,25 @@ $screen-xl: 1920px;
 
 @mixin media($breakpoint) {
   @if $breakpoint == "xs" {
-    @media (max-width: $screen-xs) {
+    @media (min-width: $screen-xs) {
       @content;
     }
   } @else if $breakpoint == "sm" {
-    @media (max-width: $screen-sm) {
+    @media (min-width: $screen-sm) {
       @content;
     }
   } @else if $breakpoint == "md" {
-    @media (max-width: $screen-md) {
+    @media (min-width: $screen-md) {
       @content;
     }
   }
   @else if $breakpoint == "lg" {
-    @media (max-width: $screen-lg) {
+    @media (min-width: $screen-lg) {
       @content;
     }
   }
   @else if $breakpoint == "xl" {
-    @media (max-width: $screen-xl) {
+    @media (min-width: $screen-xl) {
       @content;
     }
   }
