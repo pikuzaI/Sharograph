@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Lora&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Lobster|Marck+Script&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;0,700;0,900;1,100;1,400;1,500;1,700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;500;700;800;900&display=swap');
 
 // $lightGreen:#d1ebed;
 // $trGreen:#d1ebedd2;
@@ -13,19 +13,40 @@ $lightGreen:#d1ebed;
 $trGreen:#d1ebedd2;
 $trDarkGreen:#d1ebede1;
 $maingreen:#57d301;
+$mainYellow:#fece00;
+$maingreenLighter:#46a501;
 $darkgreen:#7d9799;
 $darkestgreen:#586869;
 $white:rgb(255, 255, 255);
+$grey:#e4e4e4;
 $greenGradient:linear-gradient(90deg,#57d301, #c6f739);
 $orangeGradient:linear-gradient(90deg,#ffcd00, #ff6900);
 $shadow:  0 2px 5px rgba(0,0,0,0.3);
-.slick-slide:focus {
-  outline: none;
+.theme-button{
+  border-radius:15px;
+  padding:10px;
+  font-size:2rem;
+  font-weight:bold;
+  transition:all .2s ease-in-out;
+}
+.slick-slide {
+  outline: none!important;
+}
+.slick-prev,.slick-next{
+	z-index:100;
+}
+.slick-list{
+  padding-top:50px;
+}
+.slick-prev{
+  left:-14px;
 }
 .slick-prev:before {
   font-size: 50px;
 }
-
+.slick-next{
+  right:8px;
+}
 .slick-next:before { 
   font-size: 50px;
 }
@@ -35,24 +56,24 @@ $shadow:  0 2px 5px rgba(0,0,0,0.3);
 } 
 
 //////////////////ScrollBar//////////////////////////
-::-webkit-scrollbar {
-  width: 10px;
-}
+// ::-webkit-scrollbar {
+//   width: 10px;
+// }
 
-/* Track */
-::-webkit-scrollbar-track {
-  background: #e0e0e0;
-}
+// /* Track */
+// ::-webkit-scrollbar-track {
+//   background: #e0e0e0;
+// }
 
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: $darkestgreen;
-}
+// /* Handle */
+// ::-webkit-scrollbar-thumb {
+//   background: $darkestgreen;
+// }
 
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: $darkgreen;
-}
+// /* Handle on hover */
+// ::-webkit-scrollbar-thumb:hover {
+//   background: $darkgreen;
+// }
 //////////////////////////////////
 // .logo {
 //   width: 20%;
@@ -91,7 +112,8 @@ input[type="text"] {
 
 }
 .curvy-h{
-  font-family: 'Marck Script', cursive;
+  font-family: 'Roboto', sans-serif;
+  font-weight:bold;
 }
 .cursor::before {
   content: "";
@@ -383,10 +405,6 @@ input[type="text"] {
 	color:#586869;
 	background:rgb(228, 246, 247);
 	}
-.product-image{
-  border:3px solid $maingreen;
-	border-radius:20px;
-}
 .product-btns{
   display:flex;
   justify-content: space-around;

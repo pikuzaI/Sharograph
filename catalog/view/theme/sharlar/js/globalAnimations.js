@@ -44,4 +44,8 @@ window.onscroll = function() {
   }
   prevScrollpos = currentScrollPos;
 }
+$(".scroll-bottom").click(function() {
+  $("html, body").animate({ scrollTop: $(document).height() }, "slow");
+  return false;
+});
 ///////////////////////////////////////MENU//////////////////////////////////////

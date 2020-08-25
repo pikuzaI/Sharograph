@@ -140,12 +140,12 @@
 								<div class="image cursor-change">
 									<a href="{{ product.href }}"><img src="{{ product.thumb }}" alt="{{ product.name }}" title="{{ product.name }}" class="img-responsive"/></a>
 								</div>
-								<div>
+								<div class="product-info">
 									<div class="caption">
 										<h4>
 											<a href="{{ product.href }}">{{ product.name }}</a>
 										</h4>
-										<p>{{ product.description }}</p>
+										{# <p>{{ product.description }}</p> #}
 										{% if product.price %}
 											<div class="price-wrapper">
 												<p class="price">
@@ -164,16 +164,18 @@
 										{% endif %}
 									</div>								
 									{% if product.quantity <= 0 %}
-									{{ text_nostock }}
+									<p class="out-of-stock">
+									{{ text_nostock }} 😢
+									</p>	
 									{% else %}
 									<div class="button-group">
 										<button type="button" onclick="cart.add('{{ product.product_id }}', '{{ product.minimum }}');">
 											<i class="fa fa-shopping-cart"></i>
 											<span class="hidden-xs hidden-sm hidden-md">{{ button_cart }}</span>
 										</button>
-										<button type="button" data-toggle="tooltip" title="{{ button_wishlist }}" onclick="wishlist.add('{{ product.product_id }}');">
+										{# <button type="button" data-toggle="tooltip" title="{{ button_wishlist }}" onclick="wishlist.add('{{ product.product_id }}');">
 											<i class="fa fa-heart"></i>
-										</button>
+										</button> #}
 										<!-- <button type="button" data-toggle="tooltip" title="{{ button_compare }}" onclick="compare.add('{{ product.product_id }}');">
 											<i class="fa fa-exchange"></i>
 										</button> -->

@@ -32,3 +32,4 @@ $_['text_limit']        = 'Show:';
 // Entry
 $_['entry_search']      = 'Search Criteria';
 $_['entry_description'] = 'Search in product descriptions';
+$_['text_nostock'] = 'Out of stock';

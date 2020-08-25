@@ -3,6 +3,10 @@
 	--green-dark:#586869;
 	--green-light:#57d301;
 	--green-middle:#a1a1a1;
+	--footer-color:#57d301;
+	--green-gradient:radial-gradient(#c6f739,#57d301);
+	--main-shadow:0 2px 5px rgba(0,0,0,0.3);
+	/* --green-gradient:linear-gradient(90deg,#58d30169, #c8f7399a); */
 	/* --green-dark:#586869;
 	--green-light:#b2dee1;
 	--green-middle:#a1a1a1;
@@ -14,7 +18,10 @@ strong{
 body {
 	font-weight: 400;
 	color: var(--green-dark);
-	font-size: 12px;
+	background-image:url('../image/assets/main-bg/pattern.jpg');
+	background-size:100px 168px;
+	background-attachment: fixed;
+	font-size: 10px;
 	line-height: 20px;
 	width: 100%;
 	overflow-x:hidden;
@@ -172,6 +179,9 @@ div.required .control-label:before {
 	text-shadow: 0 1px 0 #FFF;
 }
 /*header*/
+header{
+	background:#ffffff;
+}
 .header-wrapper{
 	width:80%;
 	padding:10px 0;
@@ -553,7 +563,6 @@ div.required .control-label:before {
 footer {
 	position:relative;
 	background:linear-gradient(90deg,#c6f739,#57d301);
-	color: #7d9799;
 	z-index:2;
 }
 .footer-wrapper{
@@ -569,18 +578,20 @@ footer {
 	padding:25px 0;
 }
 .footer-wrapper .extra-links a{
+	color:white;
 	font-weight: bold;
 }
 .footer-wrapper .footer-inner{
 	width:100%;
+	color:var(--footer-color);
 }
 .footer-wrapper .footer-inner .contacts-title-wrapper{
 	width:100%;
 	text-align: center;
 }
 .footer-wrapper .footer-inner .contacts-title-wrapper h1{
-	font-size: 70px;
-	color:var(--green-dark);
+	font-size: 10px;
+	color:white;
 	margin:20px 0!important;
 	line-height:100%!important;
 }
@@ -590,6 +601,10 @@ footer {
 .contacts-body .contacts-body-wrapper{
 	display: flex;
 	flex-direction: column;
+	padding:15px;
+	background-color:white;
+	border-radius:20px;
+
 }
 .contacts-body .contacts-body-wrapper .shedule-wrapper{
 	width:100%;
@@ -601,8 +616,11 @@ footer {
 .contacts-body .contacts-body-wrapper .shedule-wrapper .shedule-container{
 	display:flex;
 	flex-direction: column;
+	text-align: center;
 }
 .contacts-body .contacts-body-wrapper .shedule-wrapper .shedule-inner h2{
+	color:var(--footer-color);
+	white-space: nowrap;
 	font-size:40px;
 	line-height: 100%!important;
 	margin:0;
@@ -619,7 +637,7 @@ footer {
 	width:100%;
 	max-width:600px;
 	height: auto;
-	border:3px solid var(--green-dark);
+	border:3px solid var(--footer-color);
 	border-radius: 15px;
 }
 .contacts-body .contacts-body-wrapper .info-wrapper{
@@ -628,6 +646,9 @@ footer {
 .contacts-body .contacts-body-wrapper .info-wrapper .contacts-info{
 	display: flex;
 	flex-direction: column;
+}
+.contacts-body .contacts-body-wrapper .info-wrapper .contacts-info strong{
+	color:var(--footer-color);
 }
 .contacts-body .contacts-body-wrapper .info-wrapper .contacts-info span{
 	margin:10px 0;
@@ -646,7 +667,7 @@ footer {
 .contacts-body .contacts-body-wrapper .info-wrapper .social-links .social-link{
 	width:50px;
 	height: 50px;
-	border:2px solid var(--green-dark);
+	border:2px solid var(--footer-color);
 	border-radius: 15px;
 	position: relative;
 	overflow: hidden;
@@ -674,6 +695,7 @@ footer {
 .contacts-body .contacts-body-wrapper .info-wrapper .social-links .social-link a i{
 	font-size: 25px;
 	transition: color .3s ease-in-out;
+	color:var(--footer-color);
 }
 .contacts-body .contacts-body-wrapper .info-wrapper .social-links .social-link:hover a .fa-facebook{
 	color:rgb(72, 72, 245);
@@ -1217,20 +1239,29 @@ background:rgb(228, 246, 247);
 	max-width:1600px;
 }
 .product-thumb {
-	 border: 2px solid var(--green-light);  
-	 background-color:white;
+	 /* border: 2px solid var(--green-light);   */
+	 background:var(--green-gradient);
 	border-radius:20px; 
 	margin-bottom: 20px;
 	overflow: auto;
 	position: relative;
-	
+	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+.product-thumb .product-info{
+	width:100%;
+	margin:0 auto;
+	padding:5px 5px 15px 5px;
+	background:#ffffff;
+	border-top-left-radius: 20px;
+	border-top-right-radius: 20px;
+	box-shadow:var(--main-shadow);
+	text-align:center;
 }
 .product-thumb .image {
 	text-align: center;
-	background-color:white;
 	border-radius:30px;
-	border-bottom:2px solid var(--green-light);
-	border-top:2px solid var(--green-light);
+	/* border-bottom:2px solid var(--green-light);
+	border-top:2px solid var(--green-light); */
 	width:90%;
 	margin:0 auto;
 	margin-top:15px;
@@ -1266,7 +1297,7 @@ background:rgb(228, 246, 247);
 }
 .product-thumb .caption {
 	padding: 0 20px;
-	min-height: 180px;
+	min-height: 50px;
 	
 }
 .product-thumb .caption h4 a{
@@ -1279,7 +1310,6 @@ background:rgb(228, 246, 247);
 
 @media (max-width: 1200px) {
 .product-grid .product-thumb .caption {
-	min-height: 210px;
 	padding: 0 10px;
 }
 }
@@ -1319,15 +1349,13 @@ h2.price {
 	justify-content: center	;
 }
 .product-thumb .price {
-	display: inline-block;
-	background-color:var(--green-light);
-	padding:15px 10px;
-	border-radius: 15px;
-	color: #7d9799;
-	font-size: 25px;
-	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.041), inset 0 -1px 1px rgba(0, 0, 0, 0.027),
-                inset 0 1px 2px rgba(0, 0, 0, 0.021), inset 0 -1px 2px rgba(0, 0, 0, 0.048),
-                inset 0 1px 6px rgba(0, 0, 0, 0.055), inset 0 -1px 6px rgba(0, 0, 0, 0.027);
+	color:var(--green-light);
+	font-size:3rem;
+	margin:20px 0;
+}
+.product-thumb .out-of-stock{
+	font-size:2rem;
+	color:red;
 }
 .product-thumb .price .price-tax{
 	
@@ -1354,7 +1382,7 @@ h2.price {
 	overflow: auto;
 	width:90%;
 	margin:0 auto;
-	margin-bottom:15px;
+	
 }
 .product-list .product-thumb .button-group {
 	border-left: 1px solid #ddd;
@@ -1377,7 +1405,7 @@ h2.price {
 	text-transform: uppercase;
 	transition: all .3s ease-in-out;
 	flex: 0 1 auto;
-	width:50%;
+	width:100%;
 	position: relative;
 }
 .product-thumb .button-group button span{
@@ -1391,7 +1419,6 @@ h2.price {
 	background-color: var(--green-light);
 	text-decoration: none;
 	cursor: pointer;
-	width: 60%;;
 }
 .product-thumb .button-group button:hover span{	
 }
@@ -1413,17 +1440,14 @@ h2.price {
 	width: 100%;
 }
 .image-additional a {
-	margin-bottom: 20px;
-	padding: 5px;
-	display: block;
-	border: 1px solid #ddd;
+	
 }
 .image-additional {
-	max-width: 78px;
+	/* max-width: 78px; */
 }
 .thumbnails .image-additional {
-	float: left;
-	margin-left: 20px;
+	/* float: left;
+	margin-left: 20px; */
 }
 
 @media (min-width: 1200px) {

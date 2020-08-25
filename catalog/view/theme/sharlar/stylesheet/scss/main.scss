@@ -1,11 +1,12 @@
 @import "variables";
 @import "media";
+@import "product";
 *,
 body {
   margin: 0;
   padding: 0;
   font-size: 15px;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 body{
   overflow-x:hidden;
@@ -166,6 +167,7 @@ header {
   transition:all .7s cubic-bezier(0.86, 0, 0.07, 1);
   z-index:2;
     & .menu-inner {
+      position: relative;
       width: 100%;
       max-width:1600px;
       margin: 0 auto;
@@ -190,7 +192,8 @@ header {
           background-size: cover;
           }
           & a {
-            text-decoration: none;
+						text-decoration: none;
+						white-space: nowrap;
             color: $white;
             &:hover{
               background:transparent!important;
@@ -199,18 +202,118 @@ header {
         }
       }
     }
-  
 }
+.mobile-menu{
+  position:absolute;
+  left:50%;
+  transform:translate(-50%,-110%);
+  width:95%;
+  padding:5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background:white;
+  border-radius:15px;
+  box-shadow: $shadow;
+  z-index:100;
+  overflow: hidden;
+  transition:all .5s ease-in-out;
+  & .mobile-menu-inner{
+    width:95%;
+    list-style:none;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    & .mobile-menu-item{
+      width:100%;
+      border-bottom: 1px solid $maingreen;
+      & a{
+        color:$maingreen;
+        font-size:20px;
+      }
+    }
+    & .mobile-menu-item:nth-child(4){
+      border:none;
+    }
+  }
+}
+.mobile-menu-background{
+  display: none;
+  position:fixed;
+  top:0;
+  left:0;
+  width:100vw;
+  height:100vh;
+  z-index:99;
+}
+.is-visible{
+  display: block;
+}
+.is-collapsed{
+  transform:translate(-50%,70%);
+}
+///BURGER
+.burger{
+  display: flex;
+  align-items: center;
+  @include media("md"){
+    display: none;
+  }
+}
+.burger-btn {
+	position: relative;
+	display:  inline-block;
+	width: 30px;
+	height: 30px;
+  & span{
+    margin: 0 auto;
+    position: relative;
+    top: 12px;
+    width: 30px;
+  	height: 6px;
+	  background-color: $white;
+    display: block;
+    transition:all .3s ease-in-out;
+    -webkit-transition-duration: 0.2s; transition-duration: 0s;
+	-webkit-transition-delay: 0.2s; transition-delay: 0.2s;
+    &::before, &::after{
+      position: absolute;
+      content: '';
+      width: 30px;
+	    height: 6px;
+	    background-color: $white;
+	    display: block;
+    }
+    &::before{
+      margin-top: -12px;
+    }
+    &::after{
+      margin-top: 12px;
+    }
+  }
+}
+
 .home-menu{
   & .menu-inner{
-    width:90%;
+    width:78%;
+    padding:10px 0;
     justify-content: space-between;
     & .logo-wrapper{
     }
     & .menu-list{
-      width:40%;
+      display:none;
+      @include media("md"){
+        width:60%;
+        display:flex;
+       }
+       @include media("lg"){
+        width:50%;
+        display:flex;
+       }
     }
   }
+  
 }
 .logo-wrapper{
   & h1{
@@ -230,7 +333,6 @@ header {
   max-width: 1920px;
   margin: 0 auto;
 	overflow: hidden;
-	background: white;
   background-attachment: fixed;
   & #scene{
     width: 100%;
@@ -369,10 +471,6 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  // background: url("../assets/sky-bg.jpg");
-  // background-repeat: no-repeat;
-  // background-size: cover;
-  // background-position: center center;
   position: relative;
   & .section-1-bg{
     position: absolute;
@@ -381,9 +479,9 @@ header {
     width:100%;
     height:100%;
     background: url("../../image/assets/parallax/hero.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
   }
   & .section-1-title {
     position: absolute;
@@ -483,34 +581,56 @@ header {
 }
 
 #section-2 {
-  padding: 200px 0px 400px 0px;
+  // padding: 100px 0px;
   margin-top:0px;
   background: $orangeGradient;
   position: relative;
-  & #svg-wave-top {
+  // @include media('sm') {
+  //   padding: 200px 0px;
+  // }
+  // @include media('lg') {
+  //   padding: 200px 0px 300px 0px;
+  // }
+  // @include media('lg') {
+  //   padding: 200px 0px 400px 0px;
+  // }
+  // & #svg-wave-top {
+  //   position: absolute;
+  //   top: -0px;
+  //   width: 100%;
+  //   height: auto;
+  //   & path{
+  //     // fill:$maingreen;
+  //   }
+
+  // }
+  // & #svg-wave-bottom {
+  //   position: absolute;
+  //   bottom: 0;
+  //   width: 100%;
+  //   height: auto;
+  //   fill:$maingreen;
+    
+	// }
+	& #svg-wave-top {
     position: absolute;
-    top: -0px;
-    width: 100%;
-    height: auto;
-    & path{
-      // fill:$maingreen;
-    }
+    bottom:-198px;
+		width: 100%;
+		height:200px;
 
   }
   & #svg-wave-bottom {
     position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: auto;
-    fill:$maingreen;
-    
+    top: -138px;
+		width: 100%;
+		height: 140px;    
   }
   & .wrapper {
     text-align: center;
     position:relative;
     & h1 {
       font-size: 3em;
-      color: $darkgreen;
+      color: $white;
     }
     & .balloon-types {
       width: 100%;
@@ -522,21 +642,21 @@ header {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        // align-items: center;
 
         @include media('sm') {
           justify-content: space-between;
         }
 
         & .balloon-type {
-          // 
-          // border-radius: 15px;
           position: relative;
           & a {
             text-decoration: none;
             color: #000;
             & h3 {
-              color:$darkgreen;             
+              color:$white;
+              &:focus{
+                outline: none;
+              }             
             }
             & .balloon-hover {
               width:100%;
@@ -603,7 +723,9 @@ header {
       justify-content: center;
       align-items:center;
       & #root{
-        // width:30%;
+				// width:30%;
+				display:flex;
+				justify-content: center;
         margin:10px auto;
       }
     }

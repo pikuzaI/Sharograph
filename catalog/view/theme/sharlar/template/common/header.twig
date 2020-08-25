@@ -22,7 +22,7 @@
 <script src="catalog/view/javascript/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
 <link href="catalog/view/javascript/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 <link href="//fonts.googleapis.com/css?family=Open+Sans:400,400i,300,700" rel="stylesheet" type="text/css" />
-<link href="catalog/view/theme/sharlar/stylesheet/stylesheet.css" rel="stylesheet">
+<link href="catalog/view/theme/sharlar/stylesheet/stylesheet2.css" rel="stylesheet">
 <link href="catalog/view/theme/sharlar/stylesheet/scss/main.css" rel="stylesheet">
 {% for style in styles %}
 <link href="{{ style.href }}" type="text/css" rel="{{ style.rel }}" media="{{ style.media }}" />
@@ -37,6 +37,8 @@
 {% for analytic in analytics %}
 {{ analytic }}
 {% endfor %}
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" 
 </head>
 <body>
 <header>
@@ -51,8 +53,8 @@
       <div class="header-item col-12 col-sm-12 col-md-4 col-lg-3 cart-account">
      {{ language }}
       {{ cart }}     
-      
-        <div class="dropdown account-dropdown"><a href="{{ account }}" title="{{ text_account }}" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> </a>
+      <a href="{{ wishlist }}" class="wishlist-btn" id="wishlist-total" title="{{ text_wishlist }}"><i class="fa fa-heart"></i></a> 
+        {# <div class="dropdown account-dropdown"><a href="{{ account }}" title="{{ text_account }}" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> </a>
           <ul class="dropdown-menu dropdown-menu-right">
             {% if logged %}
             <li><a href="{{ account }}">{{ text_account }}</a></li>
@@ -65,7 +67,7 @@
             <li><a href="{{ login }}">{{ text_login }}</a></li>
             {% endif %}
           </ul>
-        </div> 
+        </div>  #}
         </div>
     </div>
   </div>
