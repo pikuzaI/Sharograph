@@ -1,6 +1,6 @@
 {{ header }}
 <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-<div id="product-product" class="container-fluid">
+<div class="breadcrumbs-wrapper">
 	<ul class="breadcrumbs">
 		{% for breadcrumb in breadcrumbs %}
 		<li>
@@ -8,13 +8,18 @@
 		</li>
 		{% endfor %}
 	</ul>
+	</div>
+<div id="product-product" class="container-fluid">
 	<div id="content" class="product-content-wrapper">{{ content_top }}
 		<div class="product-about">
 			<div class="product-about-column product-about-left">
 				{% if thumb or images %}
 				<div class="product-image-inner">
 					{% if thumb %}
-					<div class="main-image-container white-background">
+					{% if not images %}
+					{% set full = 'main-image-container-full-height' %}
+					{% endif %}
+					<div class="main-image-container {{full}} white-background">
 						<a class="popup product-image" href="{{ popup }}" title="{{ heading_title }}"><img
 								src="{{ thumb }}" title="{{ heading_title }}" alt="{{ heading_title }}" /></a>
 					</div>
@@ -68,8 +73,8 @@
 			</div>
 			<div class="product-about-column product-about-right white-background">
 				<div class="column-right-inner">
-				<h1 class="product-title">{{ heading_title }}</h1>
-				
+					<h1 class="product-title">{{ heading_title }}</h1>
+
 					{# {% if manufacturer %}
 					<li>{{ text_manufacturer }}
 						<a href="{{ manufacturers }}">{{ manufacturer }}</a>
@@ -77,114 +82,126 @@
 					{% endif %} #}
 					<h4 class="text-stock">{{ text_stock }}
 						{{ stock }}</h4>
-				
-				{% if price %}
-				<ul class="list-unstyled">
-					{% if discounts %}
-					<li>
+
+					{% if price %}
+					<ul class="list-unstyled">
+						{% if discounts %}
+						<li>
+							<hr>
+						</li>
+						{% for discount in discounts %}
+						<li>{{ discount.quantity }}{{ text_discount }}{{ discount.price }}</li>
+						{% endfor %}
+						{% endif %}
+					</ul>
+					{% endif %}
+					<div id="product">
+						{% if options %}
 						<hr>
-					</li>
-					{% for discount in discounts %}
-					<li>{{ discount.quantity }}{{ text_discount }}{{ discount.price }}</li>
-					{% endfor %}
-					{% endif %}
-				</ul>
-				{% endif %}
-				<div id="product">
-					{% if options %}
-					<hr>
-					<h3>{{ text_option }}</h3>
-					{% for option in options %}
-					{% if option.type == 'select' %}
-					<div class="form-group{% if option.required %} required {% endif %}">
-						<label class="control-label"
-							for="input-option{{ option.product_option_id }}">{{ option.name }}</label>
-						<select name="option[{{ option.product_option_id }}]"
-							id="input-option{{ option.product_option_id }}" class="form-control">
-							<option value="">{{ text_select }}</option>
-							{% for option_value in option.product_option_value %}
-							<option value="{{ option_value.product_option_value_id }}">{{ option_value.name }}
-								{% if option_value.price %}
-								({{ option_value.price_prefix }}{{ option_value.price }})
-								{% endif %}
-							</option>
-							{% endfor %}
-						</select>
-					</div>
-					{% endif %}
-					{% endfor %}
-					{% endif %}
-					<div class="form-group">
-						<div class="input-info">
-							<label class="control-label" for="input-quantity">{{ entry_qty }}</label>
-							{% if not special %}
-							<div>
-								<h2 class="price">{{ price }}</h2>
-							</div>
-							{% else %}
-							<div>
-								<span style="text-decoration: line-through;">{{ price }}</span>
-								<h2 class="price">{{ special }}</h2>
-							</div>
-							{% endif %}
+						<h3>{{ text_option }}</h3>
+						{% for option in options %}
+						{% if option.type == 'select' %}
+						<div class="form-group{% if option.required %} required {% endif %}">
+							<label class="control-label"
+								for="input-option{{ option.product_option_id }}">{{ option.name }}</label>
+							<select name="option[{{ option.product_option_id }}]"
+								id="input-option{{ option.product_option_id }}" class="form-control">
+								<option value="">{{ text_select }}</option>
+								{% for option_value in option.product_option_value %}
+								<option value="{{ option_value.product_option_value_id }}">{{ option_value.name }}
+									{% if option_value.price %}
+									({{ option_value.price_prefix }}{{ option_value.price }})
+									{% endif %}
+								</option>
+								{% endfor %}
+							</select>
 						</div>
-						<div class="quantity-input-group">
-							<button class="quantity-btn btn-plus"><i class="fa fa-plus" aria-hidden="true"></i></button>
-						
-						<input type="text" name="quantity" value="{{ minimum }}" size="2" id="input-quantity"
-							class="form-control" />
-						<button class="quantity-btn btn-minus"><i class="fa fa-minus" aria-hidden="true"></i></button>
-					</div>
-						<input type="hidden" name="product_id" value="{{ product_id }}" />
-						<br />
-						<div class="product-buttons">
-							<button class="theme-button cart-add" type="button" id="button-cart" data-loading-text="{{ text_loading }}"
-								class="custom-button">{{ button_cart }}</button>
-							<button class="theme-button wishlist-add" type="button" data-toggle="tooltip" 
-								title="{{ button_wishlist }}" onclick="wishlist.add('{{ product_id }}');">
-								<i class="fa fa-heart"></i>
-							</button>
-							<!-- <button type="button" data-toggle="tooltip" class="custom-button" title="{{ button_compare }}" onclick="compare.add('{{ product_id }}');">
+						{% endif %}
+						{% endfor %}
+						{% endif %}
+						<div class="form-group">
+							<div class="input-info">
+								<label class="control-label" for="input-quantity">{{ entry_qty }}</label>
+								{% if not special %}
+								<div>
+									<h2 class="price">{{ price }}</h2>
+								</div>
+								{% else %}
+								<div>
+									<span style="text-decoration: line-through;">{{ price }}</span>
+									<h2 class="price">{{ special }}</h2>
+								</div>
+								{% endif %}
+							</div>
+							<div class="quantity-input-group">
+								<button class="quantity-btn btn-plus"><i class="fa fa-plus"
+										aria-hidden="true"></i></button>
+
+								<input type="text" name="quantity" value="{{ minimum }}" size="2" id="input-quantity"
+									class="form-control" />
+								<button class="quantity-btn btn-minus"><i class="fa fa-minus"
+										aria-hidden="true"></i></button>
+							</div>
+							<input type="hidden" name="product_id" value="{{ product_id }}" />
+							<br />
+							<div class="product-buttons">
+								<button class="theme-button cart-add" type="button" id="button-cart"
+									data-loading-text="{{ text_loading }}"
+									class="custom-button">{{ button_cart }}</button>
+								<button class="theme-button wishlist-add" type="button" data-toggle="tooltip"
+									title="{{ button_wishlist }}" onclick="wishlist.add('{{ product_id }}');">
+									<i class="fa fa-heart"></i>
+								</button>
+								<!-- <button type="button" data-toggle="tooltip" class="custom-button" title="{{ button_compare }}" onclick="compare.add('{{ product_id }}');">
 									<i class="fa fa-exchange"></i>
 								</button> -->
 
-						</div>
+							</div>
 
+						</div>
+						{% if minimum > 1 %}
+						<div class="alert alert-info">
+							<i class="fa fa-info-circle"></i>
+							{{ text_minimum }}</div>
+						{% endif %}
 					</div>
-					{% if minimum > 1 %}
-					<div class="alert alert-info">
-						<i class="fa fa-info-circle"></i>
-						{{ text_minimum }}</div>
-					{% endif %}
 				</div>
 			</div>
 		</div>
-		</div>
-		<div class="row product-description">
-			{# <ul class="nav nav-tabs">
-				            <li class="active"><a href="#tab-description" data-toggle="tab">{{ tab_description }}</a></li>
-				            {% if attribute_groups %}
-				            <li><a href="#tab-specification" data-toggle="tab">{{ tab_attribute }}</a></li>
-				            {% endif %}
-				            {% if review_status %}
-				            <li><a href="#tab-review" data-toggle="tab">{{ tab_review }}</a></li>
-				            {% endif %}
-				          </ul> #}
-
-			<h1 class="curvy-h">{{ tab_description }}</h1>
-			<div class="tab-content">
-				<div class="tab-pane active" id="tab-description">{{ description }}</div>
+		<div class="product-description white-background">
+			{% if attribute_groups %}
+			<ul class="nav nav-tabs">
+				{% if description|length > 11 %}
+				<li class=" nav-tab-item active"><a href="#tab-description" data-toggle="tab">{{ tab_description }}</a>
+				</li>
+				{% endif %}
 				{% if attribute_groups %}
-				<div class="tab-pane" id="tab-specification">
-					<table class="table table-bordered">
+				<li class="nav-tab-item"><a href="#tab-specification" data-toggle="tab">{{ tab_attribute }}</a></li>
+				{% endif %}
+			</ul>
+			{% endif %}
+			<div class="tab-content">
+				{% if description|length > 11 %}
+				{% set pane1 = "active" %}
+				{% else %}
+				{% set pane2 = "active" %}
+				{% endif %}
+				<div class="tab-pane {{pane1}}" id="tab-description">
+					{% if not attribute_groups %}
+					<h1 class="curvy-h">{{ tab_description }}</h1>
+					{% endif %}
+					{{ description }}</div>
+				{% if attribute_groups %}
+				<div class="tab-pane {{pane2}}" id="tab-specification">
+					<table class="table table-striped">
 						{% for attribute_group in attribute_groups %}
-						<thead>
+						{# <thead>
 							<tr>
 								<td colspan="2">
-									<strong>{{ attribute_group.name }}</strong>
+									<h1><strong>{{ attribute_group.name }}</strong></h1>
 								</td>
 							</tr>
-						</thead>
+						</thead> #}
 						<tbody>
 							{% for attribute in attribute_group.attribute %}
 							<tr>
@@ -197,136 +214,113 @@
 					</table>
 				</div>
 				{% endif %}
-				{# {% if review_status %}
-					            <div class="tab-pane" id="tab-review">
-					              <form class="form-horizontal" id="form-review">
-					                <div id="review"></div>
-					                <h2>{{ text_write }}</h2>
-					                {% if review_guest %}
-					                <div class="form-group required">
-					                  <div class="col-sm-12">
-					                    <label class="control-label" for="input-name">{{ entry_name }}</label>
-					                    <input type="text" name="name" value="{{ customer_name }}" id="input-name" class="form-control" />
-					                  </div>
-					                </div>
-					                <div class="form-group required">
-					                  <div class="col-sm-12">
-					                    <label class="control-label" for="input-review">{{ entry_review }}</label>
-					                    <textarea name="text" rows="5" id="input-review" class="form-control"></textarea>
-					                    <div class="help-block">{{ text_note }}</div>
-					                  </div>
-					                </div>
-					                <div class="form-group required">
-					                  <div class="col-sm-12">
-					                    <label class="control-label">{{ entry_rating }}</label>
-					                    &nbsp;&nbsp;&nbsp; {{ entry_bad }}&nbsp;
-					                    <input type="radio" name="rating" value="1" />
-					                    &nbsp;
-					                    <input type="radio" name="rating" value="2" />
-					                    &nbsp;
-					                    <input type="radio" name="rating" value="3" />
-					                    &nbsp;
-					                    <input type="radio" name="rating" value="4" />
-					                    &nbsp;
-					                    <input type="radio" name="rating" value="5" />
-					                    &nbsp;{{ entry_good }}</div>
-					                </div>
-					                {{ captcha }}
-					                <div class="buttons clearfix">
-					                  <div class="pull-right">
-					                    <button type="button" id="button-review" data-loading-text="{{ text_loading }}" class="custom-button">{{ button_continue }}</button>
-					                  </div>
-					                </div>
-					                {% else %}
-					                {{ text_login }}
-					                {% endif %}
-					              </form>
-					            </div>
-					            {% endif %}#}
 			</div>
 		</div>
 		{% if products %}
-		<h3>{{ text_related }}</h3>
-		<div class="row">
+		<div class="related-products-wrapper white-background">
+		<h1 class="text-related">{{ text_related }}</h1>
+		<div class="related-products">
 			{% set i = 0 %}
 			{% for product in products %}
-			{% if column_left and column_right %}
-			{% set class = 'col-xs-8 col-sm-6' %}
-			{% elseif column_left or column_right %}
-			{% set class = 'col-xs-6 col-md-4' %}
-			{% else %}
-			{% set class = 'col-xs-6 col-sm-3' %}
-			{% endif %}
-			<div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-md-4 col-sm-6 col-xs-12">
+			<div class="slick-prod-wrap">
+			<div class="product-layout product-grid">
 				<div class="product-thumb">
-					<div class="image">
+					<div class="image cursor-change">
 						<a href="{{ product.href }}"><img src="{{ product.thumb }}" alt="{{ product.name }}"
 								title="{{ product.name }}" class="img-responsive" /></a>
 					</div>
-					<div class="caption">
-						<h4>
-							<a href="{{ product.href }}">{{ product.name }}</a>
-						</h4>
-						<p>{{ product.description }}</p>
-						{% if product.rating %}
-						<div class="rating">
-							{% for j in 1..5 %}
-							{% if product.rating < j %}
-							<span class="fa fa-stack">
-								<i class="fa fa-star-o fa-stack-1x"></i>
-							</span>
-							{% else %}
-							<span class="fa fa-stack">
-								<i class="fa fa-star fa-stack-1x"></i>
-								<i class="fa fa-star-o fa-stack-1x"></i>
-							</span>
+					<div class="product-info">
+						<div class="caption">
+							<h4>
+								<a href="{{ product.href }}">{{ product.name }}</a>
+							</h4>
+							{# <p>{{ product.description }}</p> #}
+							{% if product.price %}
+							<div class="price-wrapper">
+								<p class="price">
+									{% if not product.special %}
+									{{ product.price }}
+									{% else %}
+									<span class="price-new">{{ product.special }}</span>
+									<span class="price-old">{{ product.price }}</span>
+									{% endif %}
+									{% if product.tax %}
+									<span class="price-tax">{{ text_tax }}
+										{{ product.tax }}</span>
+									{% endif %}
+								</p>
+							</div>
 							{% endif %}
-							{% endfor %}
+						</div>
+						{% if product.quantity <= 0 %}
+						<p class="out-of-stock">
+							{{ text_nostock }} 😢
+						</p>
+						{% else %}
+						<div class="button-group">
+							<button type="button"
+								onclick="cart.add('{{ product.product_id }}', '{{ product.minimum }}');">
+								<i class="fa fa-shopping-cart"></i>
+								<span class="hidden-xs hidden-sm hidden-md">{{ button_cart }}</span>
+							</button>
+							{# <button type="button" data-toggle="tooltip" title="{{ button_wishlist }}" onclick="wishlist.add('{{ product.product_id }}');">
+								<i class="fa fa-heart"></i>
+							</button> #}
+							<!-- <button type="button" data-toggle="tooltip" title="{{ button_compare }}" onclick="compare.add('{{ product.product_id }}');">
+								<i class="fa fa-exchange"></i>
+							</button> -->
 						</div>
 						{% endif %}
-						{% if product.price %}
-						<div class="price-wrapper">
-							<p class="price">
-								{% if not product.special %}
-								{{ product.price }}
-								{% else %}
-								<span class="price-new">{{ product.special }}</span>
-								<span class="price-old">{{ product.price }}</span>
-								{% endif %}
-								{% if product.tax %}
-								<span class="price-tax">{{ text_tax }}
-									{{ product.tax }}</span>
-								{% endif %}
-							</p>
-						</div>
-						{% endif %}
-					</div>
-					<div class="button-group">
-						<button type="button" onclick="cart.add('{{ product.product_id }}', '{{ product.minimum }}');">
-							<span class="hidden-xs hidden-sm hidden-md">{{ button_cart }}</span>
-							<i class="fa fa-shopping-cart"></i>
-						</button>
-						<button type="button" data-toggle="tooltip" title="{{ button_wishlist }}"
-							onclick="wishlist.add('{{ product.product_id }}');">
-							<i class="fa fa-heart"></i>
-						</button>
-						<button type="button" data-toggle="tooltip" title="{{ button_compare }}"
-							onclick="compare.add('{{ product.product_id }}');">
-							<i class="fa fa-exchange"></i>
-						</button>
+
 					</div>
 				</div>
 			</div>
-			{% if column_left and column_right and (i + 1) % 2 == 0 %}
-			<div class="clearfix visible-md visible-sm"></div>
-			{% elseif column_left or column_right and (i + 1) % 3 == 0 %}
-			<div class="clearfix visible-md"></div>
-			{% elseif (i + 1) % 4 == 0 %}
-			<div class="clearfix visible-md"></div>
-			{% endif %}
-			{% set i = i + 1 %}
+		</div>
 			{% endfor %}
 		</div>
+	</div>
+		<script>
+			$('.related-products').slick({
+				infinite: true,
+				slidesToShow: 3,
+				slidesToScroll: 3,
+				arrows: false,
+				dots: true,
+				autoplay: true,
+				autoplaySpeed: 3000,
+				responsive: [
+					{
+						breakpoint: 960,
+						settings: {
+							slidesToShow: 2,
+							slidesToScroll: 2
+						}
+					},
+					{
+						breakpoint: 780,
+						settings: {
+							slidesToShow: 1,
+							slidesToScroll: 1
+						}
+					},
+					{
+						breakpoint: 600,
+						settings: {
+							slidesToShow: 1,
+							slidesToScroll: 1
+						}
+					},
+					{
+						breakpoint: 375,
+						settings: {
+							slidesToShow: 2,
+							slidesToScroll: 2
+						}
+					}
+				]
+			});
+
+		</script>
 		{% endif %}
 		{% if tags %}
 		<p>{{ text_tags }}

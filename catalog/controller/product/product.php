@@ -4,7 +4,7 @@ class ControllerProductProduct extends Controller {
 
 	public function index() {
 		$this->load->language('product/product');
-
+		$this->load->language('product/category');
 		$data['breadcrumbs'] = array();
 
 		$data['breadcrumbs'][] = array(

@@ -18,7 +18,10 @@ $maingreenLighter:#46a501;
 $darkgreen:#7d9799;
 $darkestgreen:#586869;
 $white:rgb(255, 255, 255);
-$grey:#e4e4e4;
+$grey:#b4b4b4;
+$greyLight:#e4e4e4;
+$greyDarker:#b9b9b9;
+$mainRed:#ff482f;
 $greenGradient:linear-gradient(90deg,#57d301, #c6f739);
 $orangeGradient:linear-gradient(90deg,#ffcd00, #ff6900);
 $shadow:  0 2px 5px rgba(0,0,0,0.3);
@@ -29,11 +32,24 @@ $shadow:  0 2px 5px rgba(0,0,0,0.3);
   font-weight:bold;
   transition:all .2s ease-in-out;
 }
+#app-body{
+  background:#fff;
+  & .bg-curve{
+    z-index:0;
+  }
+}
+
+button:focus{
+  outline:none!important;
+}
+a:focus{
+  outline:none!important;
+}
 .slick-slide {
   outline: none!important;
 }
 .slick-prev,.slick-next{
-	z-index:100;
+	z-index:15;
 }
 .slick-list{
   padding-top:50px;
@@ -112,7 +128,7 @@ input[type="text"] {
 
 }
 .curvy-h{
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-weight:bold;
 }
 .cursor::before {
@@ -412,15 +428,7 @@ input[type="text"] {
     width:30%;
   }
 }
-.product-description{
-  width:90%;
-  margin:0 auto;
-  background:$maingreen;
-  padding:20px;
-  margin:50px 0;
-  border-radius:30px;
-  overflow:hidden;
-}
+
 // .cart-menu{
 //   border:2px solid $maingreen;
 //   border-radius:20px;

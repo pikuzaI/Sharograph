@@ -1,7 +1,8 @@
 .white-background{
     background:white;
-    border-radius:20px;
+    border-radius:15px;
     box-shadow: $shadow;
+    overflow: hidden;
 }
 .product-content-wrapper{
     width:95%;
@@ -23,10 +24,6 @@
         flex-direction:row;
       }
 }
-.product-about-column{
-    
-    
-}
 .product-about-left{
     width:100%;
     display: flex;
@@ -34,6 +31,7 @@
     @include media("md"){
         width:40%;
         margin-right:20px;
+        margin-bottom:0px;
       }
 }
 .product-about-right{
@@ -63,6 +61,10 @@
            }
        }
     }
+}
+.main-image-container-full-height{
+    height: 100%!important;
+    margin:0!important;
 }
 .slick-list, .slick-track{
     height: 100%;
@@ -191,22 +193,95 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color:$grey;
+        background-color:$greyLight;
         color:#000;
         font-size:2rem;
         font-weight:bold;
         border-radius: 15px;
         border:none;
+        transition:all .1s linear;
+        &:hover{
+            background:$greyDarker;
+        }
+    }
+    & .btn-plus{
+        &:active{
+            background:$maingreen;
+        }
+    }
+    & .btn-minus{
+        &:active{
+            background:$mainRed;
+        }
     }
     & #input-quantity{
         width:50%;
         display:inline-block;
         padding:22px 10px;
         line-height:140%;
-        background:$grey;
+        background:$greyLight;
         border-radius:15px;
         border:none;
+        text-align: center;
         font-size:2rem;
         font-weight:bold;
+    }
+}
+.nav-tabs{
+    border-bottom:none;
+    margin:10px 0;
+    & .nav-tab-item{
+        
+        & a{
+            color:#000;
+            border-radius: 15px;
+            transition: all .2s ease;
+            &:hover{
+                border:1px solid $greyLight!important;
+                background-color:#fff!important;
+            }
+        }
+    }
+    & .active{
+        & a{
+            &:hover{
+                background:$greyLight!important;
+                font-weight:bold;
+                border:none!important;
+            }
+            background:$greyLight!important;
+            font-weight:bold;
+            border:none!important;
+        }
+    }
+}
+.product-description{
+    margin-top:20px;
+    padding:50px;
+    & td{
+        padding:15px!important;
+    }
+}
+.related-products-wrapper{
+    margin-top:20px;
+    display:flex;
+    flex-direction: column;
+    & .text-related{
+        text-align:center;
+        font-weight: bold;
+    }
+}
+.slick-prod-wrap{
+    & .product-layout{
+        width:97%;
+        margin:0 auto;
+    }
+}
+.slick-dots{
+    & li{
+        & button::before{
+            font-size:10px!important;
+            color:$maingreen!important;
+        }
     }
 }
