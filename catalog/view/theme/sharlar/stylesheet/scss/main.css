@@ -83,7 +83,7 @@ input[type="text"] {
 .cursor {
   position: absolute;
   background: transparent;
-  border: 1px solid #7d9799;
+  border: 0px solid #7d9799;
   width: 45px;
   height: 45px;
   border-radius: 100%;
@@ -483,7 +483,6 @@ input[type="text"] {
   border-radius: 15px;
   -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
           box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-  overflow: hidden;
 }
 
 .product-content-wrapper {
@@ -498,13 +497,7 @@ input[type="text"] {
           flex-direction: column;
 }
 
-@media (min-width: 600px) {
-  .product-content-wrapper {
-    width: 80%;
-  }
-}
-
-@media (min-width: 960px) {
+@media (min-width: 1280px) {
   .product-content-wrapper {
     width: 70%;
   }
@@ -542,9 +535,15 @@ input[type="text"] {
 
 @media (min-width: 960px) {
   .product-about-left {
-    width: 40%;
+    width: 50%;
     margin-right: 20px;
     margin-bottom: 0px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .product-about-left {
+    width: 40%;
   }
 }
 
@@ -553,6 +552,12 @@ input[type="text"] {
 }
 
 @media (min-width: 960px) {
+  .product-about-right {
+    width: 50%;
+  }
+}
+
+@media (min-width: 1280px) {
   .product-about-right {
     width: 60%;
   }
@@ -574,6 +579,7 @@ input[type="text"] {
 
 .product-image-inner .main-image-container {
   height: calc(100% - 100px);
+  min-height: 300px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -760,19 +766,19 @@ input[type="text"] {
           align-items: center;
 }
 
-.product-buttons .cart-add {
+.cart-add {
   width: 60%;
   background: #57d301;
   color: #fff;
   border: 2px solid #57d301;
 }
 
-.product-buttons .cart-add:hover {
+.cart-add:hover {
   background: #fff;
   color: #57d301;
 }
 
-.product-buttons .wishlist-add {
+.wishlist-add {
   width: 35%;
   background: #fece00;
   color: #fff;
@@ -780,12 +786,13 @@ input[type="text"] {
   font-size: 3rem;
 }
 
-.product-buttons .wishlist-add:hover {
+.wishlist-add:hover {
   background: #fff;
   color: #fece00;
 }
 
 .quantity-input-group {
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -873,7 +880,13 @@ input[type="text"] {
 
 .product-description {
   margin-top: 20px;
-  padding: 50px;
+  padding: 10px;
+}
+
+@media (min-width: 600px) {
+  .product-description {
+    padding: 50px;
+  }
 }
 
 .product-description td {
@@ -1729,8 +1742,8 @@ header .header-inner .interface .wrapper .interface-inner .account-interface .ac
 }
 
 #section-2 .wrapper .balloon-types .balloon-types-inner .balloon-type a .balloon-hover {
-  width: 100%;
-  max-width: 200px;
+  width: 200px;
+  height: 200px;
   margin: 0 auto;
   border-radius: 50%;
   border: 7px solid white;

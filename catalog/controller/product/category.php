@@ -2,6 +2,7 @@
 class ControllerProductCategory extends Controller {
 	public function index() {
 		$this->load->language('product/category');
+		$this->load->language('univers/uni');
 
 		$this->load->model('catalog/category');
 
@@ -202,6 +203,7 @@ class ControllerProductCategory extends Controller {
 					'price'       => $price,
 					'special'     => $special,
 					'tax'         => $tax,
+					'options'	  => $this->model_catalog_product->getProductOptions($result['product_id']),
 					'minimum'     => $result['minimum'] > 0 ? $result['minimum'] : 1,
 					'rating'      => $result['rating'],
 					'href'        => $this->url->link('product/product', 'path=' . $this->request->get['path'] . '&product_id=' . $result['product_id'] . $url)

@@ -2,17 +2,13 @@
     background:white;
     border-radius:15px;
     box-shadow: $shadow;
-    overflow: hidden;
 }
 .product-content-wrapper{
     width:95%;
     margin:0 auto;
     display:flex;
     flex-direction:column;
-    @include media("sm"){
-        width:80%;
-    }
-    @include media("md"){
+    @include media("lg"){
         width:70%;
     }
 }
@@ -29,14 +25,20 @@
     display: flex;
     margin-bottom:20px;
     @include media("md"){
-        width:40%;
+        width:50%;
         margin-right:20px;
         margin-bottom:0px;
+      }
+      @include media("lg"){
+        width:40%;
       }
 }
 .product-about-right{
     width:100%;
     @include media("md"){
+        width:50%;
+      }
+      @include media("lg"){
         width:60%;
       }
 }
@@ -47,6 +49,7 @@
     justify-content: space-between;
     & .main-image-container{
         height:calc(100% - 100px);
+        min-height:300px;
         display: flex;
         justify-content: center;
         margin-bottom:20px;
@@ -84,6 +87,7 @@
             & img{
                 max-height: 100%;
                 margin:0 auto;
+
             }
         }
     }
@@ -161,29 +165,30 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    & .cart-add{
-        width:60%;
-        background:$maingreen;
-        color:#fff;
-        border:2px solid $maingreen;
-        &:hover{
-            background:#fff;
-            color:$maingreen;
-        }
+}
+.cart-add{
+    width:60%;
+    background:$maingreen;
+    color:#fff;
+    border:2px solid $maingreen;
+    &:hover{
+        background:#fff;
+        color:$maingreen;
     }
-    & .wishlist-add{
-        width:35%;
-        background:$mainYellow;
-        color:#fff;
-        border:2px solid $mainYellow;
-        font-size:3rem;
-        &:hover{
-            background:#fff;
-            color:$mainYellow;
-        }
+}
+.wishlist-add{
+    width:35%;
+    background:$mainYellow;
+    color:#fff;
+    border:2px solid $mainYellow;
+    font-size:3rem;
+    &:hover{
+        background:#fff;
+        color:$mainYellow;
     }
 }
 .quantity-input-group{
+    width:100%;
     display: flex;
     justify-content: space-between;
     margin:15px 0;
@@ -257,7 +262,10 @@
 }
 .product-description{
     margin-top:20px;
-    padding:50px;
+    padding:10px;
+    @include media("sm"){
+        padding:50px;
+    }
     & td{
         padding:15px!important;
     }

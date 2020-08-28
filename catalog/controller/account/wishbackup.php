@@ -17,15 +17,8 @@ class ControllerAccountWishList extends Controller {
 
 		if (isset($this->request->get['remove'])) {
 			// Remove Wishlist
-			if ($this->customer->isLogged()) {
-				$this->model_account_wishlist->deleteWishlist($this->request->get['remove']);
-				} else {
-				$prods = $this->session->data['wishlist'];
-				$this->session->data['wishlist'] = array();
-				foreach ($prods as $prod) if ($prod != $this->request->get['remove']) {
-				$this->session->data['wishlist'][] = $prod;
-				}
-				}
+			$this->model_account_wishlist->deleteWishlist($this->request->get['remove']);
+
 			$this->session->data['success'] = $this->language->get('text_remove');
 
 			$this->response->redirect($this->url->link('account/wishlist'));
@@ -60,15 +53,7 @@ class ControllerAccountWishList extends Controller {
 
 		$data['products'] = array();
 
-		$results = $this->model_account_wishlist->getWishlist();$results = array();
-		if ($this->customer->isLogged()) {
 		$results = $this->model_account_wishlist->getWishlist();
-		} else if (!empty($this->session->data['wishlist'])) {
-		$prods = $this->session->data['wishlist'];
-		foreach ($prods as $prod) {
-		$results[]['product_id'] = $prod;
-		}
-		}
 
 		foreach ($results as $result) {
 			$product_info = $this->model_catalog_product->getProduct($result['product_id']);

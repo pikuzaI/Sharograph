@@ -143,6 +143,7 @@
 									<a href="{{ product.href }}"><img src="{{ product.thumb }}" alt="{{ product.name }}" title="{{ product.name }}" class="img-responsive"/></a>
 								</div>
 								<div class="product-info">
+									<div class="product-info-inner">
 									<div class="caption">
 										<h4>
 											<a href="{{ product.href }}">{{ product.name }}</a>
@@ -171,13 +172,13 @@
 									</p>	
 									{% else %}
 									<div class="button-group">
-										<button type="button" onclick="cart.add('{{ product.product_id }}', '{{ product.minimum }}');">
+										<button class="theme-button cart-add" type="button" onclick="cart.add('{{ product.product_id }}', '{{ product.minimum }}');">
 											<i class="fa fa-shopping-cart"></i>
 											<span class="hidden-xs hidden-sm hidden-md">{{ button_cart }}</span>
 										</button>
-										{# <button type="button" data-toggle="tooltip" title="{{ button_wishlist }}" onclick="wishlist.add('{{ product.product_id }}');">
+										 <button class="theme-button wishlist-add" type="button" data-toggle="tooltip" title="{{ button_wishlist }}" onclick="wishlist.add('{{ product.product_id }}');">
 											<i class="fa fa-heart"></i>
-										</button> #}
+										</button> 
 										<!-- <button type="button" data-toggle="tooltip" title="{{ button_compare }}" onclick="compare.add('{{ product.product_id }}');">
 											<i class="fa fa-exchange"></i>
 										</button> -->
@@ -185,6 +186,7 @@
 									{% endif %}
 									
 								</div>
+							</div>
 							</div>
 						</div>
 					{% endfor %}

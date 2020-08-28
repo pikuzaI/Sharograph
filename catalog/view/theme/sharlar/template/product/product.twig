@@ -134,12 +134,12 @@
 								{% endif %}
 							</div>
 							<div class="quantity-input-group">
-								<button class="quantity-btn btn-plus"><i class="fa fa-plus"
+								<button class="quantity-btn btn-plus" onclick="increaseQuantity('{{product_id}}current')"><i class="fa fa-plus"
 										aria-hidden="true"></i></button>
 
-								<input type="text" name="quantity" value="{{ minimum }}" size="2" id="input-quantity"
-									class="form-control" />
-								<button class="quantity-btn btn-minus"><i class="fa fa-minus"
+								<input type="text" name="quantity" value="{{ minimum }}" data-minimum={{minimum}} data-id="{{product_id}}current" onchange ="inputChange(event,1)" onkeyup="validateNumbers(event)" size="2" id="input-quantity"
+									class="form-control only_uint" />
+								<button class="quantity-btn btn-minus" onclick="decreaseQuantity('{{product_id}}current')"><i class="fa fa-minus"
 										aria-hidden="true"></i></button>
 							</div>
 							<input type="hidden" name="product_id" value="{{ product_id }}" />
@@ -230,6 +230,7 @@
 								title="{{ product.name }}" class="img-responsive" /></a>
 					</div>
 					<div class="product-info">
+						<div class="product-info-inner">
 						<div class="caption">
 							<h4>
 								<a href="{{ product.href }}">{{ product.name }}</a>
@@ -257,15 +258,24 @@
 							{{ text_nostock }} 😢
 						</p>
 						{% else %}
+						<div class="quantity-input-group">
+							<button class="quantity-btn btn-plus" onclick="increaseQuantity('{{product.product_id}}')"><i class="fa fa-plus"
+									aria-hidden="true"></i></button>
+
+							<input type="text" name="quantity" value="{{ minimum }}" data-minimum={{product.minimum}} data-id={{product.product_id}} onchange ="inputChange(event,1)" onkeyup="validateNumbers(event)" size="2" id="input-quantity"
+								class="form-control only_uint" />
+							<button class="quantity-btn btn-minus" onclick="decreaseQuantity('{{product.product_id}}')"><i class="fa fa-minus"
+									aria-hidden="true"></i></button>
+						</div>
 						<div class="button-group">
-							<button type="button"
-								onclick="cart.add('{{ product.product_id }}', '{{ product.minimum }}');">
+							<button class="theme-button cart-add" type="button"
+								onclick="addFromGrid('{{product.product_id}}')">
 								<i class="fa fa-shopping-cart"></i>
 								<span class="hidden-xs hidden-sm hidden-md">{{ button_cart }}</span>
 							</button>
-							{# <button type="button" data-toggle="tooltip" title="{{ button_wishlist }}" onclick="wishlist.add('{{ product.product_id }}');">
+							 <button class="theme-button wishlist-add" type="button" data-toggle="tooltip" title="{{ button_wishlist }}" onclick="wishlist.add('{{ product.product_id }}');">
 								<i class="fa fa-heart"></i>
-							</button> #}
+							</button> 
 							<!-- <button type="button" data-toggle="tooltip" title="{{ button_compare }}" onclick="compare.add('{{ product.product_id }}');">
 								<i class="fa fa-exchange"></i>
 							</button> -->
@@ -273,6 +283,7 @@
 						{% endif %}
 
 					</div>
+				</div>
 				</div>
 			</div>
 		</div>
@@ -286,7 +297,7 @@
 				slidesToScroll: 3,
 				arrows: false,
 				dots: true,
-				autoplay: true,
+				autoplay: false,
 				autoplaySpeed: 3000,
 				responsive: [
 					{
@@ -338,7 +349,6 @@
 	{{ column_right }}
 </div>
 <script type="text/javascript">
-
 	$('select[name=\'recurring_id\'], input[name="quantity"]').change(function () {
 		$.ajax({
 			url: 'index.php?route=product/product/getRecurringDescription',
@@ -359,7 +369,6 @@
 	});
 </script>
 <script type="text/javascript">
-
 	$('#button-cart').on('click', function () {
 		$.ajax({
 			url: 'index.php?route=checkout/cart/add',

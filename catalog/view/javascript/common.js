@@ -133,9 +133,40 @@ $(document).ready(function() {
 	$(document).ajaxStop(function() {
 		$('[data-toggle=\'tooltip\']').tooltip({container: 'body'});
 	});
+	
+	
 });
 
+////////Validation/////////
+function validateNumbers(event){
+	var val = event.target.value;
+	if(isNaN(val) || val===""){
+		event.target.value = event.target.dataset.minimum;
+	}
+	event.target.onpaste = e => e.preventDefault();
+	if(!/^\d*$/.test(val) || +val>9999){
+		event.target.value = val.substr(0,val.length-1);
+	}
+}
+function increaseQuantity(id){
+	$(`[data-id="${id}"]`).val( function(i, oldVal) {
+        let intVal = parseInt(oldVal)
+		intVal <= 9999 && ++intVal;
+		return intVal;
+    });
+}
+function decreaseQuantity(id){
+	$(`[data-id="${id}"]`).val( function(i, oldVal) {
+		let intVal = parseInt(oldVal)
+		intVal > parseInt(this.dataset.minimum) && --intVal;
+		return intVal;
+    });
+}
 // Cart add remove functions
+function addFromGrid(id){
+	var qty = parseInt($(`[data-id="${id}"]`).val());
+	cart.add(id, qty?qty:1);
+}
 var cart = {
 	'add': function(product_id, quantity) {
 		$.ajax({
