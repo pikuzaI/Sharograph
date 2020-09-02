@@ -18,3 +18,4 @@ $_['column_model']  = 'Model';
 $_['column_stock']  = 'Stock';
 $_['column_price']  = 'Unit Price';
 $_['column_action'] = 'Action';
+$_['text_rem'] = 'You have deleted item from <a href="%s">Wishlist</a>!';

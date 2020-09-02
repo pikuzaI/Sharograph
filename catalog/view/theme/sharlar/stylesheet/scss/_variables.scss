@@ -25,12 +25,46 @@ $mainRed:#ff482f;
 $greenGradient:linear-gradient(90deg,#57d301, #c6f739);
 $orangeGradient:linear-gradient(90deg,#ffcd00, #ff6900);
 $shadow:  0 2px 5px rgba(0,0,0,0.3);
+.white-background{
+  background:white;
+  border-radius:15px;
+  box-shadow: $shadow;
+}
+.green-btn{
+  background:$maingreen;
+  color:#fff;
+  border:2px solid $maingreen;
+  &:hover{
+      background:#fff;
+      color:$maingreen;
+  }
+}
+.yellow-btn{
+  background:$mainYellow;
+  color:#fff;
+  border:2px solid $mainYellow;
+  font-size:3rem;
+  &:hover{
+      background:#fff;
+      color:$mainYellow;
+  }
+}
+
+//if in wishlist 
+.in_wl{
+    background:$mainRed;
+    border:2px solid $mainRed;
+    color:#fff;
+}
 .theme-button{
   border-radius:15px;
   padding:10px;
   font-size:2rem;
   font-weight:bold;
   transition:all .2s ease-in-out;
+  & i{
+    vertical-align: middle;
+  }
 }
 #app-body{
   background:#fff;

@@ -4,13 +4,13 @@ class ControllerCommonMenu extends Controller {
 		$this->load->language('common/menu');
 		$language = $this->language->get('code');
 		if($language=='ua'){
-			$data['links'] = ['Головна',"Каталог","Про нас"];
+			$data['links'] = ['Головна',"Каталог","Про нас","Контакти"];
 		}
 		else if($language=="ru"){
-			$data['links'] = ['Главная',"Каталог","Про нас"];
+			$data['links'] = ['Главная',"Каталог","Про нас","Контакты"];
 		}
 		else{
-			$data['links'] = ['Main',"Catalog","About us"];
+			$data['links'] = ['Main',"Catalog","About us","Contacts"];
 		}
 		// Menu
 		$this->load->model('catalog/category');
@@ -56,13 +56,13 @@ class ControllerCommonMenu extends Controller {
 		$this->load->language('common/menu');
 		$language = $this->language->get('code');
 		if($language=='ua'){
-			$data['links'] = ['Головна',"Каталог","Про нас"];
+			$data['links'] = ['Головна',"Каталог","Про нас","Контакти"];
 		}
 		else if($language=="ru"){
-			$data['links'] = ['Главная',"Каталог","Про нас"];
+			$data['links'] = ['Главная',"Каталог","Про нас","Контакты"];
 		}
 		else{
-			$data['links'] = ['Main',"Catalog","About us"];
+			$data['links'] = ['Main',"Catalog","About us","Contacts"];
 		}
 		// Menu
 		$this->load->model('catalog/category');

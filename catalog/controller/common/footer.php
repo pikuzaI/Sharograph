@@ -37,6 +37,11 @@ class ControllerCommonFooter extends Controller {
 		$data['order'] = $this->url->link('account/order', '', true);
 		$data['wishlist'] = $this->url->link('account/wishlist', '', true);
 		$data['newsletter'] = $this->url->link('account/newsletter', '', true);
+		$data['email'] = $this->config->get('config_email');
+		$data['telephone'] = $this->config->get('config_telephone');
+		$data['address'] = $this->config->get('config_address');
+		$data['open'] = $this->config->get('config_open');
+		$data['comment'] = $this->config->get('config_comment');
 
 		$data['powered'] = sprintf($this->language->get('text_powered'), $this->config->get('config_name'), date('Y', time()));
 
@@ -106,7 +111,11 @@ class ControllerCommonFooter extends Controller {
 		$data['order'] = $this->url->link('account/order', '', true);
 		$data['wishlist'] = $this->url->link('account/wishlist', '', true);
 		$data['newsletter'] = $this->url->link('account/newsletter', '', true);
-
+		$data['email'] = $this->config->get('config_email');
+		$data['telephone'] = $this->config->get('config_telephone');
+		$data['address'] = $this->config->get('config_address');
+		$data['open'] = $this->config->get('config_open');
+		$data['comment'] = $this->config->get('config_comment');
 		$data['powered'] = sprintf($this->language->get('text_powered'), $this->config->get('config_name'), date('Y', time()));
 
 		// Whos Online

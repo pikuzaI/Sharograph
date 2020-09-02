@@ -220,7 +220,12 @@ class ControllerProductSearch extends Controller {
 				} else {
 					$rating = false;
 				}
-
+				$w_list = array_column($this->customer->getWishlist(), 'product_id');
+				if (in_array($result['product_id'], $w_list)) {
+					$wl_class = 'in_wl';
+					} else {
+					$wl_class = '';
+					}
 				$data['products'][] = array(
 					'product_id'  => $result['product_id'],
 					'quantity' => $result['quantity'],
@@ -232,7 +237,8 @@ class ControllerProductSearch extends Controller {
 					'tax'         => $tax,
 					'minimum'     => $result['minimum'] > 0 ? $result['minimum'] : 1,
 					'rating'      => $result['rating'],
-					'href'        => $this->url->link('product/product', 'product_id=' . $result['product_id'] . $url)
+					'href'        => $this->url->link('product/product', 'product_id=' . $result['product_id'] . $url),
+					'in_wishlist' => $wl_class,
 				);
 			}
 

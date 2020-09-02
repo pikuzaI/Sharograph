@@ -193,7 +193,12 @@ class ControllerProductCategory extends Controller {
 				} else {
 					$rating = false;
 				}
-
+				$w_list = array_column($this->customer->getWishlist(), 'product_id');
+				if (in_array($result['product_id'], $w_list)) {
+					$wl_class = 'in_wl';
+					} else {
+					$wl_class = '';
+					}
 				$data['products'][] = array(
 					'product_id'  => $result['product_id'],
 					'thumb'       => $image,
@@ -206,7 +211,8 @@ class ControllerProductCategory extends Controller {
 					'options'	  => $this->model_catalog_product->getProductOptions($result['product_id']),
 					'minimum'     => $result['minimum'] > 0 ? $result['minimum'] : 1,
 					'rating'      => $result['rating'],
-					'href'        => $this->url->link('product/product', 'path=' . $this->request->get['path'] . '&product_id=' . $result['product_id'] . $url)
+					'href'        => $this->url->link('product/product', 'path=' . $this->request->get['path'] . '&product_id=' . $result['product_id'] . $url),
+					'in_wishlist' => $wl_class,
 				);
 			}
 

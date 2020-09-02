@@ -28,6 +28,7 @@ $_['button_cart'] = 'Купити';
 $_['button_cancel'] = 'Скасувати';
 $_['button_compare'] = 'порівняння';
 $_['button_wishlist'] = 'В закладки';
+$_['button_remove_wishlist']       = 'Видалити з закладок';
 $_['button_checkout'] = 'Оформлення замовлення';
 $_['button_confirm'] = 'Підтвердження замовлення';
 $_['button_coupon'] = 'Застосування купона';

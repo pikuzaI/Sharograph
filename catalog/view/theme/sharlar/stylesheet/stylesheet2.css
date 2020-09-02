@@ -15,6 +15,14 @@
 strong{
 	font-weight:700!important;
    }
+.goog-te-banner-frame {
+	margin:0 auto;
+	position:fixed!important;
+	bottom:0!important;
+    } 
+font{
+font-size:inherit!important;
+   }
 body {
 	font-weight: 400;
 	color: var(--green-dark);
@@ -1012,6 +1020,10 @@ footer h5 {
 	z-index: -1;
 } */
 /*filter*/
+.category-title{
+	display: inline-block;
+	padding:15px;
+}
 .panel{
 border:none!important;
 border-radius:15px!important;

@@ -23,6 +23,33 @@ function getURLVar(key) {
 }
 
 $(document).ready(function() {
+	$('.add-to-wl').click(function() {
+		var product_id = $(this).attr('data');
+		var self = this;
+		$.ajax({
+		url: 'index.php?route=account/wishlist/add',
+		type: 'post',
+		data: 'product_id=' + product_id,
+		dataType: 'json',
+		success: function(json) {
+		$('.alert-dismissible').remove();
+		if (json['redirect']) {
+		location = json['redirect'];
+		}
+		if (json['success']) {
+		$(self).toggleClass('yellow-btn')
+		$(self).toggleClass('in_wl');
+		$('#content').parent().before('<div class="alert alert-success alert-dismissible"><i class="fa fa-check-circle"></i> ' + json['success'] + ' <button type="button" class="close" data-dismiss="alert">×</button></div>');
+		}
+		$('#wishlist-total span').html(json['total']);
+		$('#wishlist-total').attr('title', json['total']);
+		$('html, body').animate({ scrollTop: 0 }, 'slow');
+		},
+		error: function(xhr, ajaxOptions, thrownError) {
+		alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+		}
+		});
+		});
 	// Highlight any found errors
 	$('.text-danger').each(function() {
 		var element = $(this).parent().parent();

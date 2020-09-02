@@ -1,6 +1,6 @@
 @import "variables";
 @import "media";
-@import "product";
+
 *,
 body {
   margin: 0;
@@ -152,6 +152,8 @@ header {
 .menu-hide{
   position:fixed;
   left:0;
+
+  box-shadow:$shadow;
 }
 .menu-late{
   position:fixed;

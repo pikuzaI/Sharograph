@@ -46,13 +46,7 @@ class ControllerCommonHeader extends Controller {
 		$this->load->language('common/header');
 
 		// Wishlist
-		if ($this->customer->isLogged()) {
-			$this->load->model('account/wishlist');
-
-			$data['text_wishlist'] = sprintf($this->language->get('text_wishlist'), $this->model_account_wishlist->getTotalWishlist());
-		} else {
-			$data['text_wishlist'] = sprintf($this->language->get('text_wishlist'), (!empty($this->session->data['wishlist']) ? count($this->session->data['wishlist']) : 0));
-		}
+		$data['text_wishlist'] = sprintf($this->language->get('text_wishlist'), $this->customer->getTotalWishlist());
 
 		$data['text_logged'] = sprintf($this->language->get('text_logged'), $this->url->link('account/account', '', true), $this->customer->getFirstName(), $this->url->link('account/logout', '', true));
 		
@@ -113,7 +107,7 @@ class ControllerCommonHeader extends Controller {
 		$data['scripts'] = $this->document->getScripts('header');
 		$data['lang'] = $this->language->get('code');
 		$data['direction'] = $this->language->get('direction');
-
+		$data['route'] = isset($this->request->get['route']) ? $this->request->get['route'] : 'common/home';
 		$data['name'] = $this->config->get('config_name');
 
 		if (is_file(DIR_IMAGE . $this->config->get('config_logo'))) {

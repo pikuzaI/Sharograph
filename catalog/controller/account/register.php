@@ -25,6 +25,13 @@ class ControllerAccountRegister extends Controller {
 			$this->model_account_customer->deleteLoginAttempts($this->request->post['email']);
 
 			$this->customer->login($this->request->post['email'], $this->request->post['password']);
+			if (isset($this->session->data['wishlist']) && is_array($this->session->data['wishlist'])) {
+				$this->load->model('account/wishlist');
+				foreach ($this->session->data['wishlist'] as $key => $product_id) {
+				$this->model_account_wishlist->addWishlist($product_id);
+				unset($this->session->data['wishlist'][$key]);
+				}
+				}
 
 			unset($this->session->data['guest']);
 
