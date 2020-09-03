@@ -131,6 +131,27 @@ $shadow:  0 2px 5px rgba(0,0,0,0.3);
 .brdr-15{
   border-radius:15px;
 }
+.cl-brdr-green{
+  border-color:$mainGreen;
+}
+.cl-brdr-yellow{
+  border-color:$mainYellow;
+}
+.cl-brdr-red{
+  border-color:$mainRed;
+}
+.brdr-w-2{
+  border-width: 2px;
+  border-style: solid;
+}
+.brdr-w-1{
+  border-width: 1px;
+  border-style: solid;
+}
+.brdr-w-4{
+  border-width: 4px;
+  border-style: solid;
+}
 //Borders
 //Shadows
 .shadow-sm{
@@ -142,8 +163,13 @@ $shadow:  0 2px 5px rgba(0,0,0,0.3);
   border-radius:15px;
   box-shadow: $shadow;
 }
-
-
+//Layout
+.flex-row{
+  display: flex;
+}
+//Layout
+//Margin
+//Margin
 //if in wishlist 
 .in_wl{
     background:$mainRed;
@@ -189,7 +215,9 @@ a:focus{
   height: 100%; 
   overflow: hidden; 
 } 
-
+.goog-te-banner-frame{
+  z-index:50;
+}
 //////////////////ScrollBar//////////////////////////
 // ::-webkit-scrollbar {
 //   width: 10px;

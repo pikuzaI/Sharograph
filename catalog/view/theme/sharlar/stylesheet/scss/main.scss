@@ -153,8 +153,8 @@ header {
 .menu-hide{
   position:fixed;
   left:0;
-
   box-shadow:$shadow;
+  z-index:100;
 }
 .menu-late{
   position:fixed;
@@ -745,12 +745,38 @@ header {
     }
   }
 }
+.information-content{
+  width:90%;
+  margin:0 auto;
+  padding:20px;
+  & table,  & tbody{
+    display:block;
+  }
+  & tr{
+    display:flex;
+    & td{
+      word-break: break-all;
+      &:first-child{
+        width:30%;
+      }
+      &:last-child{
+        width:70%;
+      }
+    }
+  }
+}
 #section-4 {
   & .wrapper-map {
-    width: 100%;
+    width: 90%;
+    margin:0 auto;
+    margin-top:50px;
+    padding:20px;
+    overflow:hidden;
+    text-align:center;
     & #map {
-      height: 400px;
+      height: 600px;
       width: 100%;
+      margin:0 auto;
     }
   }
 }

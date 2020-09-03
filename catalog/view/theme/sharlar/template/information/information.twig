@@ -13,14 +13,15 @@
     {% else %}
     {% set class = 'col-sm-12' %}
     {% endif %}
-    <div id="content" class="{{ class }}">{{ content_top }}
+    <div id="content" class="information-content white-background">{{ content_top }}
       <h1>{{ heading_title }}</h1>
       {{ description }}{{ content_bottom }}</div>
     {{ column_right }}</div>
 </div>
   <section id="section-4">
-            <div class="wrapper-map">
-                <div id="map"></div>
+            <div class="wrapper-map white-background brdr-20">
+              <h1 class="cl-green">{{map_coordinates}}</h1>
+                <div id="map" class="brdr-20"></div>
             </div>
 
         </section>

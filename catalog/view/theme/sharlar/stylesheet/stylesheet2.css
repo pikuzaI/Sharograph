@@ -670,10 +670,10 @@ footer h5 {
 }
 .add-to-cart-alert{
 	position: fixed;
-	top:-100%;
+	top:0;
 	left:50%;
-	transform:translate(-50%,0);
-	padding: 8px 14px 8px 14px;
+	transform:translate(-50%,-100%);
+	padding: 20px 15px;
 	z-index: 100;
 	transition:.5s ease-in-out;
 }
@@ -681,7 +681,7 @@ footer h5 {
 	transform:translate(-50%,-100%);
 }
 .cart-alert-slide__down{
-	transform:translate(-50%,5%);
+	transform:translate(-50%,20%);
 }
 /*filter select*/
 .input-sort, .input-limit{
