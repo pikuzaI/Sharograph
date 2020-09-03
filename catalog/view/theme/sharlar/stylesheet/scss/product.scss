@@ -93,7 +93,7 @@
         display: flex;
         justify-content: center;
         align-items:center;
-        background:$maingreen;
+        background:$mainGreen;
         width:10%;
         height: 100%;
         outline:none;
@@ -101,12 +101,12 @@
         cursor: pointer;
         transition:all .1s ease;
         &:hover{
-            background:$maingreenLighter;
+            background:$mainGreenLighter;
         }
         &:active{
             background:#fff;
             & i{
-                color:$maingreen;
+                color:$mainGreen;
             }
         }
         & i{
@@ -122,7 +122,7 @@
         box-shadow: $shadow;
     }
     .slick-disabled{
-        background:$maingreenLighter;
+        background:$mainGreenLighter;
         pointer-events: none;
     }
 }
@@ -155,7 +155,7 @@
             font-weight:bold;
         }
         & .price{
-            color:$maingreen;
+            color:$mainGreen;
         }
     }
 }
@@ -194,7 +194,7 @@
     }
     & .btn-plus{
         &:active{
-            background:$maingreen;
+            background:$mainGreen;
         }
     }
     & .btn-minus{
@@ -272,7 +272,7 @@
     & li{
         & button::before{
             font-size:10px!important;
-            color:$maingreen!important;
+            color:$mainGreen!important;
         }
     }
 }

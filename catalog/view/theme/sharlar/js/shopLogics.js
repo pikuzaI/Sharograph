@@ -10,8 +10,8 @@ cartClose = $$('.cart-close');
   cartTrigger.addEventListener('click',toggleCart);
 function toggleCart(){
   showCart=!showCart;
-  cartMenu.style.right = showCart === true ? "0" : "-150%";
-  cartMenu.style.borderRadius = showCart === true ? "0px" : "100%";
+  cartMenu.style.transform = showCart === true ? "translate(0%,-50%)" : "translate(110%,-50%)";
+  cartMenu.style.borderRadius = showCart === true ? "20px" : "100%";
   cartBG.style.display = showCart === true ? "block" : "none";
 
 }
@@ -27,9 +27,9 @@ filterBackground .addEventListener('click',toggleMenu);
 open.addEventListener('click',toggleMenu);
 function toggleMenu(){
   show=!show;
-  filter.style.left = show === true ? "0" : "-100%";
-  filterBackground.style.left = show === true ? "0" : "-100%";
-  filterBackground.style.opacity = show === true ? "1" : "0";
+  filter.style.transform = show === true ? "translate(0%,-50%)" : "translate(-110%,-50%)";
+  filter.style.borderRadius = show === true ? "20px" : "100%";
+  filterBackground.style.display = show === true ? "block" : "none";
 }
 /////////////////////////////ProductImagesAnimation///////////////////////////////
 const productCardImgs = [

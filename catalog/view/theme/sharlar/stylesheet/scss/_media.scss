@@ -2,7 +2,8 @@ $screen-xs: 320px;
 $screen-sm: 600px;
 $screen-md: 960px;
 $screen-lg: 1280px;
-$screen-xl: 1920px;
+$screen-xl:1440px;
+$screen-xxl: 1920px;
 
 @mixin media($breakpoint) {
   @if $breakpoint == "xs" {
@@ -24,6 +25,11 @@ $screen-xl: 1920px;
     }
   }
   @else if $breakpoint == "xl" {
+    @media (min-width: $screen-xl) {
+      @content;
+    }
+  }
+  @else if $breakpoint == "xxl" {
     @media (min-width: $screen-xl) {
       @content;
     }

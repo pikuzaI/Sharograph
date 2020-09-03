@@ -43,7 +43,7 @@ $(document).ready(function() {
 		}
 		$('#wishlist-total span').html(json['total']);
 		$('#wishlist-total').attr('title', json['total']);
-		$('html, body').animate({ scrollTop: 0 }, 'slow');
+		// $('html, body').animate({ scrollTop: 0 }, 'slow');
 		},
 		error: function(xhr, ajaxOptions, thrownError) {
 		alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
@@ -215,14 +215,20 @@ var cart = {
 				}
 
 				if (json['success']) {
-					$('#content').parent().before('<div class="alert alert-success alert-dismissible"><i class="fa fa-check-circle"></i> ' + json['success'] + ' <button type="button" class="close" data-dismiss="alert">&times;</button></div>');
-
+					// $('body').append('<div class="alert alert-success alert-dismissible"><i class="fa fa-check-circle"></i> ' + json['success'] + ' <button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+					var alertMsg = $('<div class="alert add-to-cart-alert alert-success alert-dismissible" ><i class="fa fa-check-circle"></i> ' + json['success'] + ' <button type="button" class="close" data-dismiss="alert">&times;</button></div>').hide();
+					$('body').append(alertMsg);
+					alertMsg.addClass('cart-alert-slide__down');
+					setTimeout(function(){
+						alertMsg.addClass('cart-alert-slide__up');
+						alertMsg.remove()
+					},2000)
 					// Need to set timeout otherwise it wont update the total
 					setTimeout(function () {
 						$('#cart > button').html('<span id="cart-total"><i class="fa fa-shopping-cart"></i> ' + json['total'] + '</span>');
 					}, 100);
 
-					$('html, body').animate({ scrollTop: 0 }, 'slow');
+					// $('html, body').animate({ scrollTop: 0 }, 'slow');
 
 					$('#cart > .cart-menu-wrapper > .cart-menu > .cart-items').load('index.php?route=common/cart/info ul li');
 				}
@@ -342,13 +348,13 @@ var wishlist = {
 				}
 
 				if (json['success']) {
-					$('#content').parent().before('<div class="alert alert-success alert-dismissible"><i class="fa fa-check-circle"></i> ' + json['success'] + ' <button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+					$('body').append('<div class="alert alert-success alert-dismissible"><i class="fa fa-check-circle"></i> ' + json['success'] + ' <button type="button" class="close" data-dismiss="alert">&times;</button></div>');
 				}
 
 				$('#wishlist-total span').html(json['total']);
 				$('#wishlist-total').attr('title', json['total']);
 
-				$('html, body').animate({ scrollTop: 0 }, 'slow');
+				// $('html, body').animate({ scrollTop: 0 }, 'slow');
 			},
 			error: function(xhr, ajaxOptions, thrownError) {
 				alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
@@ -371,11 +377,11 @@ var compare = {
 				$('.alert-dismissible').remove();
 
 				if (json['success']) {
-					$('#content').parent().before('<div class="alert alert-success alert-dismissible"><i class="fa fa-check-circle"></i> ' + json['success'] + ' <button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+					$('#content').append('<div class="alert alert-success alert-dismissible"><i class="fa fa-check-circle"></i> ' + json['success'] + ' <button type="button" class="close" data-dismiss="alert">&times;</button></div>');
 
 					$('#compare-total').html(json['total']);
 
-					$('html, body').animate({ scrollTop: 0 }, 'slow');
+					// $('html, body').animate({ scrollTop: 0 }, 'slow');
 				}
 			},
 			error: function(xhr, ajaxOptions, thrownError) {

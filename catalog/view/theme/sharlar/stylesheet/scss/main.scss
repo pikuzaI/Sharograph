@@ -1,6 +1,7 @@
 @import "variables";
 @import "media";
-
+@import "cart";
+@import "filter";
 *,
 body {
   margin: 0;
@@ -47,7 +48,7 @@ header {
                 width: 80%;
                 display: flex;
                 justify-content: center;
-                border: 1px solid $maingreen;
+                border: 1px solid $mainGreen;
                 border-radius: 15px;
                 padding: 0px;
                 // & select {
@@ -103,7 +104,7 @@ header {
                   &:hover{
                     & i{
                       transform:scale(1.2);
-                      color:$maingreen;
+                      color:$mainGreen;
                     }
                   }
                 }
@@ -124,7 +125,7 @@ header {
                   & a {
                     & i {
                       font-size: 2em;
-                      color: $maingreen;
+                      color: $mainGreen;
                     }
                   }
                 }
@@ -135,7 +136,7 @@ header {
                     & a {
                       & i {
                         font-size: 2em;
-                        color: $maingreen;
+                        color: $mainGreen;
                       }
                     }
                   }
@@ -165,7 +166,7 @@ header {
 .menu {
   width: 100vw;
   display: flex;
-  background: $maingreen;
+  background: $mainGreen;
   border-bottom-left-radius: 30px;
   border-bottom-right-radius: 30px;
   transition:all .7s cubic-bezier(0.86, 0, 0.07, 1);
@@ -231,9 +232,9 @@ header {
     text-align: center;
     & .mobile-menu-item{
       width:100%;
-      border-bottom: 1px solid $maingreen;
+      border-bottom: 1px solid $mainGreen;
       & a{
-        color:$maingreen;
+        color:$mainGreen;
         font-size:20px;
       }
     }
@@ -496,7 +497,7 @@ header {
     mix-blend-mode: color-dodge;
     & h1 {
       font-size: 10em;
-      color: $maingreen;
+      color: $mainGreen;
       -webkit-touch-callout: none;
       -webkit-user-select: none;
       -khtml-user-select: none;
@@ -551,7 +552,7 @@ header {
               left: 15px;
               width: 100%;
               height: 100%;
-              background: $maingreen;
+              background: $mainGreen;
               border-radius: 15px;
               z-index: -1;
               opacity: 0.8;
@@ -687,7 +688,7 @@ header {
   position: relative;
   & h1{
     display:inline-block;
-    color:$maingreen;
+    color:$mainGreen;
     background:$white;
     padding:15px;
     border-radius: 20px;

@@ -4,11 +4,11 @@
         class="fa fa-shopping-cart"></i><span>{{ (text_items|replace({'Товаров ':''}))|split(' ')[0] }}</span></span></button>
   <!-- dropdown-menu pull-right -->
   <div class="cart-menu-bg"></div>
-  <div class="cart-menu-wrapper">
-    <button class="cart-close"><i class="fa fa-times" aria-hidden="true"></i></button>
+  <div class="cart-menu-wrapper white-background">
+    <button class="cart-close"><i class="fa fa-times cl-green" aria-hidden="true"></i></button>
     <div class="cart-menu">
       <div class="cart-title-wrapper">
-        <h1 class="curvy-h">Кошик</h1>
+        <h1 class="cl-black">{{name_cart}}</h1>
       </div>
       <ul class="cart-items">
         {% if products or vouchers %}
@@ -28,7 +28,7 @@
               <td class="text-right">x {{ product.quantity }}</td>
               <td class="text-right">{{ product.total }}</td>
               <td class="text-center"><button type="button" onclick="cart.remove('{{ product.cart_id }}');"
-                  title="{{ button_remove }}" class="product-remove-btn"><i class="fa fa-times"></i></button></td>
+                  title="{{ button_remove }}" class="product-remove-btn"><i class="fa fa-times cl-red"></i></button></td>
             </tr>
             {% endfor %}
             {% for voucher in vouchers %}
@@ -60,26 +60,26 @@
             <div class="total-wrapper">
               <div class="total-inner">
                 <div class="total-title">
-                  <p class="curvy-h">{{ totals[1].title }}</p>
+                  <p class="cl-black">{{ totals[1].title }}</p>
                 </div>
                 <div class="total-sum">
-                  <p>{{ totals[1].text}}</p>
+                  <p class="bg-white brdr-20 cl-green f-bold">{{ totals[1].text}}</p>
                 </div>
               </div>
             </div>
             {# <p class="text-right cart-proceed"><a href="{{ cart }}"><strong><i class="fa fa-shopping-cart"></i>
                   {{ text_cart }}</strong></a>&nbsp;&nbsp;&nbsp;</p> #}
             <div class="checkout">
-              <a href="{{ checkout }}" class="cart-link"><strong><i class="fa fa-share"></i> {{ text_checkout }}</strong></a>
+              <a href="{{ checkout }}" class="theme-button green-btn"><i class="fa fa-share"></i> {{ text_checkout }}></a>
             </div>
           </div>
         </li>
         {% else %}
         <li class="text-empty">
-          <p class="text-center">{{ text_empty }}</p>
+          <p class="text-center">{{ text_empty }}🙀</p>
           <div style="text-align:center">
             <a href="http://reco.fun:8080/sharlar-shop/index.php?route=product/category&path=62"
-              class="cart-link">Каталог</a>
+              class="theme-button green-btn">{{name_catalog}}</a>
           </div>
         </li>
         {% endif %}

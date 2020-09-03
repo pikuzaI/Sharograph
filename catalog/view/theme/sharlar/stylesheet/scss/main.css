@@ -2,11 +2,81 @@
 @import url("https://fonts.googleapis.com/css?family=Lobster|Marck+Script&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;0,700;0,900;1,100;1,400;1,500;1,700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;500;700;800;900&display=swap");
-.white-background {
-  background: white;
+.inline-title {
+  display: inline-block;
+}
+
+.cl-green {
+  color: #57d301;
+}
+
+.cl-red {
+  color: #ff482f;
+}
+
+.cl-yellow {
+  color: #fece00;
+}
+
+.cl-green-light {
+  color: #46a501;
+}
+
+.cl-black {
+  color: #000;
+}
+
+.cl-white {
+  color: #fff;
+}
+
+.f-bold {
+  font-weight: bold;
+}
+
+.f-bolder {
+  font-weight: bolder;
+}
+
+.f-normal {
+  font-weight: normal;
+}
+
+.bg-green {
+  background-color: #57d301;
+}
+
+.bg-red {
+  background-color: #ff482f;
+}
+
+.bg-yellow {
+  background-color: #ff482f;
+}
+
+.bg-green-lighter {
+  background-color: #46a501;
+}
+
+.bg-white {
+  background-color: #fff;
+}
+
+.bg-black {
+  background-color: #000;
+}
+
+.theme-button {
   border-radius: 15px;
-  -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  padding: 10px;
+  font-size: 2rem;
+  font-weight: bold;
+  -webkit-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+}
+
+.theme-button i {
+  vertical-align: middle;
 }
 
 .green-btn {
@@ -32,23 +102,42 @@
   color: #fece00;
 }
 
+.red-btn {
+  background: #ff482f;
+  color: #fff;
+  border: 2px solid #ff482f;
+  font-size: 3rem;
+}
+
+.red-btn:hover {
+  background: #fff;
+  color: #ff482f;
+}
+
+.brdr-20 {
+  border-radius: 20px;
+}
+
+.brdr-15 {
+  border-radius: 15px;
+}
+
+.shadow-sm {
+  -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.white-background {
+  background: white;
+  border-radius: 15px;
+  -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
 .in_wl {
   background: #ff482f;
   border: 2px solid #ff482f;
   color: #fff;
-}
-
-.theme-button {
-  border-radius: 15px;
-  padding: 10px;
-  font-size: 2rem;
-  font-weight: bold;
-  -webkit-transition: all .2s ease-in-out;
-  transition: all .2s ease-in-out;
-}
-
-.theme-button i {
-  vertical-align: middle;
 }
 
 #app-body {
@@ -312,68 +401,6 @@ input[type="text"] {
   }
 }
 
-.hero-image {
-  width: 100%;
-  height: 100vh;
-  position: absolute;
-  background: url("../../image/assets/parallax/hero.jpg") no-repeat 50% 50%;
-  background-size: cover;
-}
-
-.parallax-el {
-  position: absolute;
-  width: 100%;
-  height: 100vh;
-  background: url("../../image/assets/parallax/air-ballon-2-min.png") no-repeat 50% 50%;
-  background-size: cover;
-  top: -0%;
-}
-
-.text {
-  position: absolute;
-  width: 100%;
-  height: 100vh;
-  top: -0%;
-  background: url("../../image/assets/parallax/air-logo-min.png") no-repeat 50% 50%;
-  background-size: cover;
-}
-
-.clouds {
-  position: absolute;
-  width: 5076px;
-  height: 100vh;
-  background: url("../../image/assets/parallax/clouds-min.png") repeat-x;
-  -webkit-animation: clouds 60s linear infinite;
-          animation: clouds 60s linear infinite;
-}
-
-.whitespace {
-  width: 100%;
-  height: 100vh;
-}
-
-@-webkit-keyframes clouds {
-  0% {
-    -webkit-transform: translateX(0px);
-            transform: translateX(0px);
-  }
-  100% {
-    -webkit-transform: translateX(-1692px);
-            transform: translateX(-1692px);
-  }
-}
-
-@keyframes clouds {
-  0% {
-    -webkit-transform: translateX(0px);
-            transform: translateX(0px);
-  }
-  100% {
-    -webkit-transform: translateX(-1692px);
-            transform: translateX(-1692px);
-  }
-}
-
 #compare-total {
   padding: 5px 8px;
   border-radius: 10px;
@@ -516,6 +543,428 @@ input[type="text"] {
   width: 30%;
   padding: 5px 8px;
   border-radius: 10px;
+}
+
+.cart-menu-bg {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 100vw;
+  background: transparent;
+  z-index: 99;
+  display: none;
+}
+
+.cart-menu-wrapper {
+  position: fixed;
+  top: 50%;
+  -webkit-transform: translate(110%, -50%);
+          transform: translate(110%, -50%);
+  right: 0;
+  height: 92vh;
+  width: 100%;
+  border: 2px solid #57d301;
+  border-radius: 100%;
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
+  z-index: 100;
+  overflow: hidden;
+}
+
+@media (min-width: 960px) {
+  .cart-menu-wrapper {
+    width: 50%;
+  }
+}
+
+@media (min-width: 1440px) {
+  .cart-menu-wrapper {
+    width: 30%;
+  }
+}
+
+.cart-close {
+  margin: 20px 0 0 20px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+
+.cart-close i {
+  font-size: 40px;
+  -webkit-transition: -webkit-transform .3s ease-in-out;
+  transition: -webkit-transform .3s ease-in-out;
+  transition: transform .3s ease-in-out;
+  transition: transform .3s ease-in-out, -webkit-transform .3s ease-in-out;
+}
+
+.cart-close i:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.cart-menu {
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 50px;
+  border-radius: 0px;
+  border: none;
+}
+
+.product-remove-btn {
+  background: transparent;
+  border: none;
+}
+
+.product-remove-btn i {
+  font-size: 40px;
+}
+
+.total-wrapper {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.total-wrapper .total-inner {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.total-wrapper .total-inner .total-title {
+  padding-bottom: 20px;
+}
+
+.total-wrapper .total-inner .total-title, .total-wrapper .total-inner .total-sum {
+  width: 100%;
+  text-align: center;
+  border-bottom: 1px solid var(--green-dark);
+}
+
+.total-wrapper .total-inner .total-title p {
+  font-size: 60px;
+}
+
+.total-wrapper .total-inner .total-sum p {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 30px;
+  padding: 10px 15px;
+}
+
+.checkout {
+  width: 100%;
+  text-align: center;
+  margin-top: 25px;
+}
+
+.cart-menu .cart-title-wrapper {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.cart-menu .cart-title-wrapper h1 {
+  font-size: 50px;
+}
+
+.cart-items {
+  list-style: none;
+}
+
+.cart-items .text-empty {
+  padding: 50px 0;
+}
+
+.cart-items .text-empty p {
+  margin-bottom: 40px;
+}
+
+.cart-items table {
+  display: block;
+  max-height: 300px;
+  overflow: auto;
+}
+
+.cart-items .cart-link {
+  font-size: 20px;
+  text-decoration: none;
+  color: var(--green-light);
+  background: white;
+  padding: 10px 20px;
+  border: 2px solid var(--green-light);
+  border-radius: 20px;
+  -webkit-transition: background .3s ease-in-out, color .3s ease-in-out;
+  transition: background .3s ease-in-out, color .3s ease-in-out;
+}
+
+.cart-items .cart-link:hover {
+  background: var(--green-light);
+  color: white;
+}
+
+.filter-category {
+  padding: 15px 0;
+  border-bottom: 1px solid var(--green-light);
+}
+
+.filter-category a {
+  font-size: 20px;
+  color: #000;
+}
+
+.filter-search {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-top: 1px solid var(--green-light);
+  padding: 10px 0;
+}
+
+.filter-search .filter-search-btn {
+  font-size: 20px;
+  background: none;
+  padding: 10px 0;
+  background: var(--main-green);
+  color: #fff;
+  border: 2px solid var(--green-light);
+  border-radius: 15px;
+  width: 98%;
+  -webkit-transition: all .2s ease;
+  transition: all .2s ease;
+}
+
+.filter-search .filter-search-btn:hover {
+  background: #fff;
+  color: var(--main-green);
+}
+
+.mobile-filter-menu {
+  display: none;
+}
+
+.show-filter {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 15px;
+  z-index: 20;
+}
+
+.close-filter {
+  display: inline-block;
+  background: none;
+  border: none;
+  text-align: right;
+  outline: none;
+}
+
+.close-filter i {
+  font-size: 40px;
+  margin-right: 15px;
+  -webkit-transition: -webkit-transform .3s ease-in-out;
+  transition: -webkit-transform .3s ease-in-out;
+  transition: transform .3s ease-in-out;
+  transition: transform .3s ease-in-out, -webkit-transform .3s ease-in-out;
+}
+
+.close-filter i:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.show-filter i {
+  font-size: 20px;
+}
+
+.show-filter:focus {
+  outline: none;
+}
+
+@media screen and (min-width: 1200px) {
+  .left-col {
+    width: 25%;
+  }
+  .input-el-wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
+  .input-el {
+    width: 25%;
+  }
+  .close-filter {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .mobile-filter-menu {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .left-col {
+    width: 95%;
+    margin: 0 auto;
+  }
+  .input-el-wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .input-el {
+    width: 90%;
+    margin: 0 auto;
+  }
+  .filter-wrapper {
+    position: fixed;
+    top: 50%;
+    -webkit-transform: translate(-110%, -50%);
+            transform: translate(-110%, -50%);
+    left: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    width: 320px;
+    height: 92vh;
+    border-right: 2px solid #57d301;
+    border-radius: 100%;
+    -webkit-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out;
+    overflow-y: auto;
+    z-index: 90;
+  }
+  .filter-background {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    background: transparent;
+    z-index: 89;
+    display: none;
+  }
+  .close-filter {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 376px) {
+  .filter-wrapper {
+    width: 100vw;
+  }
+}
+
+/*checkbox*/
+.checkbox-container {
+  display: block;
+  position: relative;
+  padding: 5px 0;
+  margin-bottom: 12px;
+  cursor: pointer;
+  /* font-size: 22px; */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.input-inner {
+  margin-left: 25px;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  /* background-color: #eee; */
+  margin-right: 20px;
+  border: 2px solid var(--green-light) !important;
+  border-radius: 5px;
+  -webkit-transition: -webkit-transform .3s ease-in-out;
+  transition: -webkit-transform .3s ease-in-out;
+  transition: transform .3s ease-in-out;
+  transition: transform .3s ease-in-out, -webkit-transform .3s ease-in-out;
+}
+
+/* On mouse-over, add a grey background color */
+.checkbox-container:hover input ~ .checkmark {
+  background-color: #e4f6f7;
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+}
+
+/* When the checkbox is checked, add a blue background */
+.checkbox-container input:checked ~ .checkmark {
+  background-color: var(--green-light);
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.checkbox-container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.checkbox-container .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
 }
 
 *,
