@@ -1,32 +1,63 @@
 <div class="panel panel-default">
   <div class="panel-heading">{{ heading_title }}</div>
-  <div class=""> {% for filter_group in filter_groups %} <div class="filter-category"><a >{{ filter_group.name }}</a></div>
-    <div class="">
-      <div id="filter-group{{ filter_group.filter_group_id }}">{% for filter in filter_group.filter %}
-        <div class="checkbox">
+  <ul class="filters">
+    {% for filter_group in filter_groups %}
+    <li class="filters-item">
+      <div class="filter-category clickable panel-collapsed"><a>{{ filter_group.name }}</a><i class="fa fa-chevron-down" aria-hidden="true"></i></div>
+      <ul id="filter-group{{ filter_group.filter_group_id }}" class="collapsein">
+        {% for filter in filter_group.filter %}
+        <li class="checkbox">
           <label class="checkbox-container">{% if filter.filter_id in filter_category %}
             <input type="checkbox" name="filter[]" value="{{ filter.filter_id }}" checked="checked" />
-            <span class = "input-inner">{{ filter.name }}</span>  
+            <span class="input-inner">{{ filter.name }}</span>
             {% else %}
             <input type="checkbox" name="filter[]" value="{{ filter.filter_id }}" />
-           <span class = "input-inner">{{ filter.name }}</span>  
+            <span class="input-inner">{{ filter.name }}</span>
             {% endif %}<span class="checkmark"></span></label>
-        </div>
-        {% endfor %}</div>
-    </div>
-    {% endfor %}</div>
+        </li>
+        {% endfor %}
+      </ul>
+    </li>
+    {% endfor %}
+  </ul>
   <div class="filter-search">
     <button type="button" id="button-filter" class="filter-search-btn">{{ button_filter }}</button>
   </div>
 </div>
-<script type="text/javascript"><!--
-$('#button-filter').on('click', function() {
-	filter = [];
+<script type="text/javascript">
 
-	$('input[name^=\'filter\']:checked').each(function(element) {
-		filter.push(this.value);
-	});
+  $(document).ready(function () {
+    $('input:checkbox:checked').each(function () {
+      var parent = $(this).parents(".filters-item"),
+      toggleCollapse = parent.find(".clickable");
+      if(toggleCollapse.hasClass("panel-collapsed")){
+        $(this).parents(".collapsein").slideDown();
+        toggleCollapse.removeClass('panel-collapsed');
+        toggleCollapse.find('i').removeClass('fa-chevron-down').addClass('fa-chevron-up');
+      }
+    });
+    $('.filters-item .clickable').on("click", function (e) {
+      if ($(this).hasClass('panel-collapsed')) {
+        // expand the panel
+        $(this).parents('.filters-item').find('.collapsein').slideDown();
+        $(this).removeClass('panel-collapsed');
+        $(this).find('i').removeClass('fa-chevron-down').addClass('fa-chevron-up');
+      }
+      else {
+        // collapse the panel
+        $(this).parents('.filters-item').find('.collapsein').slideUp();
+        $(this).addClass('panel-collapsed');
+        $(this).find('i').removeClass('fa-chevron-up').addClass('fa-chevron-down');
+      }
+    });
+  });
+  $('#button-filter').on('click', function () {
+    filter = [];
 
-	location = '{{ action }}&filter=' + filter.join(',');
-});
-//--></script> 
+    $('input[name^=\'filter\']:checked').each(function (element) {
+      filter.push(this.value);
+    });
+
+    location = '{{ action }}&filter=' + filter.join(',');
+  });
+</script>

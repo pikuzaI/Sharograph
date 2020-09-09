@@ -1,6 +1,10 @@
 <?php
 class ControllerApiProduct extends Controller
 {
+    public function contentful()
+    {
+        
+    }
     public function index()
     {
         $this->load->language('api/cart');

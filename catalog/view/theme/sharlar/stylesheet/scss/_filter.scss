@@ -1,6 +1,8 @@
+
 .filter-category{
-	
-	padding:15px 0;
+	display: flex;
+    justify-content: space-between;
+	padding:15px 20px;
     border-bottom: 1px solid var(--green-light);
     & a{
         font-size:20px;
@@ -11,7 +13,6 @@
 display: flex;
 justify-content: center;
 align-items: center;
-border-top:1px solid var(--green-light);
 padding:10px 0;
     & .filter-search-btn{
         font-size:20px;
@@ -150,7 +151,15 @@ padding:10px 0;
     width:100vw;
 }
 }
-
+.filters{
+    list-style: none;
+}
+.filters-item{
+    cursor:pointer;
+}
+.collapsein{
+    display: none;
+}
 /*checkbox*/
 .checkbox-container {
 display: block;

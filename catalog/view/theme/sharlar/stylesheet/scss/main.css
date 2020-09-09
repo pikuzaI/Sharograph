@@ -752,7 +752,13 @@ input[type="text"] {
 }
 
 .filter-category {
-  padding: 15px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 15px 20px;
   border-bottom: 1px solid var(--green-light);
 }
 
@@ -771,7 +777,6 @@ input[type="text"] {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  border-top: 1px solid var(--green-light);
   padding: 10px 0;
 }
 
@@ -938,6 +943,18 @@ input[type="text"] {
   .filter-wrapper {
     width: 100vw;
   }
+}
+
+.filters {
+  list-style: none;
+}
+
+.filters-item {
+  cursor: pointer;
+}
+
+.collapsein {
+  display: none;
 }
 
 /*checkbox*/
@@ -1256,6 +1273,7 @@ header .header-inner .interface .wrapper .interface-inner .account-interface .ac
 }
 
 .menu .menu-inner .menu-list .menu-item a {
+  padding: 20px;
   text-decoration: none;
   white-space: nowrap;
   color: white;
