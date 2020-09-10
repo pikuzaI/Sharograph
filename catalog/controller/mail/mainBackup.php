@@ -129,14 +129,17 @@ class ControllerMailOrder extends Controller {
 		if ($order_info['payment_address_format']) {
 			$format = $order_info['payment_address_format'];
 		} else {
-			$format = '{firstname} {lastname}' . "\n"  . '{address_1}' . "\n" . '{address_2}' . "\n"  . '{zone}' . "\n" . '{country}';
+			$format = '{firstname} {lastname}' . "\n" . '{company}' . "\n" . '{address_1}' . "\n" . '{address_2}' . "\n" . '{city} {postcode}' . "\n" . '{zone}' . "\n" . '{country}';
 		}
 
 		$find = array(
 			'{firstname}',
 			'{lastname}',
+			'{company}',
 			'{address_1}',
 			'{address_2}',
+			'{city}',
+			'{postcode}',
 			'{zone}',
 			'{zone_code}',
 			'{country}'
@@ -145,8 +148,11 @@ class ControllerMailOrder extends Controller {
 		$replace = array(
 			'firstname' => $order_info['payment_firstname'],
 			'lastname'  => $order_info['payment_lastname'],
+			'company'   => $order_info['payment_company'],
 			'address_1' => $order_info['payment_address_1'],
 			'address_2' => $order_info['payment_address_2'],
+			'city'      => $order_info['payment_city'],
+			'postcode'  => $order_info['payment_postcode'],
 			'zone'      => $order_info['payment_zone'],
 			'zone_code' => $order_info['payment_zone_code'],
 			'country'   => $order_info['payment_country']
@@ -157,14 +163,17 @@ class ControllerMailOrder extends Controller {
 		if ($order_info['shipping_address_format']) {
 			$format = $order_info['shipping_address_format'];
 		} else {
-			$format = '{firstname} {lastname}' . "\n" . '{address_1}' . "\n" . '{address_2}' . "\n"  . '{zone}' . "\n" . '{country}';
+			$format = '{firstname} {lastname}' . "\n" . '{company}' . "\n" . '{address_1}' . "\n" . '{address_2}' . "\n" . '{city} {postcode}' . "\n" . '{zone}' . "\n" . '{country}';
 		}
 
 		$find = array(
 			'{firstname}',
 			'{lastname}',
+			'{company}',
 			'{address_1}',
 			'{address_2}',
+			'{city}',
+			'{postcode}',
 			'{zone}',
 			'{zone_code}',
 			'{country}'
@@ -173,8 +182,11 @@ class ControllerMailOrder extends Controller {
 		$replace = array(
 			'firstname' => $order_info['shipping_firstname'],
 			'lastname'  => $order_info['shipping_lastname'],
+			'company'   => $order_info['shipping_company'],
 			'address_1' => $order_info['shipping_address_1'],
 			'address_2' => $order_info['shipping_address_2'],
+			'city'      => $order_info['shipping_city'],
+			'postcode'  => $order_info['shipping_postcode'],
 			'zone'      => $order_info['shipping_zone'],
 			'zone_code' => $order_info['shipping_zone_code'],
 			'country'   => $order_info['shipping_country']
@@ -263,9 +275,8 @@ class ControllerMailOrder extends Controller {
 		$mail->smtp_password = html_entity_decode($this->config->get('config_mail_smtp_password'), ENT_QUOTES, 'UTF-8');
 		$mail->smtp_port = $this->config->get('config_mail_smtp_port');
 		$mail->smtp_timeout = $this->config->get('config_mail_smtp_timeout');
-		$imgname="";
-			 try{
-				// We need to remove the "data:image/png;base64,"
+		
+			// We need to remove the "data:image/png;base64,"
 			$base_to_php = explode(',', $image);
 			// // the 2nd item in the base_to_php array contains the content of the image
 			$imgdata = base64_decode($base_to_php[1]);
@@ -275,11 +286,6 @@ class ControllerMailOrder extends Controller {
 			// Save the image in a defined path
 		 	file_put_contents($filepath,$imgdata);
 			 $mail->addAttachment('compimages/'. $imgname .'.jpg');
-			 }
-			 catch(Exception $e){
-			 }
-		
-			
 			
 		 
 		$mail->setTo($order_info['email']);
@@ -288,10 +294,7 @@ class ControllerMailOrder extends Controller {
 		$mail->setSubject(html_entity_decode(sprintf($language->get('text_subject'), $order_info['store_name'], $order_info['order_id']), ENT_QUOTES, 'UTF-8'));
 		$mail->setHtml($this->load->view('mail/order_add', $data));
 		$mail->send();
-		// if($imgname){
-		// 	unlink('compimages/'. $imgname .'.jpg');
-		// }
-		
+		unlink('compimages/'. $imgname .'.jpg');
 	}
 	
 	public function edit($order_info, $order_status_id, $comment) {

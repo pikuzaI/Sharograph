@@ -2,6 +2,7 @@
 @import "media";
 @import "cart";
 @import "filter";
+@import "pagination";
 *,
 body {
   margin: 0;
@@ -188,7 +189,6 @@ header {
         text-align: center;
         margin:0;
         & .menu-item {
-          padding:8px 0;
           font-weight: bolder;
           cursor: pointer;
           &:hover{
@@ -197,7 +197,7 @@ header {
           background-size: cover;
           }
           & a {
-            padding:20px;
+           
 						text-decoration: none;
 						white-space: nowrap;
             color: $white;

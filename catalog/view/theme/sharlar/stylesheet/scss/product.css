@@ -167,6 +167,30 @@
   display: flex;
 }
 
+.m-10 {
+  margin: 10px;
+}
+
+.m-15 {
+  margin: 15px;
+}
+
+.m-20 {
+  margin: 20px;
+}
+
+.p-10 {
+  padding: 10px;
+}
+
+.p-15 {
+  padding: 15px;
+}
+
+.p-20 {
+  padding: 20px;
+}
+
 .in_wl {
   background: #ff482f;
   border: 2px solid #ff482f;

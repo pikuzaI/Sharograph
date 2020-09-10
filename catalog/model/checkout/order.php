@@ -1,7 +1,14 @@
 <?php
 class ModelCheckoutOrder extends Model {
 	public function addImage($sessionId,$orderImage){
-		$this->db->query("INSERT INTO orderImages SET sessionId = '" . $this->db->escape($sessionId) . "', orderImage = '" . $this->db->escape($orderImage) . "'");
+		$checkRecord = $this->db->query("SELECT * FROM orderImages WHERE sessionId = '" . $sessionId . "'");
+		if($checkRecord->num_rows){
+			$this->db->query("UPDATE orderImages SET orderImage = '" . $this->db->escape($orderImage) . "' WHERE sessionId = '" . $sessionId . "'");
+		}
+		else{
+			$this->db->query("INSERT INTO orderImages SET sessionId = '" . $this->db->escape($sessionId) . "', orderImage = '" . $this->db->escape($orderImage) . "'");
+		}
+		
 	}
 	public function getImage($sessionId){
 		$order_query =$this->db->query("SELECT * FROM orderImages WHERE sessionId = '" . $sessionId . "'");

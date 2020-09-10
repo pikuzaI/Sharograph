@@ -185,14 +185,18 @@ function validateNumbers(event) {
 		event.target.value = val.substr(0, val.length - 1);
 	}
 }
-function increaseQuantity(id) {
+function increaseQuantity(e,id,ajaxCart = false) {
+	e.preventDefault();
+	console.log(ajaxCart)
 	$(`[data-id="${id}"]`).val(function (i, oldVal) {
 		let intVal = parseInt(oldVal)
 		intVal <= 9999 && ++intVal;
 		return intVal;
 	});
 }
-function decreaseQuantity(id) {
+function decreaseQuantity(e,id,ajaxCart = false) {
+	e.preventDefault();
+	console.log(id)
 	$(`[data-id="${id}"]`).val(function (i, oldVal) {
 		let intVal = parseInt(oldVal)
 		intVal > parseInt(this.dataset.minimum) && --intVal;
