@@ -185,21 +185,26 @@ function validateNumbers(event) {
 		event.target.value = val.substr(0, val.length - 1);
 	}
 }
-function increaseQuantity(e,id,ajaxCart = false) {
-	e.preventDefault();
-	console.log(ajaxCart)
+function increaseQuantity(id,ajaxCart = false,e = null) {
+	e!==null && e.preventDefault();
 	$(`[data-id="${id}"]`).val(function (i, oldVal) {
 		let intVal = parseInt(oldVal)
 		intVal <= 9999 && ++intVal;
+		if(ajaxCart){
+			cart.add(id.split('_')[0],1)
+		}
 		return intVal;
 	});
 }
-function decreaseQuantity(e,id,ajaxCart = false) {
-	e.preventDefault();
+function decreaseQuantity(id,ajaxCart = false,e = null) {
+	e!==null && e.preventDefault();
 	console.log(id)
 	$(`[data-id="${id}"]`).val(function (i, oldVal) {
 		let intVal = parseInt(oldVal)
 		intVal > parseInt(this.dataset.minimum) && --intVal;
+		if(ajaxCart && intVal > parseInt(this.dataset.minimum)){
+			cart.minus(id.split('_')[0],1)
+		}
 		return intVal;
 	});
 }
@@ -245,6 +250,42 @@ var cart = {
 			}
 		});
 	},
+	'minus': function (product_id, quantity) {
+		$.ajax({
+			url: 'index.php?route=checkout/cart/add',
+			type: 'post',
+			data: 'product_id=' + product_id + '&quantity=' + (typeof (quantity) != 'undefined' ? quantity * (-1) : -1),
+			dataType: 'json',
+			beforeSend: function () {
+				$('#cart > button').button('loading');
+			},
+			complete: function () {
+				$('#cart > button').button('reset');
+			},
+			success: function (json) {
+				$('.alert-dismissible, .text-danger').remove();
+
+				if (json['redirect']) {
+					location = json['redirect'];
+				}
+
+				if (json['success']) {
+					spawnAlert("Ви видалили товар","red");
+					// Need to set timeout otherwise it wont update the total
+					setTimeout(function () {
+						$('#cart > button').html('<span id="cart-total"><i class="fa fa-shopping-cart"></i> ' + json['total'] + '</span>');
+					}, 100);
+
+					// $('html, body').animate({ scrollTop: 0 }, 'slow');
+
+					$('#cart > .cart-menu-wrapper > .cart-menu > .cart-items').load('index.php?route=common/cart/info ul li');
+				}
+			},
+			error: function (xhr, ajaxOptions, thrownError) {
+				alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+			}
+		});
+	},
 	'update': function (key, quantity) {
 		$.ajax({
 			url: 'index.php?route=checkout/cart/edit',
@@ -271,6 +312,7 @@ var cart = {
 			},
 			error: function (xhr, ajaxOptions, thrownError) {
 				alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+				console.log(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText)
 			}
 		});
 	},

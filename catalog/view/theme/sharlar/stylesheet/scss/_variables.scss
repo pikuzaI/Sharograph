@@ -167,6 +167,12 @@ $shadow:  0 2px 5px rgba(0,0,0,0.3);
 .flex-row{
   display: flex;
 }
+.w-100{
+  width:100%;
+}
+.w-50{
+  width: 50%;
+}
 //Layout
 //Margin
 .m-10{
@@ -177,6 +183,9 @@ $shadow:  0 2px 5px rgba(0,0,0,0.3);
 }.m-20{
   margin:20px;
 }
+.m-0{
+  margin:0;
+}
 .p-10{
   padding:10px;
 }
@@ -185,6 +194,9 @@ $shadow:  0 2px 5px rgba(0,0,0,0.3);
 }
 .p-20{
   padding:20px;
+}
+.p-0{
+  padding:0;
 }
 //Margin
 //if in wishlist 

@@ -71,15 +71,16 @@
                   <span class="input-group-btn">
                   
                   <button type="button" data-toggle="tooltip" title="{{ button_remove }}" class="theme-button cart-add green-btn" onclick="cart.remove('{{ product.cart_id }}');"><i class="fa fa-times-circle"></i></button> #}
-                  <button type="submit" data-toggle="tooltip" title="{{ button_update }}" class="theme-button cart-add green-btn"><i class="fa fa-refresh"></i></button>
+                  {# <button type="submit" data-toggle="tooltip" title="{{ button_update }}" class="theme-button cart-add green-btn"><i class="fa fa-refresh"></i></button> #}
                   <div class="quantity-input-group">
-                    <button class="quantity-btn btn-plus" onclick="increaseQuantity(event,'{{product.product_id}}current',true)"><i class="fa fa-plus"
+                    <button class="quantity-btn btn-plus" onclick="increaseQuantity('{{product.product_id}}_current',true,event)"><i class="fa fa-plus"
                         aria-hidden="true"></i></button>
-                    <input type="text" name="quantity[{{ product.cart_id }}]" value="{{ product.quantity }}" data-minimum="{{product.minimum}}" data-id="{{product.product_id}}current" onchange ="inputChange(event,1)" onkeyup="validateNumbers(event)" size="2" id="input-quantity"
+                    <input type="text" name="quantity[{{ product.cart_id }}]" data-g = "{{ product.quantity }}" value="{{ product.quantity }}" data-minimum="{{product.minimum}}" data-id="{{product.product_id}}_current" onchange ="inputChange(event,1)" onkeyup="validateNumbers(event)" size="2" id="input-quantity"
                       class="form-control only_uint" />
-                    <button class="quantity-btn btn-minus" onclick="decreaseQuantity(event,'{{product.product_id}}current',true)"><i class="fa fa-minus"
+                    <button class="quantity-btn btn-minus" onclick="decreaseQuantity('{{product.product_id}}_current',true,event)"><i class="fa fa-minus"
                         aria-hidden="true"></i></button>
                   </div>
+                  <button type="button" data-toggle="tooltip" title="{{ button_remove }}" class="theme-button w-100 p-0 red-btn" onclick="cart.remove('{{ product.cart_id }}');"><i class="fa fa-times-circle"></i></button>
                   </span></td>
               <td class="text-right">{{ product.price }}</td>
               <td class="text-right">{{ product.total }}</td>
