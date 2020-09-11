@@ -494,7 +494,7 @@ footer {
 	justify-content: center;
 	align-items: center;
 }
-.contacts-body .contacts-body-wrapper .shedule-wrapper .shedule-container{
+.shedule-container{
 	display:flex;
 	flex-direction: column;
 	text-align: center;

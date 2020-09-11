@@ -1,10 +1,14 @@
 {{ header }}
-<div id="account-address" class="container">
-  <ul class="breadcrumb">
+<div class="breadcrumbs-wrapper">
+  <ul class="breadcrumbs">
     {% for breadcrumb in breadcrumbs %}
-    <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+    <li>
+      <a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a>
+    </li>
     {% endfor %}
   </ul>
+  </div>
+<div id="account-address" class="container white-background p-20">
   {% if success %}
   <div class="alert alert-success alert-dismissible"><i class="fa fa-check-circle"></i> {{ success }}</div>
   {% endif %}
@@ -27,7 +31,7 @@
           {% for result in addresses %}
           <tr>
             <td class="text-left">{{ result.address }}</td>
-            <td class="text-right"><a href="{{ result.update }}" class="btn btn-info">{{ button_edit }}</a> &nbsp; <a href="{{ result.delete }}" class="btn btn-danger">{{ button_delete }}</a></td>
+            <td class="text-right"><a href="{{ result.update }}" class="theme-button yellow-btn">{{ button_edit }}</a> &nbsp; <a href="{{ result.delete }}" class="theme-button red-btn">{{ button_delete }}</a></td>
           </tr>
           {% endfor %}
         </table>
@@ -36,8 +40,8 @@
       <p>{{ text_empty }}</p>
       {% endif %}
       <div class="buttons clearfix">
-        <div class="pull-left"><a href="{{ back }}" class="btn btn-default">{{ button_back }}</a></div>
-        <div class="pull-right"><a href="{{ add }}" class="btn btn-primary">{{ button_new_address }}</a></div>
+        <div class="pull-left"><a href="{{ back }}" class="theme-button yellow-btn">{{ button_back }}</a></div>
+        <div class="pull-right"><a href="{{ add }}" class="theme-button  green-btn">{{ button_new_address }}</a></div>
       </div>
       {{ content_bottom }}</div>
     {{ column_right }}</div>

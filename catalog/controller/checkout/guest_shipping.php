@@ -110,7 +110,7 @@ class ControllerCheckoutGuestShipping extends Controller {
 				$json['error']['lastname'] = $this->language->get('error_lastname');
 			}
 
-			if ((utf8_strlen(trim($this->request->post['address_1'])) < 3) || (utf8_strlen(trim($this->request->post['address_1'])) > 128)) {
+			if (utf8_strlen(trim($this->request->post['address_1'])) > 128) {
 				$json['error']['address_1'] = $this->language->get('error_address_1');
 			}
 

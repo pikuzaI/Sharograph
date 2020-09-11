@@ -21,12 +21,12 @@ class ControllerCheckoutRegister extends Controller {
 
 		$data['customer_group_id'] = $this->config->get('config_customer_group_id');
 
-		if (isset($this->session->data['shipping_address']['postcode'])) {
-			$data['postcode'] = $this->session->data['shipping_address']['postcode'];
-		} else {
-			$data['postcode'] = '';
-		}
-
+		// if (isset($this->session->data['shipping_address']['postcode'])) {
+		// 	$data['postcode'] = $this->session->data['shipping_address']['postcode'];
+		// } else {
+		// 	$data['postcode'] = '';
+		// }
+		$data['postcode'] = '';
 		if (isset($this->session->data['shipping_address']['country_id'])) {
 			$data['country_id'] = $this->session->data['shipping_address']['country_id'];
 		} else {
@@ -131,13 +131,13 @@ class ControllerCheckoutRegister extends Controller {
 				$json['error']['telephone'] = $this->language->get('error_telephone');
 			}
 
-			if ((utf8_strlen(trim($this->request->post['address_1'])) < 3) || (utf8_strlen(trim($this->request->post['address_1'])) > 128)) {
+			if (utf8_strlen(trim($this->request->post['address_1'])) > 128) {
 				$json['error']['address_1'] = $this->language->get('error_address_1');
 			}
 
-			if ((utf8_strlen(trim($this->request->post['city'])) < 2) || (utf8_strlen(trim($this->request->post['city'])) > 128)) {
-				$json['error']['city'] = $this->language->get('error_city');
-			}
+			// if ((utf8_strlen(trim($this->request->post['city'])) < 2) || (utf8_strlen(trim($this->request->post['city'])) > 128)) {
+			// 	$json['error']['city'] = $this->language->get('error_city');
+			// }
 
 			$this->load->model('localisation/country');
 

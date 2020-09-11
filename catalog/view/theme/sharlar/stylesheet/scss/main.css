@@ -75,6 +75,11 @@
   transition: all .2s ease-in-out;
 }
 
+.theme-button:active {
+  -webkit-transform: scale(0.7);
+          transform: scale(0.7);
+}
+
 .theme-button i {
   vertical-align: middle;
 }
@@ -205,6 +210,16 @@
 
 .p-0 {
   padding: 0;
+}
+
+a .fa {
+  -webkit-transition: all .8s ease;
+  transition: all .8s ease;
+}
+
+a .fa:active {
+  -webkit-transform: scale(0.7);
+          transform: scale(0.7);
 }
 
 .in_wl {

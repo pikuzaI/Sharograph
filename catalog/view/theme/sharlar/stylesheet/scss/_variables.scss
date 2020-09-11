@@ -90,6 +90,9 @@ $shadow:  0 2px 5px rgba(0,0,0,0.3);
   font-size:2rem;
   font-weight:bold;
   transition:all .2s ease-in-out;
+  &:active{
+    transform:scale(0.7);
+  }
   & i{
     vertical-align: middle;
   }
@@ -199,6 +202,14 @@ $shadow:  0 2px 5px rgba(0,0,0,0.3);
   padding:0;
 }
 //Margin
+a{
+  & .fa{
+    transition:all .8s ease;
+    &:active{
+      transform:scale(0.7);
+    }
+  }
+}
 //if in wishlist 
 .in_wl{
     background:$mainRed;

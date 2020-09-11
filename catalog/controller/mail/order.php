@@ -264,21 +264,21 @@ class ControllerMailOrder extends Controller {
 		$mail->smtp_port = $this->config->get('config_mail_smtp_port');
 		$mail->smtp_timeout = $this->config->get('config_mail_smtp_timeout');
 		$imgname="";
-			 try{
-				// We need to remove the "data:image/png;base64,"
-			$base_to_php = explode(',', $image);
-			// // the 2nd item in the base_to_php array contains the content of the image
-			$imgdata = base64_decode($base_to_php[1]);
-			// // here you can detect if type is png or jpg if you want
-		 	$imgname = rand();
-			$filepath = "compimages/" . $imgname . '.jpg'; // or image.jpg
-			// Save the image in a defined path
-		 	file_put_contents($filepath,$imgdata);
-			 $mail->addAttachment('compimages/'. $imgname .'.jpg');
-			 }
-			 catch(Exception $e){
-			 }
-		
+        if ($image) {
+            try {
+                // We need to remove the "data:image/png;base64,"
+                $base_to_php = explode(',', $image);
+                // // the 2nd item in the base_to_php array contains the content of the image
+                $imgdata = base64_decode($base_to_php[1]);
+                // // here you can detect if type is png or jpg if you want
+                $imgname = rand();
+                $filepath = "compimages/" . $imgname . '.jpg'; // or image.jpg
+                // Save the image in a defined path
+                file_put_contents($filepath, $imgdata);
+                $mail->addAttachment('compimages/'. $imgname .'.jpg');
+            } catch (Exception $e) {
+            }
+        }
 			
 			
 		 
@@ -288,9 +288,9 @@ class ControllerMailOrder extends Controller {
 		$mail->setSubject(html_entity_decode(sprintf($language->get('text_subject'), $order_info['store_name'], $order_info['order_id']), ENT_QUOTES, 'UTF-8'));
 		$mail->setHtml($this->load->view('mail/order_add', $data));
 		$mail->send();
-		// if($imgname){
-		// 	unlink('compimages/'. $imgname .'.jpg');
-		// }
+		if($imgname){
+			unlink('compimages/'. $imgname .'.jpg');
+		}
 		
 	}
 	

@@ -201,9 +201,11 @@ function decreaseQuantity(id,ajaxCart = false,e = null) {
 	console.log(id)
 	$(`[data-id="${id}"]`).val(function (i, oldVal) {
 		let intVal = parseInt(oldVal)
-		intVal > parseInt(this.dataset.minimum) && --intVal;
-		if(ajaxCart && intVal > parseInt(this.dataset.minimum)){
-			cart.minus(id.split('_')[0],1)
+		if(intVal > parseInt(this.dataset.minimum)){
+			--intVal;
+			if(ajaxCart){
+				cart.minus(id.split('_')[0],1)
+			}
 		}
 		return intVal;
 	});
