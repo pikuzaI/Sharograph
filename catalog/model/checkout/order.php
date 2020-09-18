@@ -1,19 +1,25 @@
 <?php
 class ModelCheckoutOrder extends Model {
 	public function addImage($sessionId,$orderImage){
-		$checkRecord = $this->db->query("SELECT * FROM orderImages WHERE sessionId = '" . $sessionId . "'");
-		if($checkRecord->num_rows){
-			$this->db->query("UPDATE orderImages SET orderImage = '" . $this->db->escape($orderImage) . "' WHERE sessionId = '" . $sessionId . "'");
-		}
-		else{
-			$this->db->query("INSERT INTO orderImages SET sessionId = '" . $this->db->escape($sessionId) . "', orderImage = '" . $this->db->escape($orderImage) . "'");
-		}
-		
+		// $checkRecord = $this->db->query("SELECT * FROM orderImages WHERE sessionId = '" . $sessionId . "'");
+		// if($checkRecord->num_rows){
+		// 	$this->db->query("UPDATE orderImages SET orderImage = '" . $this->db->escape($orderImage) . "', orderDate = NOW() WHERE sessionId = '" . $sessionId . "'");
+		// }
+		// else{
+			
+		// }
+		$this->db->query("INSERT INTO orderImages SET sessionId = '" . $this->db->escape($sessionId) . "', orderImage = '" . $this->db->escape($orderImage) . "',orderDate = NOW()");
 	}
 	public function getImage($sessionId){
-		$order_query =$this->db->query("SELECT * FROM orderImages WHERE sessionId = '" . $sessionId . "'");
+		$order_query =$this->db->query("SELECT * FROM orderImages WHERE sessionId = '" . $sessionId . "' ORDER BY id DESC LIMIT 1");
 		if($order_query->num_rows){
 			return $order_query->row["orderImage"];
+		}
+	}
+	public function updateImageId($sessionId,$orderId){
+		$checkRecord = $this->db->query("SELECT * FROM orderImages WHERE sessionId = '" . $sessionId . "'");
+		if($checkRecord->num_rows){
+			$this->db->query("UPDATE orderImages SET orderId = $orderId  WHERE sessionId = '" . $sessionId . "' ORDER BY id DESC LIMIT 1");
 		}
 	}
 	public function addOrder($data) {

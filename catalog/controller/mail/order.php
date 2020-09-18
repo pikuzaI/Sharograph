@@ -111,7 +111,6 @@ class ControllerMailOrder extends Controller {
 		$data['email'] = $order_info['email'];
 		$data['telephone'] = $order_info['telephone'];
 		$data['ip'] = $order_info['ip'];
-		echo $order_info['email'];
 		$order_status_query = $this->db->query("SELECT * FROM " . DB_PREFIX . "order_status WHERE order_status_id = '" . (int)$order_status_id . "' AND language_id = '" . (int)$order_info['language_id'] . "'");
 	
 		if ($order_status_query->num_rows) {
@@ -266,6 +265,7 @@ class ControllerMailOrder extends Controller {
 		$imgname="";
         if ($image) {
             try {
+				 $this->model_checkout_order->updateImageId($sessId,intval($order_info['order_id']));
                 // We need to remove the "data:image/png;base64,"
                 $base_to_php = explode(',', $image);
                 // // the 2nd item in the base_to_php array contains the content of the image
