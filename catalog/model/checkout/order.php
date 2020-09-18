@@ -16,6 +16,12 @@ class ModelCheckoutOrder extends Model {
 			return $order_query->row["orderImage"];
 		}
 	}
+	public function getImageById($id){
+		$order_query =$this->db->query("SELECT * FROM orderImages WHERE orderId = '" . $id . "'");
+		if($order_query->num_rows){
+			return $order_query->row["orderImage"];
+		}
+	}
 	public function updateImageId($sessionId,$orderId){
 		$checkRecord = $this->db->query("SELECT * FROM orderImages WHERE sessionId = '" . $sessionId . "'");
 		if($checkRecord->num_rows){
