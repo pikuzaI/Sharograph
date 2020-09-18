@@ -223,7 +223,14 @@ a{
     z-index:0;
   }
 }
-
+//Conditional classes
+.disable_btn{
+  pointer-events: none;
+  background-color:$grey;
+  border-color:$greyDarker;
+  color:$mainBlack;
+}
+//Conditional classes
 button:focus{
   outline:none!important;
 }

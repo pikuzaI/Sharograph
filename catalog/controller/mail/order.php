@@ -111,7 +111,7 @@ class ControllerMailOrder extends Controller {
 		$data['email'] = $order_info['email'];
 		$data['telephone'] = $order_info['telephone'];
 		$data['ip'] = $order_info['ip'];
-
+		echo $order_info['email'];
 		$order_status_query = $this->db->query("SELECT * FROM " . DB_PREFIX . "order_status WHERE order_status_id = '" . (int)$order_status_id . "' AND language_id = '" . (int)$order_info['language_id'] . "'");
 	
 		if ($order_status_query->num_rows) {
@@ -462,6 +462,10 @@ class ControllerMailOrder extends Controller {
 			}
 
 			$data['comment'] = strip_tags($order_info['comment']);
+			//get composition image
+			$this->load->model('checkout/order');
+			$sessId = $this->session->getId();
+			$image = $this->model_checkout_order->getImage($sessId);
 
 			$mail = new Mail($this->config->get('config_mail_engine'));
 			$mail->parameter = $this->config->get('config_mail_parameter');
@@ -470,6 +474,22 @@ class ControllerMailOrder extends Controller {
 			$mail->smtp_password = html_entity_decode($this->config->get('config_mail_smtp_password'), ENT_QUOTES, 'UTF-8');
 			$mail->smtp_port = $this->config->get('config_mail_smtp_port');
 			$mail->smtp_timeout = $this->config->get('config_mail_smtp_timeout');
+			$imgname="";
+        if ($image) {
+            try {
+                // We need to remove the "data:image/png;base64,"
+                $base_to_php = explode(',', $image);
+                // // the 2nd item in the base_to_php array contains the content of the image
+                $imgdata = base64_decode($base_to_php[1]);
+                // // here you can detect if type is png or jpg if you want
+                $imgname = rand();
+                $filepath = "compimages/" . $imgname . '.jpg'; // or image.jpg
+                // Save the image in a defined path
+                file_put_contents($filepath, $imgdata);
+                $mail->addAttachment('compimages/'. $imgname .'.jpg');
+            } catch (Exception $e) {
+            }
+        }
 
 			$mail->setTo($this->config->get('config_email'));
 			$mail->setFrom($this->config->get('config_email'));
@@ -477,7 +497,9 @@ class ControllerMailOrder extends Controller {
 			$mail->setSubject(html_entity_decode(sprintf($this->language->get('text_subject'), $this->config->get('config_name'), $order_info['order_id']), ENT_QUOTES, 'UTF-8'));
 			$mail->setText($this->load->view('mail/order_alert', $data));
 			$mail->send();
-
+			if($imgname){
+				unlink('compimages/'. $imgname .'.jpg');
+			}
 			// Send to additional alert emails
 			$emails = explode(',', $this->config->get('config_mail_alert_email'));
 

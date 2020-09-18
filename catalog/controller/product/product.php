@@ -250,7 +250,9 @@ class ControllerProductProduct extends Controller
             } else {
                 $data['in_wishlist'] = '';
             }
+            $data['stock_class'] = "";
             if ($product_info['quantity'] <= 0) {
+                $data['stock_class'] = 'disable_btn';
                 $data['stock'] = $product_info['stock_status'];
             } elseif ($this->config->get('config_stock_display')) {
                 $data['stock'] = $product_info['quantity'];

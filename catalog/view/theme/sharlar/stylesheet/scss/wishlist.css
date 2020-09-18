@@ -236,6 +236,13 @@ a .fa:active {
   z-index: 0;
 }
 
+.disable_btn {
+  pointer-events: none;
+  background-color: #b4b4b4;
+  border-color: #b9b9b9;
+  color: #000;
+}
+
 button:focus {
   outline: none !important;
 }
