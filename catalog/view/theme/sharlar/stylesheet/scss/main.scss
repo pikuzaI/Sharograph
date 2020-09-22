@@ -174,20 +174,31 @@ header {
   z-index:2;
     & .menu-inner {
       position: relative;
-      width: 100%;
+      width: 78%;
       max-width:1600px;
       margin: 0 auto;
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
+      @include media("md"){
+        width:100%;
+       }
+      & .logo-wrapper-hide{
+        @include media("md"){
+          display:none;
+         }
+      }
       & .menu-list {
         width: 100%;
         list-style: none;
-        display: flex;
+        display: none;
         justify-content: space-around;
         align-items: center;
         text-align: center;
         margin:0;
+        @include media("md"){
+          display:flex;
+         }
         & .menu-item {
           font-weight: bolder;
           cursor: pointer;
@@ -210,9 +221,9 @@ header {
     }
 }
 .mobile-menu{
-  position:absolute;
+  position:fixed;
   left:50%;
-  transform:translate(-50%,-110%);
+  transform:translate(-50%,-200%);
   width:95%;
   padding:5px;
   display: flex;
@@ -221,9 +232,9 @@ header {
   background:white;
   border-radius:15px;
   box-shadow: $shadow;
-  z-index:100;
+  z-index:120;
   overflow: hidden;
-  transition:all .5s ease-in-out;
+  transition:all .3s ease-in-out;
   & .mobile-menu-inner{
     width:95%;
     list-style:none;
@@ -234,6 +245,7 @@ header {
     & .mobile-menu-item{
       width:100%;
       border-bottom: 1px solid $mainGreen;
+      padding:10px;
       & a{
         color:$mainGreen;
         font-size:20px;
@@ -263,6 +275,12 @@ header {
 .burger{
   display: flex;
   align-items: center;
+  padding:10px;
+  cursor:pointer;
+  transition:all .3s ease;
+  &:active{
+    transform:scale(0.7);
+  }
   @include media("md"){
     display: none;
   }
@@ -325,7 +343,7 @@ header {
   & h1{
     margin:0;
     font-size: 25px;
-    font-family: 'Marck Script', cursive;
+    font-family: 'FreeStyle';
     color:$white;
   &:nth-of-type(1){
     transform: translateX(20px);
@@ -401,9 +419,9 @@ header {
         flex-direction: column;
         justify-content: space-between;
         & span{
-          font-size: 40px;
-          color:rgb(219, 30, 204);
-          font-family: 'Marck Script', cursive;
+          font-size: 45px;
+          color:#7e049b;
+          font-family: 'FreeStyle', cursive;
           margin:5px 0;
           &:nth-last-of-type(){
             padding-left:20px;

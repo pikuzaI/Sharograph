@@ -28,7 +28,8 @@
               <td class="text-right">x {{ product.quantity }}</td>
               <td class="text-right">{{ product.total }}</td>
               <td class="text-center"><button type="button" onclick="cart.remove('{{ product.cart_id }}');"
-                  title="{{ button_remove }}" class="product-remove-btn"><i class="fa fa-times cl-red"></i></button></td>
+                  title="{{ button_remove }}" class="product-remove-btn"><i class="fa fa-times cl-red"></i></button>
+              </td>
             </tr>
             {% endfor %}
             {% for voucher in vouchers %}
@@ -69,8 +70,14 @@
             </div>
             {# <p class="text-right cart-proceed"><a href="{{ cart }}"><strong><i class="fa fa-shopping-cart"></i>
                   {{ text_cart }}</strong></a>&nbsp;&nbsp;&nbsp;</p> #}
-            <div class="checkout">
-              <a href="{{ checkout }}" class="theme-button green-btn"><i class="fa fa-share"></i> {{ text_checkout }}</a>
+            {# <div class="check-cart">
+                  
+                  </div> #}
+            <div class="checkout flex-col j-c a-c">
+              <a href="{{ cart }}" class="theme-button yellow-btn w-100 m-15"><i class="fa fa-shopping-cart"></i>
+                {{ text_cart }}</a>
+              <a href="{{ checkout }}" class="theme-button green-btn w-100 m-15"><i class="fa fa-share"></i>
+                {{ text_checkout }}</a>
             </div>
           </div>
         </li>

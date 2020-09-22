@@ -104,7 +104,9 @@ select.form-control, textarea.form-control, input[type="text"].form-control, inp
 span.hidden-xs, span.hidden-sm, span.hidden-md, span.hidden-lg {
 	display: inline;
 }
-
+nav{
+	line-height: initial!important;
+}
 .nav-tabs {
 	margin-bottom: 15px;
 }
@@ -471,10 +473,6 @@ footer {
 	text-align: center;
 }
 .footer-wrapper .footer-inner .contacts-title-wrapper h1{
-	font-size: 50px;
-	color:white;
-	margin:20px 0!important;
-	line-height:100%!important;
 }
 .contacts-body{
 	width:100%;
@@ -499,12 +497,8 @@ footer {
 	flex-direction: column;
 	text-align: center;
 }
-.contacts-body .contacts-body-wrapper .shedule-wrapper .shedule-inner h2{
-	color:var(--main-green);
+.contacts-body .contacts-body-wrapper .shedule-wrapper .shedule-inner h2{	
 	white-space: nowrap;
-	font-size:40px;
-	line-height: 100%!important;
-	margin:0;
 }
 .contacts-body .contacts-body-wrapper .shedule-wrapper .shedule-container span{
 	margin:10px 0;

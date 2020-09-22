@@ -29,6 +29,10 @@ class ControllerCommonHeader extends Controller {
 		$data['base'] = $server;
 		$data['description'] = $this->document->getDescription();
 		$data['keywords'] = $this->document->getKeywords();
+		$data['OGTitle'] = $this->document->getOGTitle();
+		$data['OGImage'] = $this->document->getOGImage();
+		$data['OGDescription'] = $this->document->getOGDescription();
+		$data['OGUrl'] = $this->document->getOGUrl();
 		$data['links'] = $this->document->getLinks();
 		$data['styles'] = $this->document->getStyles();
 		$data['scripts'] = $this->document->getScripts('header');
@@ -102,6 +106,10 @@ class ControllerCommonHeader extends Controller {
 		$data['base'] = $server;
 		$data['description'] = $this->document->getDescription();
 		$data['keywords'] = $this->document->getKeywords();
+		$data['OGTitle'] = $this->document->getOGTitle();
+		$data['OGImage'] = $this->document->getOGImage();
+		$data['OGDescription'] = $this->document->getOGDescription();
+		$data['OGUrl'] = $this->document->getOGUrl();
 		$data['links'] = $this->document->getLinks();
 		$data['styles'] = $this->document->getStyles();
 		$data['scripts'] = $this->document->getScripts('header');

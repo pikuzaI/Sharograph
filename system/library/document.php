@@ -14,6 +14,10 @@ class Document {
 	private $title;
 	private $description;
 	private $keywords;
+	private $OGTitle;
+	private $OGDescription;
+	private $OGImage;
+	private $OGUrl;
 	private $links = array();
 	private $styles = array();
 	private $scripts = array();
@@ -48,6 +52,42 @@ class Document {
 	/**
      * 
      *
+     * @param	string	$OGTitle
+     */
+	public function setOGTitle($title) {
+		$this->OGtitle = $title;
+	}
+
+	/**
+     * 
+     *
+     * @param	string	$OGImage
+     */
+	public function setOGImage($image) {
+		$this->OGImage = $image;
+	}
+
+	/**
+     * 
+     *
+     * @param	string	$OGDescription
+     */
+	public function setOGDescription($description) {
+		$this->OGDescription = $description;
+	}
+
+	/**
+     * 
+     *
+     * @param	string	$OGUrl
+     */
+	public function setOGUrl($url) {
+		$this->OGUrl = $url;
+	}
+
+	/**
+     * 
+     *
      * @param	string	$description
 	 * 
 	 * @return	string
@@ -72,6 +112,41 @@ class Document {
      */
 	public function getKeywords() {
 		return $this->keywords;
+	}
+	/**
+     * 
+     *
+     * @param	string	$OGTitle
+     */
+	public function getOGTitle() {
+		return $this->OGTitle;
+	}
+
+	/**
+     * 
+     *
+     * @param	string	$OGImage
+     */
+	public function getOGImage() {
+		return $this->OGImage;
+	}
+
+	/**
+     * 
+     *
+     * @param	string	$OGDescription
+     */
+	public function getOGDescription() {
+		return $this->OGDescription;
+	}
+
+	/**
+     * 
+     *
+     * @param	string	$OGUrl
+     */
+	public function getOGUrl() {
+		return $this->OGUrl;
 	}
 	
 	/**

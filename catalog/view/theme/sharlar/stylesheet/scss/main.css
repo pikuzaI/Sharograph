@@ -2,6 +2,11 @@
 @import url("https://fonts.googleapis.com/css?family=Lobster|Marck+Script&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;0,700;0,900;1,100;1,400;1,500;1,700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;500;700;800;900&display=swap");
+@font-face {
+  font-family: "FreeStyle";
+  src: url("../../fonts/10036.ttf");
+}
+
 .inline-title {
   display: inline-block;
 }
@@ -99,7 +104,6 @@
   background: #fece00;
   color: #fff;
   border: 2px solid #fece00;
-  font-size: 3rem;
 }
 
 .yellow-btn:hover {
@@ -166,10 +170,30 @@
           box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
+.iphone-title {
+  font-size: 1.5rem;
+}
+
+@media (min-width: 960px) {
+  .iphone-title {
+    font-size: 3rem;
+  }
+}
+
 .flex-row {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+.flex-col {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .j-c {
@@ -880,7 +904,6 @@ input[type="text"] {
   padding: 10px 20px;
   border: none;
   border-radius: 15px;
-  z-index: 20;
 }
 
 .close-filter {
@@ -1345,26 +1368,36 @@ header .header-inner .interface .wrapper .interface-inner .account-interface .ac
 
 .menu .menu-inner {
   position: relative;
-  width: 100%;
+  width: 78%;
   max-width: 1600px;
   margin: 0 auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
 }
 
+@media (min-width: 960px) {
+  .menu .menu-inner {
+    width: 100%;
+  }
+}
+
+@media (min-width: 960px) {
+  .menu .menu-inner .logo-wrapper-hide {
+    display: none;
+  }
+}
+
 .menu .menu-inner .menu-list {
   width: 100%;
   list-style: none;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: none;
   -ms-flex-pack: distribute;
       justify-content: space-around;
   -webkit-box-align: center;
@@ -1372,6 +1405,14 @@ header .header-inner .interface .wrapper .interface-inner .account-interface .ac
           align-items: center;
   text-align: center;
   margin: 0;
+}
+
+@media (min-width: 960px) {
+  .menu .menu-inner .menu-list {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
 }
 
 .menu .menu-inner .menu-list .menu-item {
@@ -1396,10 +1437,10 @@ header .header-inner .interface .wrapper .interface-inner .account-interface .ac
 }
 
 .mobile-menu {
-  position: absolute;
+  position: fixed;
   left: 50%;
-  -webkit-transform: translate(-50%, -110%);
-          transform: translate(-50%, -110%);
+  -webkit-transform: translate(-50%, -200%);
+          transform: translate(-50%, -200%);
   width: 95%;
   padding: 5px;
   display: -webkit-box;
@@ -1415,10 +1456,10 @@ header .header-inner .interface .wrapper .interface-inner .account-interface .ac
   border-radius: 15px;
   -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
           box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-  z-index: 100;
+  z-index: 120;
   overflow: hidden;
-  -webkit-transition: all .5s ease-in-out;
-  transition: all .5s ease-in-out;
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
 }
 
 .mobile-menu .mobile-menu-inner {
@@ -1440,6 +1481,7 @@ header .header-inner .interface .wrapper .interface-inner .account-interface .ac
 .mobile-menu .mobile-menu-inner .mobile-menu-item {
   width: 100%;
   border-bottom: 1px solid #57d301;
+  padding: 10px;
 }
 
 .mobile-menu .mobile-menu-inner .mobile-menu-item a {
@@ -1477,6 +1519,15 @@ header .header-inner .interface .wrapper .interface-inner .account-interface .ac
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  padding: 10px;
+  cursor: pointer;
+  -webkit-transition: all .3s ease;
+  transition: all .3s ease;
+}
+
+.burger:active {
+  -webkit-transform: scale(0.7);
+          transform: scale(0.7);
 }
 
 @media (min-width: 960px) {
@@ -1558,7 +1609,7 @@ header .header-inner .interface .wrapper .interface-inner .account-interface .ac
 .logo-wrapper h1 {
   margin: 0;
   font-size: 25px;
-  font-family: 'Marck Script', cursive;
+  font-family: 'FreeStyle';
   color: white;
 }
 
@@ -1668,9 +1719,9 @@ header .header-inner .interface .wrapper .interface-inner .account-interface .ac
 }
 
 #main-bg #scene .bg-logo-container .company-name span {
-  font-size: 40px;
-  color: #db1ecc;
-  font-family: 'Marck Script', cursive;
+  font-size: 45px;
+  color: #7e049b;
+  font-family: 'FreeStyle', cursive;
   margin: 5px 0;
 }
 

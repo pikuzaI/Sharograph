@@ -27,6 +27,10 @@
     </div> #}
      <div class="wrapper">
                     <div class="menu-inner">
+                      <div class="logo-wrapper logo-wrapper-hide">
+                        <h1>Merry</h1>
+                        <h1>Party</h1>
+                    </div>
                         <ul class="menu-list">
                         {% if links %}
                             <li class="menu-item bttn btn-2"><a href="http://reco.fun:8080/sharlar-shop" class="">{{links[0]}}</a></li>
@@ -37,7 +41,26 @@
                           <a href="#">{{links[3]}}</a>
                       </li>
                         </ul>
+                        <div class="burger"><div href="#" class="burger-btn"><span></span></div></div>
+                        <div class="mobile-menu">
+                          <ul class="mobile-menu-inner">
+                              {% if links %}
+                                      <li class="mobile-menu-item"><a href="http://reco.fun:8080/sharlar-shop"
+                                              class="">{{links[0]}}</a></li>
+                                      <li class="mobile-menu-item"><a
+                                              href="http://reco.fun:8080/sharlar-shop/index.php?route=product/category&path=62"
+                                              class="">{{links[1]}}</a></li>
+                                      <li class="mobile-menu-item"><a
+                                              href="http://reco.fun:8080/sharlar-shop/index.php?route=information/information&information_id=4"
+                                              class="">{{links[2]}}</a></li>
+                                              <li class="mobile-menu-item scroll-bottom">
+                                                  <a href="#">{{links[3]}}</a>
+                                              </li>
+                                      {% endif %}
+                          </ul>
+                      </div>
                     </div>
+                    <div class="mobile-menu-background"></div>
                 </div>
   </nav>
   <nav class="menu menu-hide" data-menu-type="">
@@ -67,6 +90,10 @@
     </div> #}
      <div class="wrapper">
                     <div class="menu-inner">
+                      <div class="logo-wrapper logo-wrapper-hide">
+                        <h1>Merry</h1>
+                        <h1>Party</h1>
+                    </div>
                         <ul class="menu-list">
                         {% if links %}
                             <li class="menu-item bttn btn-2"><a href="http://reco.fun:8080/sharlar-shop" class="">{{links[0]}}</a></li>
@@ -77,7 +104,9 @@
                           </li>
                         {% endif %}
                         </ul>
+                        <div class="burger"><div class="burger-btn"><span></span><div></div>
                     </div>
+                    <div class="mobile-menu-background"></div>
                 </div>
   </nav>
 </div>

@@ -2,6 +2,12 @@
 @import url('https://fonts.googleapis.com/css?family=Lobster|Marck+Script&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;0,700;0,900;1,100;1,400;1,500;1,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;500;700;800;900&display=swap');
+@import "media";
+@font-face{
+  font-family: "FreeStyle";
+    src : url("../../fonts/10036.ttf");
+}
+    
 $test:#48ac01;
 // $lightGreen:#d1ebed;
 // $trGreen:#d1ebedd2;
@@ -110,7 +116,6 @@ $shadow:  0 2px 5px rgba(0,0,0,0.3);
   background:$mainYellow;
   color:$mainWhite;
   border:2px solid $mainYellow;
-  font-size:3rem;
   &:hover{
       background:$mainWhite;
       color:$mainYellow;
@@ -167,8 +172,19 @@ $shadow:  0 2px 5px rgba(0,0,0,0.3);
   box-shadow: $shadow;
 }
 //Layout
+.iphone-title {
+  font-size:1.5rem;
+
+  @include media("md"){
+    font-size:3rem;
+  }
+}
 .flex-row{
   display: flex;
+}
+.flex-col{
+  display:flex;
+  flex-direction: column;
 }
 .j-c{
   justify-content: center;
@@ -331,6 +347,7 @@ input[type="text"] {
   font-family: 'Montserrat', sans-serif;
   font-weight:bold;
 }
+
 .cursor::before {
   content: "";
   width: 100%;
