@@ -88,14 +88,27 @@ $shadow:  0 2px 5px rgba(0,0,0,0.3);
 .bg-black{
   background-color:$mainBlack;
 }
+.bg-green-grad{
+  background:$greenGradient;
+}
+.bg-yellow-grad{
+  background:$orangeGradient;
+}
 //Background color clases
 //Buttons classes
+.btn-click{
+  transition:all .2s ease-in-out;
+  &:active{
+    transform:scale(0.7);
+  }
+}
 .theme-button{
   border-radius:15px;
   padding:10px;
   font-size:2rem;
   font-weight:bold;
   transition:all .2s ease-in-out;
+  cursor:pointer;
   &:active{
     transform:scale(0.7);
   }
@@ -139,6 +152,10 @@ $shadow:  0 2px 5px rgba(0,0,0,0.3);
 .brdr-15{
   border-radius:15px;
 }
+.brdr-50{
+  border-radius:50%;
+}
+
 .cl-brdr-green{
   border-color:$mainGreen;
 }

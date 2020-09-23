@@ -38,9 +38,7 @@ class ControllerSaleOrder extends Controller {
 		$this->document->setTitle($this->language->get('heading_title'));
 
 		$this->session->data['success'] = $this->language->get('text_success');
-
 		$url = '';
-
 		if (isset($this->request->get['filter_order_id'])) {
 			$url .= '&filter_order_id=' . $this->request->get['filter_order_id'];
 		}
@@ -787,9 +785,12 @@ class ControllerSaleOrder extends Controller {
 			$data['cancel'] = $this->url->link('sale/order', 'user_token=' . $this->session->data['user_token'] . $url, true);
 
 			$data['user_token'] = $this->session->data['user_token'];
-
+			// $this->load->model('checkout/order');
+			$orderImage = $this->model_sale_order->getImageById($this->request->get['order_id']);
+			if($orderImage){
+				$data['orderImage'] = $orderImage;
+			}
 			$data['order_id'] = $this->request->get['order_id'];
-
 			$data['store_id'] = $order_info['store_id'];
 			$data['store_name'] = $order_info['store_name'];
 			

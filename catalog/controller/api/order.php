@@ -729,7 +729,7 @@ class ControllerApiOrder extends Controller {
 
 			if ($order_info) {
 				$this->model_checkout_order->deleteOrder($order_id);
-
+				$this->model_checkout_order->deleteImageById($order_id);
 				$json['success'] = $this->language->get('text_success');
 			} else {
 				$json['error'] = $this->language->get('error_not_found');

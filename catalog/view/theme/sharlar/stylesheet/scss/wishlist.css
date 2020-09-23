@@ -71,6 +71,26 @@
   background-color: #000;
 }
 
+.bg-green-grad {
+  background: -webkit-gradient(linear, left top, right top, from(#57d301), to(#c6f739));
+  background: linear-gradient(90deg, #57d301, #c6f739);
+}
+
+.bg-yellow-grad {
+  background: -webkit-gradient(linear, left top, right top, from(#ffcd00), to(#ff6900));
+  background: linear-gradient(90deg, #ffcd00, #ff6900);
+}
+
+.btn-click {
+  -webkit-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+}
+
+.btn-click:active {
+  -webkit-transform: scale(0.7);
+          transform: scale(0.7);
+}
+
 .theme-button {
   border-radius: 15px;
   padding: 10px;
@@ -78,6 +98,7 @@
   font-weight: bold;
   -webkit-transition: all .2s ease-in-out;
   transition: all .2s ease-in-out;
+  cursor: pointer;
 }
 
 .theme-button:active {
@@ -129,6 +150,10 @@
 
 .brdr-15 {
   border-radius: 15px;
+}
+
+.brdr-50 {
+  border-radius: 50%;
 }
 
 .cl-brdr-green {
