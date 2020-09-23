@@ -178,7 +178,7 @@
 								{% if option.type == 'file' %}
 									<div class="form-group{% if option.required %} required {% endif %}">
 										<label class="control-label">{{ option.name }}</label>
-										<button type="button" id="button-upload{{ option.product_option_id }}" data-loading-text="{{ text_loading }}" class="btn btn-default btn-block">
+										<button type="button" id="button-upload{{ option.product_option_id }}" data-loading-text="{{ text_loading }}" class="theme-button yellow-btn btn-block">
 											<i class="fa fa-upload"></i>
 											{{ button_upload }}</button>
 										<input type="hidden" name="option[{{ option.product_option_id }}]" value="" id="input-option{{ option.product_option_id }}"/>
@@ -190,7 +190,7 @@
 										<div class="input-group date">
 											<input type="text" name="option[{{ option.product_option_id }}]" value="{{ option.value }}" data-date-format="YYYY-MM-DD" id="input-option{{ option.product_option_id }}" class="form-control"/>
 											<span class="input-group-btn">
-												<button class="btn btn-default" type="button">
+												<button class="theme-button yellow-btn" type="button">
 													<i class="fa fa-calendar"></i>
 												</button>
 											</span>
@@ -203,7 +203,7 @@
 										<div class="input-group datetime">
 											<input type="text" name="option[{{ option.product_option_id }}]" value="{{ option.value }}" data-date-format="YYYY-MM-DD HH:mm" id="input-option{{ option.product_option_id }}" class="form-control"/>
 											<span class="input-group-btn">
-												<button type="button" class="btn btn-default">
+												<button type="button" class="theme-button yellow-btn">
 													<i class="fa fa-calendar"></i>
 												</button>
 											</span>
@@ -216,7 +216,7 @@
 										<div class="input-group time">
 											<input type="text" name="option[{{ option.product_option_id }}]" value="{{ option.value }}" data-date-format="HH:mm" id="input-option{{ option.product_option_id }}" class="form-control"/>
 											<span class="input-group-btn">
-												<button type="button" class="btn btn-default">
+												<button type="button" class="theme-button yellow-btn">
 													<i class="fa fa-calendar"></i>
 												</button>
 											</span>
@@ -244,11 +244,11 @@
 							<input type="hidden" name="product_id" value="{{ product_id }}"/>
 							<br/>
 							<div class="btn-group product-btns">
-              <button type="button" id="button-cart" data-loading-text="{{ text_loading }}" class="custom-button">{{ button_cart }}</button>
-								<button type="button" data-toggle="tooltip" class="custom-button" title="{{ button_wishlist }}" onclick="wishlist.add('{{ product_id }}');">
+              <button type="button" id="button-cart" data-loading-text="{{ text_loading }}" class="theme-button green-btn">{{ button_cart }}</button>
+								<button type="button" data-toggle="tooltip" class="theme-button green-btn" title="{{ button_wishlist }}" onclick="wishlist.add('{{ product_id }}');">
 									<i class="fa fa-heart"></i>
 								</button>
-								<!-- <button type="button" data-toggle="tooltip" class="custom-button" title="{{ button_compare }}" onclick="compare.add('{{ product_id }}');">
+								<!-- <button type="button" data-toggle="tooltip" class="theme-button green-btn" title="{{ button_compare }}" onclick="compare.add('{{ product_id }}');">
 									<i class="fa fa-exchange"></i>
 								</button> -->
 								
@@ -356,7 +356,7 @@
 					                {{ captcha }}
 					                <div class="buttons clearfix">
 					                  <div class="pull-right">
-					                    <button type="button" id="button-review" data-loading-text="{{ text_loading }}" class="custom-button">{{ button_continue }}</button>
+					                    <button type="button" id="button-review" data-loading-text="{{ text_loading }}" class="theme-button green-btn">{{ button_continue }}</button>
 					                  </div>
 					                </div>
 					                {% else %}

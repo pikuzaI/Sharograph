@@ -34,7 +34,7 @@
             <input type="text" name="postcode" value="{{ postcode }}" placeholder="{{ entry_postcode }}" id="input-postcode" class="form-control" />
           </div>
         </div>
-        <button type="button" id="button-quote" data-loading-text="{{ text_loading }}" class="btn btn-primary">{{ button_quote }}</button>
+        <button type="button" id="button-quote" data-loading-text="{{ text_loading }}" class="theme-button green-btn">{{ button_quote }}</button>
       </div>
       <script type="text/javascript"><!--
 $('#button-quote').on('click', function() {
@@ -106,12 +106,12 @@ $('#button-quote').on('click', function() {
 
 				html += '      </div>';
 				html += '      <div class="modal-footer">';
-				html += '        <button type="button" class="btn btn-default" data-dismiss="modal">{{ button_cancel }}</button>';
+				html += '        <button type="button" class="theme-button yellow-btn" data-dismiss="modal">{{ button_cancel }}</button>';
 
 				{% if shipping_method %}
-				html += '        <input type="button" value="{{ button_shipping }}" id="button-shipping" data-loading-text="{{ text_loading }}" class="btn btn-primary" />';
+				html += '        <input type="button" value="{{ button_shipping }}" id="button-shipping" data-loading-text="{{ text_loading }}" class="theme-button green-btn" />';
 				{% else %}
-				html += '        <input type="button" value="{{ button_shipping }}" id="button-shipping" data-loading-text="{{ text_loading }}" class="btn btn-primary" disabled="disabled" />';
+				html += '        <input type="button" value="{{ button_shipping }}" id="button-shipping" data-loading-text="{{ text_loading }}" class="theme-button green-btn" disabled="disabled" />';
 				{% endif %}
 
 				html += '      </div>';

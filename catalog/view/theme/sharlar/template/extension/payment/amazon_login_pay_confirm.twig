@@ -25,7 +25,7 @@
             {% else %}
                 <input id="coupon" class="form-control" type="text" value="" />
                 <span class="input-group-btn">
-                    <button class="btn btn-primary" id="couponApply"><i class="fa fa-tick"></i> {{ button_coupon }}</button>
+                    <button class="theme-button green-btn" id="couponApply"><i class="fa fa-tick"></i> {{ button_coupon }}</button>
                 </span>
             {% endif %}
         </div>
@@ -81,24 +81,24 @@
                         <i class="fa fa-exclamation-circle"></i> {{ text_amount_converted }}
                         <hr />
                         <div class="text-right">
-                            <a class="btn btn-primary" href="{{ process }}" id="confirm-button">{{ text_confirm }}</a>
+                            <a class="theme-button green-btn" href="{{ process }}" id="confirm-button">{{ text_confirm }}</a>
                         </div>
                     </div>
                 {% else %}
-                    <a class="btn btn-primary" href="{{ process }}" id="confirm-button">{{ text_confirm }}</a>
+                    <a class="theme-button green-btn" href="{{ process }}" id="confirm-button">{{ text_confirm }}</a>
                 {% endif %}
             {% else %}
                 <div class="alert alert-warning">
                     <i class="fa fa-exclamation-circle"></i> {{ error_order_total_zero }}
                     <hr />
                     <div class="text-right">
-                        <a class="btn btn-primary" href="{{ standard_checkout }}" id="confirm-button">{{ text_continue_checkout }}</a>
+                        <a class="theme-button green-btn" href="{{ standard_checkout }}" id="confirm-button">{{ text_continue_checkout }}</a>
                     </div>
                 </div>
             {% endif %}
         </div>
         <div class="pull-left form-control-static">
-            <a href="{{ back }}" class="btn btn-default">{{ text_back }}</a>
+            <a href="{{ back }}" class="theme-button yellow-btn">{{ text_back }}</a>
         </div>
     </div>
 </div>

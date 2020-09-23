@@ -29,13 +29,13 @@
       <div class="table-responsive">
         <table class="table table-bordered table-hover">
           <thead>
-            <tr>
-              <td class="text-center"><div class="thead-td-inner white-background"> {{ column_image }}</div></td>
-              <td class="text-center"><div class="thead-td-inner white-background"> {{ column_name }}</div></td>
-              <td class="text-center"><div class="thead-td-inner white-background"> {{ column_model }}</div></td>
-              <td class="text-center"><div class="thead-td-inner white-background"> {{ column_stock }}</div></td>
-              <td class="text-center"><div class="thead-td-inner white-background"> {{ column_price }}</div></td>
-              <td class="text-center"><div class="thead-td-inner white-background"> {{ column_action }}</div></td>
+            <tr class="white-background">
+              <td class="text-center"><div class="thead-td-inner"> {{ column_image }}</div></td>
+              <td class="text-center"><div class="thead-td-inner"> {{ column_name }}</div></td>
+              <td class="text-center"><div class="thead-td-inner"> {{ column_model }}</div></td>
+              <td class="text-center"><div class="thead-td-inner"> {{ column_stock }}</div></td>
+              <td class="text-center"><div class="thead-td-inner"> {{ column_price }}</div></td>
+              <td class="text-center"><div class="thead-td-inner"> {{ column_action }}</div></td>
             </tr>
           </thead>
           <tbody>
@@ -63,7 +63,7 @@
       <p>{{ text_empty }}</p>
       {% endif %}
       <div class="buttons clearfix">
-        <div class="pull-right"><a href="{{ continue }}" class="btn btn-primary">{{ button_continue }}</a></div>
+        <div class="pull-right"><a href="{{ continue }}" class="theme-button green-btn">{{ button_continue }}</a></div>
       </div>
       {{ content_bottom }}</div>
     {{ column_right }}</div>

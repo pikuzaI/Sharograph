@@ -31,7 +31,7 @@
           {% for result in addresses %}
           <tr>
             <td class="text-left">{{ result.address }}</td>
-            <td class="text-right"><a href="{{ result.update }}" class="theme-button yellow-btn">{{ button_edit }}</a> &nbsp; <a href="{{ result.delete }}" class="theme-button red-btn">{{ button_delete }}</a></td>
+            <td class="text-right"><a href="{{ result.update }}" class="btn btn-primary">{{ button_edit }}</a> &nbsp; <a href="{{ result.delete }}" class="btn btn-danger">{{ button_delete }}</a></td>
           </tr>
           {% endfor %}
         </table>
