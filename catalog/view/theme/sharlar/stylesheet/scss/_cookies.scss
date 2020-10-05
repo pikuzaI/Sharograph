@@ -1,0 +1,42 @@
+.cookies-container{
+    position: fixed;
+    left:0;
+    bottom:30px;
+
+    width:100vw;
+
+    display:flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index:100;
+
+    transition:transform .3s ease-in-out;
+    & .cookies-inner{
+        width:90%;
+        display:flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        padding:10px;
+        @include media('md'){
+            flex-direction:row;
+            padding:30px;
+        }
+        & .cookie-item{
+            margin:0 10px;
+        }
+        & i{
+            font-size:40px;
+            @include media('md'){
+                font-size:50px;
+            }
+        }
+        & p{
+            font-size:12px;
+            @include media('md'){
+                font-size:18px;
+            }
+        }
+    }
+}

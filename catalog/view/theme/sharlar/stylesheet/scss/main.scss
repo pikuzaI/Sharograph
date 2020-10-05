@@ -4,6 +4,8 @@
 @import "filter";
 @import "pagination";
 @import "guide";
+@import "cookies";
+@import "mobileNav";
 *,
 body {
   margin: 0;
@@ -13,6 +15,34 @@ body {
 }
 body{
   overflow-x:hidden;
+  padding-bottom:48px;
+  @include media('md'){
+    padding-bottom:0;
+  }
+} 
+.breadcrumbs-wrapper{
+  background:$mainGreen;
+  & .breadcrumbs{
+    & li::after{
+      border-right: 1px solid $mainWhite;
+      border-bottom: 1px solid $mainWhite;
+    }
+    & a{
+      color:$mainWhite;
+    }
+  } 
+  @include media('md'){
+    background:$mainWhite;
+    & .breadcrumbs{
+      & li::after{
+        border-right: 1px solid $mainBlack;
+        border-bottom: 1px solid $mainBlack;
+      }
+      & a{
+        color:$mainBlack;
+      }
+    }
+  }
 }
 header {
   z-index:5;
@@ -164,7 +194,12 @@ header {
   left:0;
 }
 
-
+.menu-wrapper{
+  display:none;
+  @include media('md'){
+    display: block;
+  }
+}
 .menu {
   width: 100vw;
   display: flex;
@@ -172,7 +207,7 @@ header {
   border-bottom-left-radius: 30px;
   border-bottom-right-radius: 30px;
   transition:all .7s cubic-bezier(0.86, 0, 0.07, 1);
-  z-index:2;
+  z-index:50;
     & .menu-inner {
       position: relative;
       width: 78%;
@@ -328,6 +363,11 @@ header {
     }
     & .menu-list{
       display:none;
+      & li{
+        & a{
+          font-size: 15px;
+        }
+      }
       @include media("md"){
         width:60%;
         display:flex;
@@ -612,9 +652,9 @@ header {
   margin-bottom:200px;
 	& #svg-wave-top {
     position: absolute;
-    bottom:-198px;
+    bottom:-300px;
 		width: 100%;
-		height:200px;
+		height:300px;
 
   }
   & #svg-wave-bottom {

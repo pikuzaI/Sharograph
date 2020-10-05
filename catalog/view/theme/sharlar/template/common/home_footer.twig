@@ -29,10 +29,9 @@
     <div class="footer-inner">
       <div class="contacts-title-wrapper">
         <h1 class="contacts-title curvy-h cl-white m-20 iphone-title">Інформація</h1>
-        <hr>
       </div>
       <div class="contacts-body">
-        <div class="contacts-body-wrapper">
+        <div class="contacts-body-wrapper white-background">
           <div class="shedule-wrapper">
             <div class="shedule-inner">
               <h2 class="curvy-h cl-green iphone-title">Графік роботи</h2>
@@ -41,13 +40,13 @@
               </div>
             </div>
           </div>
-          <div class="map-wrapper">
+          <div class="map-wrapper flex-row flex-center">
             <a
               href="https://www.google.com.ua/maps/place/%D1%83%D0%BB.+%D0%A1%D0%B2%D1%8F%D1%82%D0%BE%D1%88%D0%B8%D0%BD%D1%81%D0%BA%D0%B0%D1%8F,+34,+%D0%9A%D0%B8%D0%B5%D0%B2,+02000/@50.4492032,30.3884139,15.25z/data=!4m5!3m4!1s0x40d4cc7b3b3b2a27:0x5f63e8661e17c426!8m2!3d50.445776!4d30.3889878"><img
                 src="catalog/view/theme/sharlar/image/assets/map.png" alt="Адреса магазину"></a>
           </div>
           <div class="info-wrapper">
-            <div class="contacts-info">
+            <div class="contacts-info flex-col">
               <span><i class="fa fa-map-marker" aria-hidden="true"></i>Адреса:Україна Київ вул.Святошинська, 34</span>
               <span><i class="fa fa-globe" aria-hidden="true"></i><a href="https://merryparty.com.ua"><strong>https://merryparty.com.ua/</strong> </a></span>
               <span><i class="fa fa-phone" aria-hidden="true"></i>(Kyivstar,Viber) <strong><a
@@ -67,56 +66,8 @@
         </div>
       </div>
     </div>
-    <hr>
-    <div class="extra-links">
-      <a href="">Головна</a>
-      <a href="">Каталог</a>
-      <a href="">Про нас</a>
-    </div>
-    <div class="w-100 flex-row j-c a-c"><div id="google_translate_element"></div></div>
+    <div class="w-100 flex-row j-c a-c p-20"><div id="google_translate_element"></div></div>
   </div>
-  {# <div class="container">
-    <div class="row"> #}
-  {# {% if informations %} #}
-  {# <div class="col-sm-3">
-        <h5 class="curvy-h">{{ text_information }}</h5>
-        <ul class="list-unstyled">
-         {% for information in informations %}
-          <li><a href="{{ information.href }}">{{ information.title }}</a></li>
-          {% endfor %}
-        </ul>
-      </div>
-      {% endif %}
-      <div class="col-sm-3">
-        <h5 class="curvy-h">{{ text_service }}</h5>
-        <ul class="list-unstyled">
-          <li><a href="{{ contact }}">{{ text_contact }}</a></li>
-          <li><a href="{{ return }}">{{ text_return }}</a></li>
-          <li><a href="{{ sitemap }}">{{ text_sitemap }}</a></li>
-        </ul>
-      </div>
-      <div class="col-sm-3">
-         <h5 class="curvy-h">{{ text_extra }}</h5>
-        <ul class="list-unstyled">
-          <li><a href="{{ manufacturer }}">{{ text_manufacturer }}</a></li>
-          <li><a href="{{ voucher }}">{{ text_voucher }}</a></li>
-          <li><a href="{{ affiliate }}">{{ text_affiliate }}</a></li>
-          <li><a href="{{ special }}">{{ text_special }}</a></li>
-        </ul>
-      </div> #}
-  {# <div class="col-sm-3">
-        <h5 class="curvy-h">{{ text_account }}</h5>
-        <ul class="list-unstyled">
-          <li><a href="{{ account }}">{{ text_account }}</a></li>
-          <li><a href="{{ order }}">{{ text_order }}</a></li>
-          <li><a href="{{ wishlist }}">{{ text_wishlist }}</a></li>
-          <li><a href="{{ newsletter }}">{{ text_newsletter }}</a></li>
-        </ul>
-      </div> #}
-  {# </div> #}
-
-  <!-- <p>{{ powered }}</p> -->
-  {# </div> #}
 </footer>
 {% for script in scripts %}
 <script src="{{ script }}" type="text/javascript"></script>
