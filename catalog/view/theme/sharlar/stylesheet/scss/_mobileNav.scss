@@ -3,18 +3,19 @@
     position: fixed;
     bottom:0;
     left:0;
+
     display: grid;
     grid-template-columns: repeat(4,1fr);
-    width: 100%;
+    
+		width: 100%;
     height: 60px;
-    background-color: $mainWhite;
-    z-index:100;
+    
+		background-color: $mainWhite;
+    
+		z-index:100;
     & .mobile__nav-item{
-        padding: 0 2px;
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex;
+			display: flex;
+			padding: 0 2px;
         -webkit-flex-direction: column;
         -ms-flex-direction: column;
         flex-direction: column;

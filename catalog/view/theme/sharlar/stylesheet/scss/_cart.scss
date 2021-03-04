@@ -10,17 +10,23 @@
 }
 .cart-menu-wrapper{
 	position: fixed;
-    top:50%;
-    transform:translate(110%,-50%);
+  top:50%;
 	right:0;
+  
 	height:92vh;
 	width:100%;
+	
+	transform:translate(110%,-50%);
+	
 	// background:var(--main-green);
 	border:2px solid $mainGreen;
 	border-radius: 100%;
+
 	transition: all .5s ease;
+	
 	z-index:100;
-    overflow:hidden;
+  overflow:hidden;
+	
     @include media("md"){
         width:50%;
     }

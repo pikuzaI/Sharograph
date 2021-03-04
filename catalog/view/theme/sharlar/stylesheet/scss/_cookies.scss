@@ -13,12 +13,14 @@
 
     transition:transform .3s ease-in-out;
     & .cookies-inner{
-        width:90%;
-        display:flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
-        padding:10px;
+			display:flex;
+			flex-direction: column;
+			justify-content: space-between;
+			align-items: center;
+        
+			width:90%;
+      
+			padding:10px;
         @include media('md'){
             flex-direction:row;
             padding:30px;

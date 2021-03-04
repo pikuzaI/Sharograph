@@ -99,7 +99,7 @@ $shadow:  0 2px 5px rgba(0,0,0,0.3);
 .btn-click{
   transition:all .2s ease-in-out;
   &:active{
-    transform:scale(0.7);
+    transform:scale(0.9);
   }
 }
 .theme-button{
@@ -110,7 +110,7 @@ $shadow:  0 2px 5px rgba(0,0,0,0.3);
   transition:all .2s ease-in-out;
   cursor:pointer;
   &:active{
-    transform:scale(0.7);
+    transform:scale(0.9);
   }
   & i{
     vertical-align: middle;
@@ -190,7 +190,7 @@ $shadow:  0 2px 5px rgba(0,0,0,0.3);
 }
 //Layout
 .iphone-title {
-  font-size:1.5rem;
+  font-size:2.5rem;
 
   @include media("md"){
     font-size:3rem;
@@ -252,7 +252,7 @@ a{
   & .fa{
     transition:all .8s ease;
     &:active{
-      transform:scale(0.7);
+      transform:scale(0.9);
     }
   }
 }
