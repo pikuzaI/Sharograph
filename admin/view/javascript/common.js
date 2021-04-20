@@ -199,7 +199,6 @@ $(document).ready(function() {
 				event.preventDefault();
 
 				var value = $(event.target).parent().attr('data-value');
-
 				if (value && this.items[value]) {
 					this.select(this.items[value]);
 				}

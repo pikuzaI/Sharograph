@@ -14,7 +14,7 @@ body {
   font-family: 'Montserrat', sans-serif;
 }
 body{
-  overflow-x:hidden;
+  // overflow-x:hidden;
   padding-bottom:48px;
   @include media('md'){
     padding-bottom:0;
@@ -201,7 +201,7 @@ header {
   }
 }
 .menu {
-  width: 100vw;
+  width: 100%;
   display: flex;
   background: $mainGreen;
   border-bottom-left-radius: 30px;

@@ -98,7 +98,7 @@
                   <input type="text" name="filter" value="" placeholder="{{ entry_filter }}" id="input-filter" class="form-control" />
                   <div id="category-filter" class="well well-sm" style="height: 150px; overflow: auto;">
                     {% for category_filter in category_filters %}
-                    <div id="category-filter{{ category_filter.filter_id }}"><i class="fa fa-minus-circle"></i> {{ category_filter.name }}
+                    <div id="category-filter{{ category_filter.filter_id }}"><i class="fa fa-minus-circle"></i>{{ category_filter.name }}
                       <input type="hidden" name="category_filter[]" value="{{ category_filter.filter_id }}" />
                     </div>
                     {% endfor %}

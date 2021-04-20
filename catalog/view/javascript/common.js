@@ -1,3 +1,17 @@
+function saveScrollPosition(){
+	if ( localStorage.getItem("scroll") !== null ) {
+		$(window).scrollTop( localStorage.getItem("scroll") );
+}
+
+// When scrolling happens....
+$(window).on("unload", function() {
+
+		// Set a cookie that holds the scroll position.
+		localStorage.setItem("scroll", $(window).scrollTop() );
+
+});
+
+}
 function getURLVar(key) {
 	var value = [];
 
@@ -33,6 +47,7 @@ function spawnAlert(message = "",color="green") {
 	}, 3000)
 }
 $(document).ready(function () {
+	// saveScrollPosition();
 	$('.add-to-wl').click(function () {
 		var product_id = $(this).attr('data');
 		var self = this;
