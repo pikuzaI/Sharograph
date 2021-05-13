@@ -74,7 +74,9 @@
 			<div class="product-about-column product-about-right white-background">
 				<div class="column-right-inner">
 					<h1 class="product-title">{{ heading_title }}</h1>
-
+					{% if sku %}
+						<h4>{{ text_sku }} {{ sku }}</h4>
+					{% endif %}
 					{# {% if manufacturer %}
 					<li>{{ text_manufacturer }}
 						<a href="{{ manufacturers }}">{{ manufacturer }}</a>

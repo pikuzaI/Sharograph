@@ -402,6 +402,18 @@ class ControllerCatalogCategory extends Controller {
 				);
 			}
 		}
+		//FIGURES
+		$allFigures = $this->model_catalog_category->getFigures();
+		$categoryFigures = $this->model_catalog_category->getFiguresByCategoryId((int)$this->request->get['category_id']);
+
+		$selectedFigures = array();
+		
+		foreach($categoryFigures as $fig){
+			$selectedFigures[] = $fig['id'];
+		}
+		// $log = new Log('logs.log');
+		$data['figures'] = $allFigures;
+		$data['selected_figures'] = $selectedFigures;
 
 		$this->load->model('setting/store');
 

@@ -59,9 +59,36 @@ class ModelCatalogCategory extends Model {
 
 		return $category_id;
 	}
+	//Custom functions
+	public function getFigures() {
+		$query = $this->db->query("SELECT name, label, figure_id AS id FROM figures");
+		// $log = new Log('logs.log');
+		// $log->write("SASA");
+		// $log->write($query->rows);
+		return $query->rows;
+	}
+
+	private function insertFigures($category_id, $figures){
+		$this->db->query("DELETE FROM category_figure WHERE category_id = " . (int)$category_id . "");
+		if(isset($figures)){
+			foreach($figures as $figure_id){
+				$this->db->query("INSERT INTO category_figure (category_id, figure_id) VALUES( " . (int)$category_id . ", ". (int)$figure_id ." )");
+			}
+		}
+	}
+
+	public function getFiguresByCategoryId($category_id){
+		if(isset($category_id)){
+			$query = $this->db->query("SELECT figure_id AS id FROM category_figure WHERE category_id = ". $category_id ."");
+			return $query->rows;
+		}
+	}
+	//Custom functions
 
 	public function editCategory($category_id, $data) {
 		$this->db->query("UPDATE " . DB_PREFIX . "category SET parent_id = '" . (int)$data['parent_id'] . "', `top` = '" . (isset($data['top']) ? (int)$data['top'] : 0) . "', `column` = '" . (int)$data['column'] . "', sort_order = '" . (int)$data['sort_order'] . "', status = '" . (int)$data['status'] . "', date_modified = NOW() WHERE category_id = '" . (int)$category_id . "'");
+		//Insert figures
+		$this->insertFigures($category_id, $data['figures']);
 
 		if (isset($data['image'])) {
 			$this->db->query("UPDATE " . DB_PREFIX . "category SET image = '" . $this->db->escape($data['image']) . "' WHERE category_id = '" . (int)$category_id . "'");

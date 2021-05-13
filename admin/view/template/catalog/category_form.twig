@@ -42,6 +42,7 @@
                 {% for language in languages %}
                 <div class="tab-pane" id="language{{ language.language_id }}">
                   <div class="form-group required">
+
                     <label class="col-sm-2 control-label" for="input-name{{ language.language_id }}">{{ entry_name }}</label>
                     <div class="col-sm-10">
                       <input type="text" name="category_description[{{ language.language_id }}][name]" value="{{ category_description[language.language_id] ? category_description[language.language_id].name }}" placeholder="{{ entry_name }}" id="input-name{{ language.language_id }}" class="form-control" />
@@ -82,6 +83,37 @@
               </div>
             </div>
             <div class="tab-pane" id="tab-data">
+							{# DATA PANEL #}
+							<div class="form-group">
+								<label class="col-sm-2 control-label">Відображення категорія у конструкторі</label>
+                <div class="col-sm-10">
+                  <div class="well well-sm" style="height: 150px; overflow: auto;">
+										{# {% for a in selected_figures %}
+											<p>{{a.id}}</p>
+										{% endfor %} #}
+                    {% for figure in figures %}
+                    <div class="checkbox">
+											
+                      <label>
+                        {% if figure.id in selected_figures %}
+                        <input type="checkbox" name="figures[]" value="{{ figure.id }}" checked="checked" />
+                        {{ figure.label }}
+                        {% else %}
+                        <input type="checkbox" name="figures[]" value="{{ figure.id }}" />
+                        {{ figure.label }}
+                        {% endif %}
+
+
+
+												{#<input type="checkbox" name="figures[]" value="{{ figure.id }}" />
+												{{figure.label}}#}
+                      </label>
+                    </div>
+                    {% endfor %}
+										
+                  </div>
+                </div>
+							</div>
               <div class="form-group">
                 <label class="col-sm-2 control-label" for="input-parent">{{ entry_parent }}</label>
                 <div class="col-sm-10">

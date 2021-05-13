@@ -12,6 +12,36 @@ class ModelCatalogCategory extends Model {
 		return $query->rows;
 	}
 
+	public function getCategoriesNames($parent_id = 0) {
+		$query = $this->db->query("SELECT c.category_id AS id, cd.name FROM " . DB_PREFIX . "category c LEFT JOIN " . DB_PREFIX . "category_description cd ON (c.category_id = cd.category_id) LEFT JOIN " . DB_PREFIX . "category_to_store c2s ON (c.category_id = c2s.category_id) WHERE c.parent_id = '" . (int)$parent_id . "' AND cd.language_id = '" . (int)$this->config->get('config_language_id') . "' AND c2s.store_id = '" . (int)$this->config->get('config_store_id') . "'  AND c.status = '1' ORDER BY c.sort_order, LCASE(cd.name)");
+
+		return $query->rows;
+	}
+
+	public function getCategoriesFigures($parent_id = 0){
+		$query = $this->db->query("SELECT c.category_id AS id, cd.name FROM " . DB_PREFIX . "category c LEFT JOIN " . DB_PREFIX . "category_description cd ON (c.category_id = cd.category_id) LEFT JOIN " . DB_PREFIX . "category_to_store c2s ON (c.category_id = c2s.category_id) WHERE c.parent_id = '" . (int)$parent_id . "' AND cd.language_id = '" . (int)$this->config->get('config_language_id') . "' AND c2s.store_id = '" . (int)$this->config->get('config_store_id') . "'  AND c.status = '1' ORDER BY c.sort_order, LCASE(cd.name)");
+
+		$categories = $query->rows;
+
+		foreach($categories as $index => $field){
+			$figures_query = $this->db->query("SELECT figure_id FROM category_figure WHERE category_id = ". (int)$field['id'] ."");
+			$figures = $figures_query->rows;
+
+			if(!empty($figures)){
+				$f = array();
+				
+				foreach($figures as $figure){
+					$f[] = $figure['figure_id'];
+				}
+				$categories[$index]['figures'] = $f;
+			}else{
+				unset($categories[$index]);
+			}
+		}
+
+		return array_values($categories);
+	}
+
 	public function getCategoryFilters($category_id) {
 		$implode = array();
 
