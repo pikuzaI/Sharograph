@@ -6,4 +6,11 @@ class ControllerApiCategory extends Controller {
 		$this->response->addHeader('Content-Type: application/json');
 		$this->response->setOutput(json_encode($categories));
 	}
+
+	public function test(){
+		$this->load->model('catalog/category');
+		$data =  $this->model_catalog_category->test();
+		$this->response->addHeader('Content-Type: application/json');
+		$this->response->setOutput(json_encode($data));
+	}
 }
