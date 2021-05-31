@@ -1,0 +1,31 @@
+.pagination{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content: flex-start;
+    & li{
+        margin:0 5px;
+        & a, & span{
+            font-size:20px;
+        }
+        & a{
+            background:white;
+            color:$mainGreen;
+            border:none;
+            border-radius:15px!important;
+            box-shadow: $shadow;
+        }
+    }
+    & .active{
+        & span{
+            background:$mainGreen;
+            color:$mainWhite;
+            border:none;
+            border-radius:15px!important;
+            box-shadow: $shadow;
+            &:hover{
+                background:$mainWhite;
+                color:$mainGreen;
+            }
+        }
+    }
+}
