@@ -34,7 +34,17 @@ var mapURL = './';
 
 var jsSRC = './js/';
 var jsFront = 'custom.js';
-var jsFiles = [jsFront];
+var jsFiles = [
+	"test.js",
+	"animation.js",
+	"globalAnimations.js",
+	"googlemap.js",
+	"homeAnimation.js",
+	"parallax.js",
+	"preloader.js",
+	"shopLogics.js",
+	"slider.js"
+];
 var jsURL = './../dist/js/';
 
 var imgSRC = './image/**/*';
@@ -86,7 +96,7 @@ function js(done) {
     return browserify({
       entries: [jsSRC + entry]
     })
-      .transform(babelify, { presets: ['@babel/preset-env'] })
+       .transform(babelify, { presets: ['@babel/preset-env'] })
       .bundle()
       .pipe(source(entry))
       .pipe(
@@ -97,7 +107,11 @@ function js(done) {
       .pipe(buffer())
       .pipe(gulpif(options.has('production'), stripDebug()))
       .pipe(sourcemaps.init({ loadMaps: true }))
-      .pipe(uglify())
+      .pipe(uglify({
+					compress: {
+						unused: false
+					}
+			}))
       .pipe(sourcemaps.write('.'))
       .pipe(dest(jsURL))
       .pipe(browserSync.stream());

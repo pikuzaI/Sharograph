@@ -7,7 +7,7 @@
 <!--<![endif]-->
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>{{ title }}</title>
 <base href="{{ base }}" />
@@ -46,26 +46,18 @@
 <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet" type="text/css" />
 <link href="//fonts.googleapis.com/css?family=Open+Sans:400,400i,300,700" rel="stylesheet" type="text/css" />
 <link href="catalog/view/theme/sharlar/stylesheet/stylesheet2.css" rel="stylesheet">
-<link href="catalog/view/theme/sharlar/constructor/css/2.8a87be81.chunk.css" rel="stylesheet">
-<link href="catalog/view/theme/sharlar/constructor/css/main.ac511f9e.chunk.css" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A==" crossorigin="anonymous" />
 {# <link href="catalog/view/theme/sharlar/stylesheet/scss/main.css" rel="stylesheet"> #}
-<link href="catalog/view/theme/sharlar/dist/styles/stylesheet.css" rel="stylesheet">
-<script type="text/javascript">
-$(document).ready(function(){
-if(window.innerWidth<=960){
-var url=document.location.href;
-$.each($(".mobile__nav .mobile__nav-item"),function(){
-	console.log(this.href)
-if(url===this.href){
-$(this).addClass('mob-active');
-};
-});
-}
-});
-</script> 
 
+<link href="catalog/view/theme/sharlar/constructor/css/2.6ef2fac9.chunk.css" rel="stylesheet">
+<link href="catalog/view/theme/sharlar/constructor/css/main.4e7d5183.chunk.css" rel="stylesheet">
+
+<link href="catalog/view/theme/sharlar/dist/styles/stylesheet.css" rel="stylesheet">
+<!-- {% if route == 'account/wishlist' %}
+<link href="catalog/view/theme/sharlar/stylesheet/scss/wishlist.css" rel="stylesheet">
+{% endif %}
+{% if route == 'product/product' %}
+<link href="catalog/view/theme/sharlar/stylesheet/scss/product.css" rel="stylesheet">
+{% endif %} -->
 {% for style in styles %}
 <link href="{{ style.href }}" type="text/css" rel="{{ style.rel }}" media="{{ style.media }}" />
 {% endfor %}
@@ -79,10 +71,55 @@ $(this).addClass('mob-active');
 {% for analytic in analytics %}
 {{ analytic }}
 {% endfor %}
-
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" >
+<script type="text/javascript">
+$(document).ready(function(){
+if(window.innerWidth<=960){
+var url=document.location.href;
+$.each($(".mobile__nav .mobile__nav-item"),function(){
+if(url === this.href){
+$(this).addClass('mob-active');
+};
+});
+}
+});
+</script> 
 </head>
 <body>
-{{ menu }} 
+<header>
+  <div class="header-wrapper">
+    <div class="row header-row">
+      <div class="header-item col-12 col-sm-12 col-md-3 col-lg-4 logo-container">
+        <div id="logo" class="logo">{% if logo %}<a href="{{ home }}"><img src="{{ logo }}" title="{{ name }}" alt="{{ name }}" class="img-responsive" /></a>{% else %}
+          <h1><a href="{{ home }}">{{ name }}</a></h1>
+          {% endif %}</div>
+      </div>
+      <div class="header-item col-12 col-sm-12 col-md-5 col-lg-5">{{ search }}</div>
+      <div class="header-item col-12 col-sm-12 col-md-4 col-lg-3 cart-account">
+     {# {{ language }} #}
+    
+      {{ cart }}     
+      <a href="{{ wishlist }}" class="wishlist-btn" id="wishlist-total" title="{{ text_wishlist }}"><i class="fa fa-heart"></i></a> 
+         <div class="dropdown account-dropdown"><a href="{{ account }}" title="{{ text_account }}" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> </a>
+          <ul class="dropdown-menu dropdown-menu-right">
+            {% if logged %}
+            <li><a href="{{ account }}">{{ text_account }}</a></li>
+            <li><a href="{{ order }}">{{ text_order }}</a></li>
+            <li><a href="{{ transaction }}">{{ text_transaction }}</a></li>
+            <li><a href="{{ download }}">{{ text_download }}</a></li>
+            <li><a href="{{ logout }}">{{ text_logout }}</a></li>
+            {% else %}
+            <li><a href="{{ register }}">{{ text_register }}</a></li>
+            <li><a href="{{ login }}">{{ text_login }}</a></li>
+            {% endif %}
+          </ul>
+        </div> 
+        </div>
+    </div>
+  </div>
+</header>
+{{ menu }}
 {# <div class="cursor-dot"></div> #}
 <div class="cursor"></div>
 <div id="plain-1" class="plain">
@@ -90,7 +127,6 @@ $(this).addClass('mob-active');
 		<div class="logo-wrap">
 			<img id="start-img" src="catalog/view/theme/sharlar/image/assets/logo2.png" alt="">
 		</div>
-    
 	</div>
     <svg id="svg-wave-top" version="1.1" transform="translate(0, 0) scale(-1, 1) " data-name="Слой 1" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 800 160.32">
       <defs>

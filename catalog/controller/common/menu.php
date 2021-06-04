@@ -50,7 +50,7 @@ class ControllerCommonMenu extends Controller {
 			}
 		}
 		
-		return $this->load->view('common/menu_home', $data);
+		return $this->load->view('common/menu', $data);
 	}
 	public function index() {
 		$this->load->language('common/menu');
