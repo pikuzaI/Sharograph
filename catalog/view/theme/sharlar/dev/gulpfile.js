@@ -81,8 +81,8 @@ function css(done) {
 				includePaths:['./scss/*.scss', "scss/*.scss"]
       })
     )
-    .pipe(concatCss("../" + styleURL + 'stylesheet.css'))
-    .pipe(cleanCSS({ compatibility: 'ie8' }))
+    .pipe(concatCss("../" + styleURL + 'stylesheet.css', {rebaseUrls:false}))
+    .pipe(cleanCSS({ compatibility: 'ie8', processImport: false }))
     .on('error', console.error.bind(console))
     //.pipe(rename({ suffix: '.min' }))
     .pipe(sourcemaps.write(mapURL))
