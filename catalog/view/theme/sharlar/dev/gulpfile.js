@@ -3,6 +3,9 @@ const proxyURL = 'http://reco.fun:8080/sharlar-shop';
 // Load Gulp...of course
 const { src, dest, task, watch, series, parallel } = require('gulp');
 
+let version = require('gulp-version-number');
+
+
 // CSS related plugins
 var sass = require('gulp-sass');
 var concatCss = require('gulp-concat-css');
@@ -45,6 +48,9 @@ var jsFiles = [
 	"shopLogics.js",
 	"slider.js"
 ];
+let twigFiles = [
+	''
+]
 var jsURL = './../dist/js/';
 
 var imgSRC = './image/**/*';
@@ -118,6 +124,29 @@ function js(done) {
   });
   done();
 }
+const versionConfig = {
+  'value': '%MDS%',
+  'append': {
+    'key': 'v',
+    'to': [{
+			type:'css',
+			cover:1,
+			files:[/wishlist.css/, /product.css/]
+		}, 
+		{
+			type:'js',
+			key:'v',
+			cover:1,
+			files:[ /common.js/]
+		}],
+  },
+};
+
+function versioning(src_files) {
+	return src('./twig/*.twig')
+		.pipe(version(versionConfig))
+		.pipe(dest('./test_dest/'))
+}
 
 function triggerPlumber(src_file, dest_file) {
   return src(src_file)
@@ -134,8 +163,8 @@ function fonts() {
 }
 
 function watch_files() {
-  watch(styleWatch, series(css, reload));
-  watch(jsWatch, series(js, reload));
+  watch(styleWatch, series(css,versioning, reload));
+  watch(jsWatch, series(js, versioning, reload));
   watch(imgWatch, series(image, reload));
   watch(fontsWatch, series(fonts, reload));
   watch(twigWatch, series(reload));

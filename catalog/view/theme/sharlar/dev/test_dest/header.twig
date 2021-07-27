@@ -46,17 +46,15 @@
 <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet" type="text/css" />
 <link href="//fonts.googleapis.com/css?family=Open+Sans:400,400i,300,700" rel="stylesheet" type="text/css" />
 <link href="catalog/view/theme/sharlar/stylesheet/stylesheet2.css" rel="stylesheet">
+<link href="catalog/view/theme/sharlar/stylesheet/scss/wishlist.css?v=3b93974ce3707bc821645500c7ee58ca" rel="stylesheet">
+<link href="catalog/view/theme/sharlar/stylesheet/scss/product.css?v=3b93974ce3707bc821645500c7ee58ca" rel="stylesheet">
 {# <link href="catalog/view/theme/sharlar/stylesheet/scss/main.css" rel="stylesheet"> #}
-
-<link href="catalog/view/theme/sharlar/constructor/css/2.6ef2fac9.chunk.css" rel="stylesheet">
-<link href="catalog/view/theme/sharlar/constructor/css/main.4e7d5183.chunk.css" rel="stylesheet">
-
 <link href="catalog/view/theme/sharlar/dist/styles/stylesheet.css" rel="stylesheet">
 <!-- {% if route == 'account/wishlist' %}
-<link href="catalog/view/theme/sharlar/stylesheet/scss/wishlist.css" rel="stylesheet">
+<link href="catalog/view/theme/sharlar/stylesheet/scss/wishlist.css?v=3b93974ce3707bc821645500c7ee58ca" rel="stylesheet">
 {% endif %}
 {% if route == 'product/product' %}
-<link href="catalog/view/theme/sharlar/stylesheet/scss/product.css" rel="stylesheet">
+<link href="catalog/view/theme/sharlar/stylesheet/scss/product.css?v=3b93974ce3707bc821645500c7ee58ca" rel="stylesheet">
 {% endif %} -->
 {% for style in styles %}
 <link href="{{ style.href }}" type="text/css" rel="{{ style.rel }}" media="{{ style.media }}" />
@@ -64,7 +62,7 @@
 {% for script in scripts %}
 <script src="{{ script }}" type="text/javascript"></script>
 {% endfor %}
-<script src="catalog/view/javascript/common.js" type="text/javascript"></script>
+<script src="catalog/view/javascript/common.js?v=3b93974ce3707bc821645500c7ee58ca" type="text/javascript"></script>
 {% for link in links %}
 <link href="{{ link.href }}" rel="{{ link.rel }}" />
 {% endfor %}

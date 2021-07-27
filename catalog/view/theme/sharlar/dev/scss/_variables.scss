@@ -1,6 +1,3 @@
-// @import url("https://fonts.googleapis.com/css?family=Lora&display=swap");
-// @import url("https://fonts.googleapis.com/css?family=Lobster|Marck+Script&display=swap");
-// @import url("https://fonts.googleapis.com/css?family=Montserrat");
 @import "mixins";
 @import "media";
 @include font-face("Playfair", "../fonts/Playfair/PlayfairDisplay-Regular", normal, normal);
@@ -56,7 +53,7 @@ $grey: #b4b4b4;
 $greyLight: #e4e4e4;
 $greyDarker: #b9b9b9;
 $mainRed: #ff482f;
-$greenGradient: linear-gradient(90deg, #efe6df, #e8d7d0);
+$greenGradient: linear-gradient(90deg, #e8d7d0, #bbab9c);
 $orangeGradient: linear-gradient(90deg, #ffcd00, #ff6900);
 $shadow: 0 0px 0px rgba(0, 0, 0, 0);
 
@@ -67,7 +64,7 @@ $shadow: 0 0px 0px rgba(0, 0, 0, 0);
 //Titles
 //Text color classes
 .cl-green {
-	color: $mainGreen;
+	color: var(--text-dark);
 }
 .cl-red {
 	color: $mainRed;
@@ -325,13 +322,13 @@ a:focus {
 	left: -14px;
 }
 .slick-prev:before {
-	font-size: 50px;
+	font-size: 3rem !important;
 }
 .slick-next {
 	right: 8px;
 }
 .slick-next:before {
-	font-size: 50px;
+	font-size: 3rem !important;
 }
 .stop-scrolling {
 	height: 100%;
@@ -466,7 +463,7 @@ input[type="text"] {
 	position: fixed;
 	top: 0;
 	left: 0;
-	background: $greenGradient;
+	background: linear-gradient(90deg, #bbab9c, #e8d7d0);
 	width: 100vw;
 	height: 100vh;
 	z-index: 100;

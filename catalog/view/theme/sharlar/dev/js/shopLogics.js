@@ -13,7 +13,7 @@ function toggleCart(){
   cartMenu.style.transform = showCart === true ? "translate(0%,-50%)" : "translate(110%,-50%)";
   cartMenu.style.borderRadius = showCart === true ? "20px" : "100%";
   cartBG.style.display = showCart === true ? "block" : "none";
-
+	document.body.style.overflow = showCart === true ? "hidden" : "auto";
 }
 ///////////////////////Filter///////////////////////
 let filter = $$('.filter-wrapper'),
