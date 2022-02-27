@@ -16,10 +16,13 @@
 	height: 100vh;
 	width: 100%;
 
+	padding-top: 20px;
+	padding-bottom: var(--mobile-menu__height);
+
 	transform: translate(110%, -50%);
 
 	// background:var(--main-green);
-	border: 2px solid $mainGreen;
+	border-left: 2px solid $mainGreen;
 	border-radius: 100%;
 
 	transition: all 0.5s ease;
@@ -53,6 +56,13 @@
 	margin-top: 50px;
 	border-radius: 0px;
 	border: none;
+}
+
+.cart-products {
+	padding-bottom: 15px;
+	margin-bottom: 20px;
+
+	border-bottom: 1px solid var(--accent-color);
 }
 .product-in-cart {
 	display: flex;
@@ -135,43 +145,68 @@
 .product-remove-btn i {
 	font-size: 40px;
 }
-.total-wrapper {
-	width: 100%;
-	display: flex;
-	justify-content: center;
-}
-.total-wrapper .total-inner {
-	width: 100%;
+.total {
 	display: flex;
 	flex-direction: column;
 }
-.total-wrapper .total-inner .total-title {
-	padding-bottom: 20px;
-}
-.total-wrapper .total-inner .total-title,
-.total-wrapper .total-inner .total-sum {
+.total-wrapper {
 	width: 100%;
-	text-align: center;
-	border-bottom: 1px solid var(--green-dark);
+	display: flex;
+	flex-grow: 1;
+	flex-direction: column;
+	align-items: center;
+
+	padding: 10px;
+	margin-right: 10px;
+	margin-bottom: 20px;
+
+	background-color: var(--neutral-lightest);
+
+	border-radius: 15px;
 }
-.total-wrapper .total-inner .total-title p {
-	font-size: 60px;
+
+.total-wrapper .total-title {
+	border-bottom: 1px solid var(--accent-color);
 }
-.total-wrapper .total-inner .total-sum p {
+.total-wrapper .total-title,
+.total-wrapper .total-sum {
+	width: 100%;
+}
+.total-wrapper .total-title h2 {
+	margin: 0;
+	font-size: 3.6rem;
+}
+.total-wrapper .total-sum p {
 	display: inline-block;
 	margin-top: 10px;
-	font-size: 30px;
-	padding: 10px 15px;
+	font-size: 2rem;
 }
 .checkout {
+	display: flex;
+	flex-direction: column;
+}
+.checkout .checkout-btn {
+	display: block;
 	width: 100%;
+
 	text-align: center;
-	margin-top: 25px;
+
+	font-weight: normal;
+	font-size: 1.8rem;
+
+	& i {
+		font-size: 2rem;
+	}
+}
+.checkout .checkout-btn:nth-child(1) {
+	margin-bottom: 10px;
 }
 .cart-menu .cart-title-wrapper {
 	width: 100%;
 	text-align: center;
 	margin-bottom: 25px;
+
+	border-bottom: 1px solid var(--accent-color);
 }
 .cart-menu .cart-title-wrapper h1 {
 	font-size: 50px;

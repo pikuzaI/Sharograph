@@ -14,15 +14,12 @@ body {
 	padding: 0;
 	font-size: 15px;
 }
+
 body {
-	// overflow-x:hidden;
-	padding-bottom: 48px;
-	@include media("md") {
-		padding-bottom: 0;
-	}
+	height: 100vh;
 }
 .breadcrumbs-wrapper {
-	background: $mainGreen;
+	background: var(--accent-color);
 	& .breadcrumbs {
 		& li::after {
 			border-right: 1px solid $mainWhite;
@@ -33,7 +30,7 @@ body {
 		}
 	}
 	@include media("md") {
-		background: $mainWhite;
+		background: var(--neutral-light);
 		& .breadcrumbs {
 			& li::after {
 				border-right: 1px solid $mainBlack;
@@ -122,6 +119,7 @@ header {
 										border: none !important;
 									}
 								}
+
 								& button {
 									border: none;
 									color: inherit;
@@ -650,7 +648,7 @@ header {
 #section-2 {
 	margin-top: 140px;
 	// background: $orangeGradient;
-	background: linear-gradient(90deg, #e8d7d0, #bbab9c);
+	background: var(--main-gradient);
 	position: relative;
 	margin-bottom: 200px;
 	& #svg-wave-top {
@@ -673,49 +671,54 @@ header {
 			color: $white;
 			margin-bottom: 5rem;
 		}
-		& .balloon-types {
-			width: 100%;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			& .balloon-types-inner {
-				width: 100%;
-				display: flex;
-				flex-wrap: wrap;
-				justify-content: center;
+	}
+	& .balloon-types {
+		width: 100%;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
 
-				@include media("sm") {
-					justify-content: space-between;
+		overflow: hidden;
+
+		@include media("sm") {
+			justify-content: space-between;
+		}
+
+		& .slick-prev {
+			left: 15px;
+		}
+
+		& .slick-next {
+			right: 25px;
+		}
+
+		& .balloon-type {
+			position: relative;
+			text-align: center;
+			& a {
+				text-decoration: none;
+				color: #000;
+				& h3 {
+					color: $white;
+					font-size: 2rem;
+					font-weight: normal;
+					font-family: "Open Sans", sans-serif !important;
+					&:focus {
+						outline: none;
+					}
 				}
-
-				& .balloon-type {
-					position: relative;
-					& a {
-						text-decoration: none;
-						color: #000;
-						& h3 {
-							color: $white;
-							font-size: 2rem;
-							font-weight: normal;
-							font-family: "Open Sans", sans-serif !important;
-							&:focus {
-								outline: none;
-							}
-						}
-						& .balloon-hover {
-							width: 200px;
-							height: 200px;
-							margin: 0 auto;
-							border-radius: 50%;
-							border: 7px solid white;
-							overflow: hidden;
-							-webkit-mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC);
-							& img {
-								max-width: 200px;
-								width: auto;
-								// transition: 0.5s ease-in-out transform;
-							}
-						}
+				& .balloon-hover {
+					width: 200px;
+					height: 200px;
+					margin: 0 auto;
+					border-radius: 50%;
+					border: 7px solid white;
+					overflow: hidden;
+					-webkit-mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC);
+					& img {
+						max-width: 200px;
+						width: auto;
+						// transition: 0.5s ease-in-out transform;
 					}
 				}
 			}

@@ -6,7 +6,7 @@ class ControllerApiOrder extends Controller {
 		$json = $_POST;
 		$this->response->addHeader('Content-Type: application/json');
 		$this->model_checkout_order->addImage($sessId,$json['image']);
-		 $this->response->setOutput(json_encode($sessId,$json['image']));
+		 $this->response->setOutput(json_encode($json['image']));
 	}
 	public function getimg($sessionId){
 		$this->load->model('checkout/order');

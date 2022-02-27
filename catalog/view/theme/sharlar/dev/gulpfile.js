@@ -48,9 +48,7 @@ var jsFiles = [
 	"shopLogics.js",
 	"slider.js"
 ];
-let twigFiles = [
-	''
-]
+
 var jsURL = './../dist/js/';
 
 var imgSRC = './image/**/*';
@@ -64,7 +62,35 @@ var jsWatch = './js/**/*.js';
 var imgWatch = './image/**/*.*';
 var fontsWatch = './fonts/**/*.*';
 var twigWatch = '../template/**/*.twig';
-
+const versionConfig = {
+  'value': '%MDS%',
+  'append': {
+    'key': 'v',
+    'to': [{
+			type:'css',
+			cover:1,
+			files:[/wishlist.css/, 
+				/product.css/,
+				/stylesheet.css/,
+				/stylesheet2.css/
+			]
+		}, 
+		{
+			type:'js',
+			key:'v',
+			cover:1,
+			files:[ /common.js/, 
+				/animation.min.js/, 
+				/globalAnimations.min.js/,
+				/googlemap.min.js/,
+				/homeAnimation.min.js/,
+				/preloader.min.js/,
+				/shopLogics.min.js/,
+				/slider.min.js/,
+			]
+		}],
+  },
+};
 // Tasks
 function browser_sync() {
   browserSync.init({
@@ -124,28 +150,11 @@ function js(done) {
   });
   done();
 }
-const versionConfig = {
-  'value': '%MDS%',
-  'append': {
-    'key': 'v',
-    'to': [{
-			type:'css',
-			cover:1,
-			files:[/wishlist.css/, /product.css/]
-		}, 
-		{
-			type:'js',
-			key:'v',
-			cover:1,
-			files:[ /common.js/]
-		}],
-  },
-};
 
-function versioning(src_files) {
+function versioning() {
 	return src('./twig/*.twig')
 		.pipe(version(versionConfig))
-		.pipe(dest('./test_dest/'))
+		.pipe(dest('../template/common/'))
 }
 
 function triggerPlumber(src_file, dest_file) {

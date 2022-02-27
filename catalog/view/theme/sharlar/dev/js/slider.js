@@ -1,6 +1,6 @@
 
       
-$('.balloon-types-inner').slick({
+$('.balloon-types').slick({
     dots: false,
     infinite: false,
     speed: 300,

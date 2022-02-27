@@ -1,5 +1,5 @@
 <div id="cart" class="btn-group">
-	<button type="button" data-toggle="dropdown" data-loading-text="{{ text_loading }}" class="cart-button dropdown-toggle">
+	<button type="button" data-loading-text="{{ text_loading }}" class="cart-button dropdown-toggle">
 		<span id="cart-total">
 			<i class="fa fa-shopping-cart"></i>
 			<span>{{ (text_items|replace({'Товаров ':''}))|split(' ')[0] }}</span>
@@ -47,57 +47,55 @@
 								</div>
 							{% endfor %}
 							{# {% for voucher in vouchers %}
-																						<tr>
-																							<td class="text-center"></td>
-																							<td class="text-left">{{ voucher.description }}</td>
-																							<td class="text-right">x&nbsp;1</td>
-																							<td class="text-right">{{ voucher.amount }}</td>
-																							<td class="text-center text-danger">
-																								<button type="button" onclick="voucher.remove('{{ voucher.key }}');" title="{{ button_remove }}" class="btn btn-danger btn-xs">
-																									<i class="fa fa-times"></i>
-																								</button>
-																							</td>
-																						</tr>
-																					{% endfor %} #}
+																																																																														<tr>
+																																																																															<td class="text-center"></td>
+																																																																															<td class="text-left">{{ voucher.description }}</td>
+																																																																															<td class="text-right">x&nbsp;1</td>
+																																																																															<td class="text-right">{{ voucher.amount }}</td>
+																																																																															<td class="text-center text-danger">
+																																																																																<button type="button" onclick="voucher.remove('{{ voucher.key }}');" title="{{ button_remove }}" class="btn btn-danger btn-xs">
+																																																																																	<i class="fa fa-times"></i>
+																																																																																</button>
+																																																																															</td>
+																																																																														</tr>
+																																																																													{% endfor %} #}
 
 						</div>
 					</li>
 					<li>
 						<div>
 							{# <table class="table"> #}
-							{# {% for total in totals %}
-																																																																																																																																																																																																														              <tr>
-																																																																																																																																																																																																														                <td class="text-right"><strong>{{ total.title }}</strong></td>
-																																																																																																																																																																																																														                <td class="text-right">{{ total.text }}</td>
-																																																																																																																																																																																																														              </tr>
-																																																																																																																																																																																																														              {% endfor %} #}
+							{# {% for total in totals %} <tr>
+																																											                <td class="text-right"><strong>{{ total.title }}</strong></td>
+																																																																												                <td class="text-right">{{ total.text }}</td>
+																																			</tr>
+																																			{% endfor %} #}
 							{# <tr>
-																																																																																																																																																																																																														                <td class="text-right"><strong>{{ totals[1].title }}</strong></td>
-																																																																																																																																																																																																														                <td class="text-right">{{ totals[1].text }}</td>
-																																																																																																																																																																																																														              </tr>
-																																																																																																																																																																																																														            </table> #}
-								<div class="total-wrapper"> <div class="total-inner">
+																																			<td class="text-right"><strong>{{ totals[1].title }}</strong></td>
+																																			<td class="text-right">{{ totals[1].text }}</td>
+																																			</tr>
+																																			</table> #}
+								<div class="total"> <div class="total-wrapper">
 									<div class="total-title">
-										<p class="cl-black">{{ totals[1].title }}</p>
+										<h2 class="cl-black">{{ totals[1].title }}</h2>
 									</div>
 									<div class="total-sum">
-										<p class="bg-white brdr-20 cl-green f-bold">{{ totals[1].text}}</p>
+										<p>{{ totals[1].text}}</p>
 									</div>
+								</div>
+								<div class="checkout flex-col j-c a-c">
+									<a href="{{ cart }}" class="checkout-btn theme-button yellow-btn">
+										<i class="fa fa-shopping-cart"></i>
+										{{ text_cart }}</a>
+									<a href="{{ checkout }}" class="checkout-btn theme-button green-btn">
+										<i class="fa fa-share"></i>
+										{{ text_checkout }}</a>
 								</div>
 							</div>
 							{# <p class="text-right cart-proceed"><a href="{{ cart }}"><strong><i class="fa fa-shopping-cart"></i>
-																																																																																																																																																																																																														                  {{ text_cart }}</strong></a>&nbsp;&nbsp;&nbsp;</p> #}
+																																											                  {{ text_cart }}</strong></a>&nbsp;&nbsp;&nbsp;</p> #}
 							{# <div class="check-cart">
-																																																																																																																																																																																																														                  
-																																																																																																																																																																																																														                  </div> #}
-							<div class="checkout flex-col j-c a-c">
-								<a href="{{ cart }}" class="theme-button yellow-btn w-100 m-15">
-									<i class="fa fa-shopping-cart"></i>
-									{{ text_cart }}</a>
-								<a href="{{ checkout }}" class="theme-button green-btn w-100 m-15">
-									<i class="fa fa-share"></i>
-									{{ text_checkout }}</a>
-							</div>
+																																																									</div> #}
 						</div>
 					</li>
 				{% else %}

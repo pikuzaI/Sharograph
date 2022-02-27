@@ -11,10 +11,11 @@ cartClose = $$('.cart-close');
 function toggleCart(){
   showCart=!showCart;
   cartMenu.style.transform = showCart === true ? "translate(0%,-50%)" : "translate(110%,-50%)";
-  cartMenu.style.borderRadius = showCart === true ? "20px" : "100%";
+  cartMenu.style.borderRadius = showCart === true ? "0px" : "100%";
   cartBG.style.display = showCart === true ? "block" : "none";
 	document.body.style.overflow = showCart === true ? "hidden" : "auto";
 }
+
 ///////////////////////Filter///////////////////////
 let filter = $$('.filter-wrapper'),
   close = $$('.close-filter'),
@@ -28,7 +29,7 @@ open.addEventListener('click',toggleMenu);
 function toggleMenu(){
   show=!show;
   filter.style.transform = show === true ? "translate(0%,-50%)" : "translate(-110%,-50%)";
-  filter.style.borderRadius = show === true ? "20px" : "100%";
+  filter.style.borderRadius = show === true ? "0px" : "100%";
   filterBackground.style.display = show === true ? "block" : "none";
 }
 /////////////////////////////ProductImagesAnimation///////////////////////////////

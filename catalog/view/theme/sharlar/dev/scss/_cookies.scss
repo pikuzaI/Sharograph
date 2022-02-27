@@ -4,13 +4,13 @@
     bottom:30px;
 
     width:100vw;
-
+		
     display:flex;
     justify-content: center;
     align-items: center;
 
     z-index:100;
-
+	
     transition:transform .3s ease-in-out;
     & .cookies-inner{
 			display:flex;
